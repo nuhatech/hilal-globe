@@ -15,6 +15,7 @@ import {
   geoOrthographic,
   geoPath,
   geoGraticule,
+  geoCircle,
   type GeoProjection,
   type GeoPath,
 } from 'd3-geo'
@@ -22,6 +23,7 @@ import { feature } from 'topojson-client'
 import type { Topology, GeometryCollection } from 'topojson-specification'
 import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson'
 import landTopo from '~/assets/data/ne_110m_land.json'
+import { getSubsolarPoint } from '@domain/terminator/SubsolarService'
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 
@@ -53,6 +55,9 @@ const colors = computed(() => isDark.value ? DARK_COLORS : LIGHT_COLORS)
 const visibilityStore = useVisibilityStore()
 const overlayStore = useOverlayStore()
 const locationStore = useLocationStore()
+
+// Terminator date: selected date at 18:00 UTC (approximate sunset for Middle East/East Africa)
+const terminatorDate = computed(() => new Date(`${visibilityStore.selectedDate}T18:00:00Z`))
 
 // Projection state
 const rotation = reactive<[number, number]>([0, -20])
@@ -164,6 +169,35 @@ function drawLocationMarker(
   ctx.fill()
 }
 
+function drawTerminator(ctx: CanvasRenderingContext2D, path: GeoPath) {
+  if (!overlayStore.showTerminator) return
+
+  const sub = getSubsolarPoint(terminatorDate.value)
+  // Antisolar point (center of night hemisphere)
+  const antiLat = -sub.lat
+  let antiLon = sub.lon + 180
+  if (antiLon > 180) antiLon -= 360
+
+  // Night hemisphere polygon (circle of 90° radius)
+  const nightGeo = geoCircle()
+    .center([antiLon, antiLat])
+    .radius(90)
+    .precision(1)()
+
+  // Fill night side with dark overlay
+  ctx.beginPath()
+  path(nightGeo)
+  ctx.fillStyle = isDark.value ? 'rgba(0,0,0,0.25)' : 'rgba(0,0,20,0.12)'
+  ctx.fill()
+
+  // Draw terminator line
+  ctx.beginPath()
+  path(nightGeo)
+  ctx.strokeStyle = isDark.value ? 'rgba(255,200,80,0.35)' : 'rgba(200,150,50,0.4)'
+  ctx.lineWidth = 1.5
+  ctx.stroke()
+}
+
 function draw() {
   const canvas = canvasRef.value
   if (!canvas) return
@@ -217,10 +251,13 @@ function draw() {
   ctx.lineWidth = isDark.value ? 1 : 0.5
   ctx.stroke()
 
-  // 6. Location marker (on top of zones, under outline)
+  // 6. Terminator (night overlay + line — above zones & borders so it's visible)
+  drawTerminator(ctx, path)
+
+  // 7. Location marker (on top of everything, under outline)
   drawLocationMarker(ctx, projection)
 
-  // 7. Globe outline (crisp edge)
+  // 8. Globe outline (crisp edge)
   ctx.beginPath()
   path({ type: 'Sphere' })
   ctx.strokeStyle = c.outline
@@ -334,7 +371,7 @@ function onWheel(e: WheelEvent) {
 
 // Watch reactive state and redraw
 watch(
-  [rotation, scale, colors, () => visibilityStore.geoJson, () => overlayStore.showVisibility, () => overlayStore.showGraticule, () => locationStore.selectedCoord],
+  [rotation, scale, colors, terminatorDate, () => visibilityStore.geoJson, () => overlayStore.showVisibility, () => overlayStore.showGraticule, () => overlayStore.showTerminator, () => locationStore.selectedCoord],
   () => draw(),
   { deep: true },
 )

@@ -9,7 +9,6 @@
       <div class="flex flex-col gap-2 sm:flex-row sm:items-end pointer-events-auto">
         <CriterionSelector />
         <BornCrescentToggle />
-        <ElevationToggle />
         <button
           class="flex items-center gap-2 rounded-xl border border-slate-200/50 bg-slate-100/80 px-3 py-2 text-xs backdrop-blur-md transition-all hover:bg-slate-200/60 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 text-slate-600 dark:text-white/70"
           title="Enter coordinates"
@@ -36,6 +35,8 @@
 
 <script setup lang="ts">
 const locationStore = useLocationStore()
+
+useUrlState()
 
 function openCoordInput() {
   locationStore.isPanelOpen = true

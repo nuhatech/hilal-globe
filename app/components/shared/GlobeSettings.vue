@@ -1,0 +1,160 @@
+<template>
+  <div ref="wrapper" class="relative">
+    <!-- Gear trigger button -->
+    <button
+      class="flex items-center justify-center rounded-xl border p-2 backdrop-blur-md transition-all"
+      :class="
+        open
+          ? 'border-slate-300/70 bg-white/95 text-slate-800 shadow-lg shadow-black/8 dark:border-white/20 dark:bg-white/10 dark:text-white dark:shadow-black/20'
+          : 'border-slate-200/50 bg-slate-100/80 text-slate-600 hover:bg-slate-200/60 dark:border-white/10 dark:bg-white/5 dark:text-white/70 dark:hover:bg-white/10'
+      "
+      title="Globe settings"
+      @click="open = !open"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4 transition-transform duration-300"
+        :class="open ? 'rotate-90 opacity-80' : 'opacity-50'"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    </button>
+
+    <!-- Dropdown panel -->
+    <Transition
+      enter-active-class="transition duration-150 ease-out"
+      enter-from-class="translate-y-2 scale-95 opacity-0"
+      enter-to-class="translate-y-0 scale-100 opacity-100"
+      leave-active-class="transition duration-100 ease-in"
+      leave-from-class="translate-y-0 scale-100 opacity-100"
+      leave-to-class="translate-y-2 scale-95 opacity-0"
+    >
+      <div
+        v-if="open"
+        class="absolute right-0 top-full mt-2 w-52 overflow-hidden rounded-xl border border-slate-200/60 bg-white/90 shadow-xl shadow-black/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 dark:shadow-black/40"
+      >
+        <div class="px-3 pb-1 pt-2.5 text-[10px] font-semibold uppercase tracking-widest text-slate-400 dark:text-white/30">
+          Overlays
+        </div>
+
+        <div class="px-1.5 pb-1.5">
+          <!-- Terminator toggle -->
+          <button
+            class="flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left transition-colors hover:bg-slate-100/80 dark:hover:bg-white/5"
+            @click="store.showTerminator = !store.showTerminator"
+          >
+            <!-- Day/night icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 shrink-0 transition-opacity"
+              :class="store.showTerminator ? 'opacity-80' : 'opacity-30'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a10 10 0 0 0 0 20z" fill="currentColor" opacity="0.3" />
+            </svg>
+
+            <span
+              class="flex-1 text-xs font-medium"
+              :class="store.showTerminator ? 'text-slate-800 dark:text-white' : 'text-slate-500 dark:text-white/40'"
+            >
+              Terminator
+            </span>
+
+            <!-- Toggle pill -->
+            <div
+              class="relative h-4 w-7 rounded-full transition-colors duration-200"
+              :class="store.showTerminator ? 'bg-emerald-500' : 'bg-slate-300 dark:bg-white/15'"
+            >
+              <div
+                class="absolute top-0.5 h-3 w-3 rounded-full bg-white shadow-sm transition-transform duration-200"
+                :class="store.showTerminator ? 'translate-x-3.5' : 'translate-x-0.5'"
+              />
+            </div>
+          </button>
+
+          <!-- Elevation toggle -->
+          <button
+            class="flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left transition-colors hover:bg-slate-100/80 dark:hover:bg-white/5"
+            :disabled="visibilityStore.isLoadingElevation"
+            @click="toggleElevation"
+          >
+            <!-- Mountain icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 shrink-0 transition-opacity"
+              :class="visibilityStore.elevationEnabled ? 'opacity-80' : 'opacity-30'"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+            </svg>
+
+            <span
+              class="flex-1 text-xs font-medium"
+              :class="visibilityStore.elevationEnabled ? 'text-slate-800 dark:text-white' : 'text-slate-500 dark:text-white/40'"
+            >
+              Elevation
+            </span>
+
+            <!-- Loading spinner -->
+            <div
+              v-if="visibilityStore.isLoadingElevation"
+              class="h-3.5 w-3.5 animate-spin rounded-full border border-slate-300/30 border-t-slate-500/80 dark:border-white/20 dark:border-t-white/80"
+            />
+            <!-- Toggle pill -->
+            <div
+              v-else
+              class="relative h-4 w-7 rounded-full transition-colors duration-200"
+              :class="visibilityStore.elevationEnabled ? 'bg-emerald-500' : 'bg-slate-300 dark:bg-white/15'"
+            >
+              <div
+                class="absolute top-0.5 h-3 w-3 rounded-full bg-white shadow-sm transition-transform duration-200"
+                :class="visibilityStore.elevationEnabled ? 'translate-x-3.5' : 'translate-x-0.5'"
+              />
+            </div>
+          </button>
+        </div>
+      </div>
+    </Transition>
+  </div>
+</template>
+
+<script setup lang="ts">
+const store = useOverlayStore()
+const visibilityStore = useVisibilityStore()
+const open = ref(false)
+const wrapper = ref<HTMLElement | null>(null)
+
+async function toggleElevation() {
+  if (!visibilityStore.elevationEnabled) {
+    await visibilityStore.loadElevationData()
+  }
+  visibilityStore.elevationEnabled = !visibilityStore.elevationEnabled
+}
+
+function onClickOutside(e: MouseEvent) {
+  if (wrapper.value && !wrapper.value.contains(e.target as Node)) {
+    open.value = false
+  }
+}
+
+onMounted(() => document.addEventListener('click', onClickOutside))
+onUnmounted(() => document.removeEventListener('click', onClickOutside))
+</script>
