@@ -18,6 +18,7 @@ import type { ICriterion } from './ICriterion'
 export class ShaukatCriterion implements ICriterion {
   readonly id = 'shaukat'
   readonly name = 'Khalid Shaukat'
+  readonly summary = 'Used by moonsighting.com — altitude + width at sunset'
   readonly description =
     'Criterion used by moonsighting.com, based on moon altitude and crescent width at sunset.'
 

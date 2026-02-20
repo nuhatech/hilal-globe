@@ -17,6 +17,7 @@ import type { ICriterion } from './ICriterion'
 export class Istanbul78Criterion implements ICriterion {
   readonly id = 'istanbul78'
   readonly name = 'Istanbul 1978'
+  readonly summary = 'Istanbul 1978 — elongation > 8° and altitude > 5°'
   readonly description =
     'Simplified criterion from the 1978 Istanbul conference: conjunction before sunset, elongation > 8° and moon altitude > 5° at sunset.'
 

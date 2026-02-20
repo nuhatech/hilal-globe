@@ -22,7 +22,7 @@
       >
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
       </svg>
-      <span class="font-medium">{{ modeLabels[store.eZoneMode] }}</span>
+      <span class="font-medium">{{ getEZoneModeShortLabel(store.eZoneMode) }}</span>
       <!-- Active dot -->
       <div
         v-if="store.eZoneMode > 0"
@@ -59,7 +59,7 @@
 
         <div class="px-1.5 pb-1.5">
           <button
-            v-for="option in options"
+            v-for="option in E_ZONE_MODE_OPTIONS"
             :key="option.mode"
             class="flex w-full items-start gap-2.5 rounded-lg px-2.5 py-2 text-left transition-colors"
             :class="
@@ -108,34 +108,11 @@
 
 <script setup lang="ts">
 import type { EZoneMode } from '@domain/visibility/VisibilityGridService'
+import { E_ZONE_MODE_OPTIONS, getEZoneModeShortLabel } from '@domain/visibility/EZoneModeConfig'
 
 const store = useVisibilityStore()
 const open = ref(false)
 const wrapper = ref<HTMLElement | null>(null)
-
-const modeLabels: Record<EZoneMode, string> = {
-  0: 'Zone E',
-  1: 'Zone E + Refraction',
-  2: 'Born Crescent',
-}
-
-const options: { mode: EZoneMode; label: string; description: string }[] = [
-  {
-    mode: 0,
-    label: 'Moon above horizon',
-    description: 'Crescent not visible where moon is geometrically above the horizon at sunset',
-  },
-  {
-    mode: 1,
-    label: 'Include refraction',
-    description: 'Atmosphere bends light ~0.57° at horizon, lifting the moon slightly above',
-  },
-  {
-    mode: 2,
-    label: 'Born crescent (Umm al-Qura)',
-    description: 'Conjunction occurred before sunset — crescent is born even if moon has set',
-  },
-]
 
 function selectMode(mode: EZoneMode) {
   store.eZoneMode = mode

@@ -229,10 +229,14 @@ export function computeLocationReport(
   // Detailed report for the selected date
   const detail = computeDetail(lat, lon, dateStr, conjunction, criterionId, elevation)
 
+  // Solar-time UTC offset from longitude, rounded to nearest 0.5h
+  const utcOffsetHours = Math.round(lon / 15 * 2) / 2
+
   return {
     lat,
     lon,
     dateStr,
+    utcOffsetHours,
     conjunctionUtc,
     daySummaries,
     detail,

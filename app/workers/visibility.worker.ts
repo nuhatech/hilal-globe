@@ -1,8 +1,8 @@
 import { contours } from 'd3-contour'
 import type { Feature, FeatureCollection, MultiPolygon } from 'geojson'
 import { ElevationGrid } from '../../domain/elevation/ElevationGrid'
-import { ZoneCode } from '../../domain/models/ZoneCode'
-import { ZONE_COLORS, ZONE_LABELS } from '../../domain/models/ZoneConfig'
+import { ZONE_CONTOUR_THRESHOLDS, ZONE_LABELS } from '../../domain/models/ZoneConfig'
+import { gridToGeo } from '../../domain/visibility/GridProjection'
 import { computeVisibilityGrid, DEFAULT_RESOLUTION } from '../../domain/visibility/VisibilityGridService'
 
 interface WorkerMessage {
@@ -12,19 +12,6 @@ interface WorkerMessage {
   eZoneMode?: 0 | 1 | 2
   elevationData?: ArrayBuffer | null
 }
-
-/**
- * Zone contour thresholds and colors.
- * Contours are nested: threshold 0.5 covers D+C+B+A, 1.5 covers C+B+A, etc.
- * Rendered outermost-first so inner (better) zones paint on top.
- */
-const ZONE_CONTOURS = [
-  { threshold: 0.5, zone: ZoneCode.E, color: ZONE_COLORS[ZoneCode.E] },
-  { threshold: 1.5, zone: ZoneCode.D, color: ZONE_COLORS[ZoneCode.D] },
-  { threshold: 2.5, zone: ZoneCode.C, color: ZONE_COLORS[ZoneCode.C] },
-  { threshold: 3.5, zone: ZoneCode.B, color: ZONE_COLORS[ZoneCode.B] },
-  { threshold: 4.5, zone: ZoneCode.A, color: ZONE_COLORS[ZoneCode.A] },
-]
 
 /** Smoothness of zone boundaries in grid-cell units (higher = smoother) */
 const BLUR_SIGMA = 1.5
@@ -153,33 +140,6 @@ function bilinearUpsample(
   return { data: dst, width: dstW, height: dstH }
 }
 
-/**
- * Map contour coordinates from grid space to geographic (lon/lat).
- *
- * Grid covers lon [-180+res/2, 180-res/2] and lat [-90+res/2, 90-res/2].
- */
-function gridToGeo(
-  coordinates: number[][][][],
-  gridWidth: number,
-  gridHeight: number,
-  resolution: number,
-): number[][][][] {
-  const lonMin = -180 + resolution / 2
-  const latMin = -90 + resolution / 2
-  const lonRange = gridWidth * resolution
-  const latRange = gridHeight * resolution
-
-  return coordinates.map((polygon) =>
-    polygon.map((ring) =>
-      ring.map((pt) => {
-        const lon = lonMin + (pt[0]! / gridWidth) * lonRange
-        const lat = latMin + (pt[1]! / gridHeight) * latRange
-        return [lon, lat]
-      }),
-    ),
-  )
-}
-
 self.onmessage = (e: MessageEvent<WorkerMessage>) => {
   const { dateStr, criterionId, resolution = DEFAULT_RESOLUTION, eZoneMode = 0, elevationData } = e.data
 
@@ -202,7 +162,7 @@ self.onmessage = (e: MessageEvent<WorkerMessage>) => {
 
   const features: Feature<MultiPolygon>[] = []
 
-  for (const { threshold, zone, color } of ZONE_CONTOURS) {
+  for (const { threshold, zone, color } of ZONE_CONTOUR_THRESHOLDS) {
     const [contour] = contourGenerator.thresholds([threshold])(Array.from(up.data))
     if (!contour || contour.coordinates.length === 0) continue
 

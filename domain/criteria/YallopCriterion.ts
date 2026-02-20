@@ -15,6 +15,7 @@ import { computeYallopQBase } from './yallopBase'
 export class YallopCriterion implements ICriterion {
   readonly id = 'yallop'
   readonly name = 'Yallop (1997)'
+  readonly summary = 'Royal Greenwich Observatory 1997 — q-value at best time'
   readonly description =
     'q-value criterion from the Royal Greenwich Observatory. Classifies visibility into zones based on the relationship between arc of vision and crescent width.'
 

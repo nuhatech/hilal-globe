@@ -17,6 +17,7 @@ import type { ICriterion } from './ICriterion'
 export class OdehCriterion implements ICriterion {
   readonly id = 'odeh'
   readonly name = 'Odeh (2006)'
+  readonly summary = 'ICOP 2006 — V-value with 737 observations'
   readonly description =
     'V-value criterion by Mohammad Odeh, used by ICOP. A refinement of the Yallop criterion with updated threshold values from a larger dataset.'
 

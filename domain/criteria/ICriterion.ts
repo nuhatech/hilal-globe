@@ -6,6 +6,8 @@ export interface ICriterion {
   id: string
   /** Human-readable name */
   name: string
+  /** Short one-line summary for compact UI (dropdowns, tooltips) */
+  summary: string
   /** Description of the criterion's methodology */
   description: string
   /** Evaluate crescent parameters and return a visibility result */

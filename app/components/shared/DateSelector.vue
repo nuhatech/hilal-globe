@@ -53,56 +53,35 @@
 </template>
 
 <script setup lang="ts">
-import { findPreviousNewMoon, findNextNewMoon } from '@domain/astronomy/ConjunctionService'
+import {
+  getLunarTriplet,
+  getPreviousLunarMonth,
+  getNextLunarMonth,
+  todayDateStr,
+} from '@domain/hijri/LunarMonthService'
 
 const store = useVisibilityStore()
 
-// Format a Date to "18 Feb" style short date
-function formatShort(date: Date): string {
-  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' })
+// Format "YYYY-MM-DD" → "18 Feb"
+function formatShort(dateStr: string): string {
+  const d = new Date(dateStr + 'T12:00:00Z')
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' })
 }
 
-// Convert a Date to ISO date string (YYYY-MM-DD)
-function toDateStr(date: Date): string {
-  return date.toISOString().slice(0, 10)
-}
-
-// Add days to a Date (UTC)
-function addDays(date: Date, n: number): Date {
-  const d = new Date(date)
-  d.setUTCDate(d.getUTCDate() + n)
-  return d
-}
-
-// Conjunction for the current selected date
-// Use end-of-day so a conjunction occurring any time during the selected date is included
-const conjunction = computed(() => {
-  const d = new Date(store.selectedDate + 'T23:59:59Z')
-  return findPreviousNewMoon(d)
-})
-
-// The 3-day triplet based on the conjunction
+// 3-day triplet from domain, with display formatting added
 const days = computed(() => {
-  const conj = conjunction.value
-  if (!conj) return []
-
-  const conjDate = conj.date
-  const d0 = new Date(Date.UTC(conjDate.getUTCFullYear(), conjDate.getUTCMonth(), conjDate.getUTCDate()))
-  const d1 = addDays(d0, 1)
-  const d2 = addDays(d0, 2)
-
-  return [
-    { date: toDateStr(d0), shortDate: formatShort(d0), label: 'Conjunction' },
-    { date: toDateStr(d1), shortDate: formatShort(d1), label: 'Next Day' },
-    { date: toDateStr(d2), shortDate: formatShort(d2), label: 'Day After' },
-  ]
+  const triplet = getLunarTriplet(store.selectedDate)
+  if (!triplet) return []
+  return triplet.map(day => ({
+    date: day.dateStr,
+    shortDate: formatShort(day.dateStr),
+    label: day.label,
+  }))
 })
 
-// Which tab (0, 1, 2) is active, or -1 if none
-const activeIndex = computed(() => {
-  const idx = days.value.findIndex(d => d.date === store.selectedDate)
-  return idx
-})
+const activeIndex = computed(() =>
+  days.value.findIndex(d => d.date === store.selectedDate),
+)
 
 function selectDay(index: number) {
   const day = days.value[index]
@@ -110,39 +89,16 @@ function selectDay(index: number) {
 }
 
 function setToday() {
-  const d = new Date()
-  store.selectedDate = toDateStr(d)
+  store.selectedDate = todayDateStr()
 }
 
 function prevMonth() {
-  const conj = conjunction.value
-  if (!conj) return
-  // Go 1 day before this conjunction and find the previous one
-  const before = conj.date
-  const searchDate = new Date(Date.UTC(before.getUTCFullYear(), before.getUTCMonth(), before.getUTCDate()))
-  searchDate.setUTCDate(searchDate.getUTCDate() - 1)
-  const prev = findPreviousNewMoon(searchDate)
-  if (prev) {
-    // Default to conj + 1 (most interesting evening)
-    const d = new Date(Date.UTC(prev.date.getUTCFullYear(), prev.date.getUTCMonth(), prev.date.getUTCDate()))
-    d.setUTCDate(d.getUTCDate() + 1)
-    store.selectedDate = toDateStr(d)
-  }
+  const date = getPreviousLunarMonth(store.selectedDate)
+  if (date) store.selectedDate = date
 }
 
 function nextMonth() {
-  const conj = conjunction.value
-  if (!conj) return
-  // Go 1 day after this conjunction and find the next one
-  const after = conj.date
-  const searchDate = new Date(Date.UTC(after.getUTCFullYear(), after.getUTCMonth(), after.getUTCDate()))
-  searchDate.setUTCDate(searchDate.getUTCDate() + 1)
-  const next = findNextNewMoon(searchDate)
-  if (next) {
-    // Default to conj + 1 (most interesting evening)
-    const d = new Date(Date.UTC(next.date.getUTCFullYear(), next.date.getUTCMonth(), next.date.getUTCDate()))
-    d.setUTCDate(d.getUTCDate() + 1)
-    store.selectedDate = toDateStr(d)
-  }
+  const date = getNextLunarMonth(store.selectedDate)
+  if (date) store.selectedDate = date
 }
 </script>

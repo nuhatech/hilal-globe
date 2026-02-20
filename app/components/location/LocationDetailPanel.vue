@@ -143,6 +143,10 @@
             <div class="border-b border-slate-200/40 dark:border-white/10 px-4 py-3">
               <p class="text-xs text-slate-500 dark:text-white/40">New Moon (Conjunction)</p>
               <p class="mt-0.5 text-sm font-medium text-slate-700 dark:text-white/80">
+                {{ formatLocalDateTime(store.report.conjunctionUtc) }}
+                <span class="text-[10px] font-normal text-slate-400 dark:text-white/30 ml-1">{{ offsetLabel }}</span>
+              </p>
+              <p class="text-[10px] font-mono text-slate-400 dark:text-white/25">
                 {{ formatUtcDateTime(store.report.conjunctionUtc) }}
               </p>
             </div>
@@ -201,11 +205,11 @@
             <!-- Detail sections -->
             <PanelSection title="Key Data" :default-open="true">
               <DataRow label="Date" :value="store.report.detail.sunsetUtc.slice(0, 10)" />
-              <DataRow label="Sunset (UTC)" :value="formatUtcTime(store.report.detail.sunsetUtc)" />
-              <DataRow label="Moonset (UTC)" :value="store.report.detail.moonsetUtc ? formatUtcTime(store.report.detail.moonsetUtc) : 'N/A'" />
+              <TimeRow label="Sunset" :utc="store.report.detail.sunsetUtc" />
+              <TimeRow label="Moonset" :utc="store.report.detail.moonsetUtc" />
               <DataRow label="Moon Age" :value="formatAgeDetailed(store.report.detail.moonAge)" />
               <DataRow label="Lag Time" :value="store.report.detail.lagTimeMinutes != null ? store.report.detail.lagTimeMinutes.toFixed(1) + ' min' : 'N/A'" />
-              <DataRow v-if="store.report.detail.bestTimeUtc" label="Best Time (UTC)" :value="formatUtcTime(store.report.detail.bestTimeUtc)" />
+              <TimeRow v-if="store.report.detail.bestTimeUtc" label="Best Time" :utc="store.report.detail.bestTimeUtc" />
             </PanelSection>
 
             <PanelSection title="Moon Position (Sunset)" :default-open="false">
@@ -261,6 +265,7 @@
 import { ZoneCode } from '@domain/models/ZoneCode'
 import { ZONE_COLORS, ZONE_LABELS } from '@domain/models/ZoneConfig'
 import { getCriterion } from '@domain/criteria/CriteriaRegistry'
+import { applyUtcOffset, formatUtcOffsetLabel } from '@domain/time/LocalTimeService'
 
 const store = useLocationStore()
 const visibilityStore = useVisibilityStore()
@@ -325,6 +330,18 @@ function formatUtcTime(iso: string): string {
   return new Date(iso).toISOString().slice(11, 19) + ' UTC'
 }
 
+function formatLocalTime(iso: string): string {
+  return applyUtcOffset(iso, store.report?.utcOffsetHours ?? 0).toISOString().slice(11, 19)
+}
+
+function formatLocalDateTime(iso: string): string {
+  return applyUtcOffset(iso, store.report?.utcOffsetHours ?? 0).toISOString().replace('T', ' ').slice(0, 19)
+}
+
+const offsetLabel = computed(() =>
+  formatUtcOffsetLabel(store.report?.utcOffsetHours ?? 0),
+)
+
 function formatAge(hours: number): string {
   if (hours < 0) return '-' + formatAge(-hours)
   const h = Math.floor(hours)
@@ -370,6 +387,31 @@ const DataRow = defineComponent({
       h('span', { class: 'text-xs text-slate-500 dark:text-white/40' }, props.label),
       h('span', { class: 'text-xs font-mono text-slate-700 dark:text-white/70' }, props.value),
     ])
+  },
+})
+
+// TimeRow: shows local time (primary) + UTC (secondary)
+const TimeRow = defineComponent({
+  props: {
+    label: { type: String, required: true },
+    utc: { type: String as () => string | null, default: null },
+  },
+  setup(props) {
+    return () => {
+      if (!props.utc) {
+        return h('div', { class: 'flex items-baseline justify-between py-0.5' }, [
+          h('span', { class: 'text-xs text-slate-500 dark:text-white/40' }, props.label),
+          h('span', { class: 'text-xs font-mono text-slate-700 dark:text-white/70' }, 'N/A'),
+        ])
+      }
+      return h('div', { class: 'flex items-baseline justify-between py-0.5' }, [
+        h('span', { class: 'text-xs text-slate-500 dark:text-white/40' }, props.label),
+        h('span', { class: 'text-right' }, [
+          h('span', { class: 'text-xs font-mono text-slate-700 dark:text-white/70' }, formatLocalTime(props.utc)),
+          h('span', { class: 'text-[10px] text-slate-400 dark:text-white/25 ml-1.5' }, formatUtcTime(props.utc)),
+        ]),
+      ])
+    }
   },
 })
 

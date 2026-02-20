@@ -72,6 +72,10 @@ export interface LocationReport {
   lon: number
   dateStr: string
 
+  /** Approximate solar-time UTC offset in hours, derived from longitude.
+   *  Rounded to nearest 0.5h. E.g. lon=46° → +3, lon=52.5° → +3.5 */
+  utcOffsetHours: number
+
   // 3-day summary (always: conjunction day, conj+1, conj+2)
   conjunctionUtc: string
   daySummaries: [DaySummary, DaySummary, DaySummary]

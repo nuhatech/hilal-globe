@@ -1,7 +1,7 @@
 import type { LocationReport } from '@domain/models/LocationReport'
 import { computeLocationReport } from '@domain/astronomy/LocationReportService'
-import { ElevationGrid } from '@domain/elevation/ElevationGrid'
-import { DEFAULT_RESOLUTION } from '@domain/visibility/VisibilityGridService'
+import { lookupElevation } from '@domain/elevation/ElevationLookup'
+import { roundCoordinate } from '@domain/models/GeoCoordinate'
 
 export const useLocationStore = defineStore('location', () => {
   const visibilityStore = useVisibilityStore()
@@ -22,8 +22,7 @@ export const useLocationStore = defineStore('location', () => {
       try {
         let elevation = 0
         if (visibilityStore.elevationEnabled && visibilityStore.elevationData) {
-          const grid = new ElevationGrid(visibilityStore.elevationData, DEFAULT_RESOLUTION)
-          elevation = grid.lookup(selectedCoord.value!.lat, selectedCoord.value!.lon)
+          elevation = lookupElevation(selectedCoord.value!.lat, selectedCoord.value!.lon, visibilityStore.elevationData)
         }
         const result = computeLocationReport(
           selectedCoord.value!,
@@ -42,11 +41,7 @@ export const useLocationStore = defineStore('location', () => {
   }
 
   function selectLocation(lat: number, lon: number) {
-    // Round to 2 decimal places for display
-    selectedCoord.value = {
-      lat: Math.round(lat * 100) / 100,
-      lon: Math.round(lon * 100) / 100,
-    }
+    selectedCoord.value = roundCoordinate(lat, lon)
     isPanelOpen.value = true
     compute()
   }

@@ -37,5 +37,16 @@ export const ZONE_VALUES: Record<ZoneCode, number> = {
 /** Render order: worst zone first, best zone last (best paints on top) */
 export const ZONE_ORDER: ZoneCode[] = [ZoneCode.E, ZoneCode.D, ZoneCode.C, ZoneCode.B, ZoneCode.A]
 
+/**
+ * Contour threshold definitions for each visible zone, ordered worst → best.
+ * Threshold = ZONE_VALUE - 0.5, so contour at 0.5 captures E+D+C+B+A, etc.
+ */
+export const ZONE_CONTOUR_THRESHOLDS: { threshold: number; zone: ZoneCode; color: string }[] =
+  ZONE_ORDER.map(zone => ({
+    threshold: ZONE_VALUES[zone] - 0.5,
+    zone,
+    color: ZONE_COLORS[zone],
+  }))
+
 /** Below this elongation (degrees), the crescent is physically impossible to see */
 export const DANJON_LIMIT = 7.0

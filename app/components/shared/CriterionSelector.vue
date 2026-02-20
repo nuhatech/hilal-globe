@@ -81,7 +81,7 @@
                 {{ criterion.name }}
               </div>
               <div class="mt-0.5 text-[10px] leading-tight text-slate-400 dark:text-white/30">
-                {{ shortDescription(criterion.id) }}
+                {{ criterion.summary }}
               </div>
             </div>
           </button>
@@ -103,18 +103,6 @@ const activeCriterion = computed(() =>
 function selectCriterion(id: string) {
   store.selectedCriterionId = id
   open.value = false
-}
-
-const descriptions: Record<string, string> = {
-  shaukat: 'Used by moonsighting.com — altitude + width at sunset',
-  yallop: 'Royal Greenwich Observatory 1997 — q-value at best time',
-  odeh: 'ICOP 2006 — V-value with 737 observations',
-  saao: 'South African Observatory — ARCV vs DAZ curve',
-  istanbul78: 'Istanbul 1978 — elongation > 8° and altitude > 5°',
-}
-
-function shortDescription(id: string): string {
-  return descriptions[id] ?? ''
 }
 
 function onClickOutside(e: MouseEvent) {

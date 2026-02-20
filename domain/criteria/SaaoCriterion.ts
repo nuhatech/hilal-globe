@@ -15,6 +15,7 @@ import type { ICriterion } from './ICriterion'
 export class SaaoCriterion implements ICriterion {
   readonly id = 'saao'
   readonly name = 'SAAO (South Africa)'
+  readonly summary = 'South African Observatory — ARCV vs DAZ curve'
   readonly description =
     'South African Astronomical Observatory criterion by Caldwell & Laney. Based on the relationship between arc of vision and azimuth difference at sunset.'
 
