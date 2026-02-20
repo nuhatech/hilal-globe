@@ -1,7 +1,7 @@
 <template>
   <canvas
     ref="canvasRef"
-    class="block h-full w-full cursor-grab active:cursor-grabbing"
+    class="block h-full w-full cursor-grab touch-none active:cursor-grabbing"
     @pointerdown="onPointerDown"
     @pointermove="onPointerMove"
     @pointerup="onPointerUp"
@@ -71,11 +71,18 @@ let dragDistance = 0
 let pointerDownTime = 0
 let lastPointerType = 'mouse'
 
+// Multi-touch pinch state
+const activePointers = new Map<number, { x: number; y: number }>()
+let pinching = false
+let pinchStartDist = 0
+let pinchStartScale = 1
+
 // Sensitivity constants
 const DRAG_SENSITIVITY = 0.4
 const MIN_SCALE = 0.5
 const MAX_SCALE = 8
 const ZOOM_FACTOR = 0.001
+const PINCH_SENSITIVITY = 1.5
 
 // Keep a reference to the current projection for click inversion
 let currentProjection: GeoProjection | null = null
@@ -221,20 +228,56 @@ function draw() {
   ctx.stroke()
 }
 
+// Pointer helpers
+function getPinchDist(): number {
+  const pts = Array.from(activePointers.values())
+  if (pts.length < 2) return 0
+  const dx = pts[1]!.x - pts[0]!.x
+  const dy = pts[1]!.y - pts[0]!.y
+  return Math.sqrt(dx * dx + dy * dy)
+}
+
 // Pointer handlers
 function onPointerDown(e: PointerEvent) {
-  dragging.value = true
-  dragStart.x = e.clientX
-  dragStart.y = e.clientY
-  rotationStart[0] = rotation[0]
-  rotationStart[1] = rotation[1]
-  dragDistance = 0
-  pointerDownTime = Date.now()
-  lastPointerType = e.pointerType
+  activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
   ;(e.target as HTMLElement).setPointerCapture(e.pointerId)
+
+  if (activePointers.size === 2) {
+    // Second finger down — switch to pinch mode, cancel any drag
+    pinching = true
+    dragging.value = false
+    pinchStartDist = getPinchDist()
+    pinchStartScale = scale.value
+    return
+  }
+
+  if (activePointers.size === 1) {
+    // Single finger — start drag
+    dragging.value = true
+    pinching = false
+    dragStart.x = e.clientX
+    dragStart.y = e.clientY
+    rotationStart[0] = rotation[0]
+    rotationStart[1] = rotation[1]
+    dragDistance = 0
+    pointerDownTime = Date.now()
+    lastPointerType = e.pointerType
+  }
 }
 
 function onPointerMove(e: PointerEvent) {
+  activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+  if (pinching && activePointers.size >= 2) {
+    // Pinch zoom
+    const dist = getPinchDist()
+    if (pinchStartDist > 0) {
+      const ratio = dist / pinchStartDist
+      scale.value = Math.max(MIN_SCALE, Math.min(MAX_SCALE, pinchStartScale * Math.pow(ratio, PINCH_SENSITIVITY)))
+    }
+    return
+  }
+
   if (!dragging.value) return
   const dx = e.clientX - dragStart.x
   const dy = e.clientY - dragStart.y
@@ -244,6 +287,19 @@ function onPointerMove(e: PointerEvent) {
 }
 
 function onPointerUp(e: PointerEvent) {
+  const wasPinching = pinching
+  activePointers.delete(e.pointerId)
+
+  if (activePointers.size < 2) {
+    pinching = false
+  }
+
+  // If we were pinching, don't treat lift as a click or drag end
+  if (wasPinching) {
+    dragging.value = false
+    return
+  }
+
   if (!dragging.value) return
   dragging.value = false
 
