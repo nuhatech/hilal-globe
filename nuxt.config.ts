@@ -7,9 +7,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
-      ],
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
     },
   },
 

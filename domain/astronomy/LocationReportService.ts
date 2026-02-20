@@ -203,9 +203,10 @@ export function computeLocationReport(
 ): LocationReport | null {
   const { lat, lon } = coord
 
-  // Find conjunction (new moon) before the selected date
-  const noonDate = new Date(`${dateStr}T12:00:00Z`)
-  const conjunction = findPreviousNewMoon(noonDate)
+  // Find conjunction (new moon) before the selected date.
+  // Use end-of-day to catch conjunctions occurring any time during the selected date.
+  const endOfDay = new Date(`${dateStr}T23:59:59Z`)
+  const conjunction = findPreviousNewMoon(endOfDay)
   if (!conjunction) return null
 
   const conjunctionUtc = astroTimeToUtcStr(conjunction)

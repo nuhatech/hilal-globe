@@ -8,7 +8,7 @@
       <div
         class="fixed z-40 overflow-y-auto bg-slate-50/95 dark:bg-[#0a101f]/95 backdrop-blur-md
                border-slate-200/40 dark:border-white/10
-               bottom-0 left-0 right-0 max-h-[55vh] rounded-t-2xl border-t shadow-xl shadow-black/20 pb-[env(safe-area-inset-bottom)]
+               bottom-0 left-0 right-0 max-h-[55vh] rounded-t-2xl border-t shadow-xl shadow-black/20 pb-safe
                sm:top-0 sm:right-0 sm:bottom-0 sm:left-auto sm:max-h-none sm:w-[360px] sm:rounded-none sm:border-l sm:border-t-0"
       >
         <!-- Header -->
