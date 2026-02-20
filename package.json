@@ -1,0 +1,29 @@
+{
+  "name": "hilal-globe",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxtjs/color-mode": "^4.0.0",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@pinia/nuxt": "^0.11.3",
+    "@types/d3-contour": "^3.0.6",
+    "astronomy-engine": "^2.1.19",
+    "d3-contour": "^4.0.2",
+    "d3-geo": "^3.1.1",
+    "nuxt": "^4.3.1",
+    "topojson-client": "^3.1.0",
+    "vue": "^3.5.28",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.0",
+    "@types/topojson-client": "^3.1.5"
+  }
+}
