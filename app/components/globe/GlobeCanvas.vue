@@ -63,11 +63,13 @@ const dragging = ref(false)
 const dragStart = reactive({ x: 0, y: 0 })
 const rotationStart = reactive<[number, number]>([0, 0])
 
-// Click vs drag detection
-const CLICK_THRESHOLD = 3
+// Click vs drag detection (touch needs a larger threshold than mouse)
+const CLICK_THRESHOLD_MOUSE = 3
+const CLICK_THRESHOLD_TOUCH = 12
 const CLICK_TIME_THRESHOLD = 300
 let dragDistance = 0
 let pointerDownTime = 0
+let lastPointerType = 'mouse'
 
 // Sensitivity constants
 const DRAG_SENSITIVITY = 0.4
@@ -228,6 +230,7 @@ function onPointerDown(e: PointerEvent) {
   rotationStart[1] = rotation[1]
   dragDistance = 0
   pointerDownTime = Date.now()
+  lastPointerType = e.pointerType
   ;(e.target as HTMLElement).setPointerCapture(e.pointerId)
 }
 
@@ -246,8 +249,9 @@ function onPointerUp(e: PointerEvent) {
 
   const elapsed = Date.now() - pointerDownTime
 
-  // Distinguish click from drag
-  if (dragDistance < CLICK_THRESHOLD && elapsed < CLICK_TIME_THRESHOLD) {
+  // Distinguish click from drag — touch needs a larger movement threshold
+  const threshold = lastPointerType === 'touch' ? CLICK_THRESHOLD_TOUCH : CLICK_THRESHOLD_MOUSE
+  if (dragDistance < threshold && elapsed < CLICK_TIME_THRESHOLD) {
     handleGlobeClick(e)
   }
 }

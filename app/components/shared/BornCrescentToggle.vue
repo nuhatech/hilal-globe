@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute bottom-5 left-52 z-10" ref="wrapper">
+  <div ref="wrapper">
     <!-- Trigger pill -->
     <button
       class="group flex items-center gap-2 rounded-xl border px-3 py-2 text-xs backdrop-blur-md transition-all"
