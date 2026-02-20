@@ -185,7 +185,7 @@ function computeDaySummary(
     dateStr,
     label,
     noSunset: false,
-    moonAge: moonAboveHorizon ? moonAge : null,
+    moonAge,
     lagTimeMinutes,
     elongation,
     moonAltSunset: moonAtSunset.altitude,
