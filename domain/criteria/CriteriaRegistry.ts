@@ -6,9 +6,9 @@ import { ShaukatCriterion } from './ShaukatCriterion'
 import { YallopCriterion } from './YallopCriterion'
 
 const ALL_CRITERIA: ICriterion[] = [
+  new OdehCriterion(),
   new ShaukatCriterion(),
   new YallopCriterion(),
-  new OdehCriterion(),
   new SaaoCriterion(),
   new Istanbul78Criterion(),
 ]

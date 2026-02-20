@@ -1,5 +1,5 @@
 <template>
-  <div ref="wrapper">
+  <div ref="wrapper" class="relative">
     <!-- Trigger pill -->
     <button
       class="group flex items-center gap-2 rounded-xl border px-3 py-2 text-xs backdrop-blur-md transition-all"

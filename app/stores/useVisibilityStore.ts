@@ -25,7 +25,7 @@ function defaultDate(): string {
 
 export const useVisibilityStore = defineStore('visibility', () => {
   const selectedDate = ref(defaultDate())
-  const selectedCriterionId = ref('shaukat')
+  const selectedCriterionId = ref('odeh')
   const eZoneMode = ref<EZoneMode>(0)
   const geoJson = shallowRef<FeatureCollection | null>(null)
   const isComputing = ref(false)

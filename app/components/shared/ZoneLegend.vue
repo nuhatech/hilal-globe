@@ -14,7 +14,7 @@
       >
         <div
           class="h-2.5 w-5 shrink-0 rounded-[3px]"
-          :style="{ background: zone.color }"
+          :style="{ background: zone.color + alpha }"
         />
         <span class="text-[10px] leading-none text-slate-600 dark:text-white/60">
           {{ zone.label }}
@@ -27,6 +27,12 @@
 <script setup lang="ts">
 import { ZONE_COLORS } from '@domain/models/ZoneConfig'
 import { ZoneCode } from '@domain/models/ZoneCode'
+
+const colorMode = useColorMode()
+const isDark = computed(() => colorMode.value === 'dark')
+
+// Match the same alpha the globe canvas uses (GlobeCanvas.vue drawVisibilityZones)
+const alpha = computed(() => isDark.value ? 'B3' : '70')
 
 const zones = [
   { code: 'A', color: ZONE_COLORS[ZoneCode.A], label: 'Easily visible' },
