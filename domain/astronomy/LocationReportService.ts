@@ -39,11 +39,12 @@ function findSunsetForDate(
   lat: number,
   lon: number,
   dateStr: string,
+  elevation: number = 0,
 ): AstroTime | null {
   const tzOffsetHours = lon / 15
   const noonUtc = new Date(`${dateStr}T12:00:00Z`)
   noonUtc.setTime(noonUtc.getTime() - tzOffsetHours * 3_600_000)
-  return findSunset(lat, lon, noonUtc)
+  return findSunset(lat, lon, noonUtc, elevation)
 }
 
 /**
@@ -117,8 +118,9 @@ function computeDaySummary(
   label: string,
   conjunction: AstroTime,
   criterionId: string,
+  elevation: number = 0,
 ): DaySummary {
-  const sunset = findSunsetForDate(lat, lon, dateStr)
+  const sunset = findSunsetForDate(lat, lon, dateStr, elevation)
 
   if (!sunset) {
     return {
@@ -138,7 +140,11 @@ function computeDaySummary(
   const moonAge = (sunset.ut - conjunction.ut) * 24
 
   // Moon at sunset
-  const moonAtSunset = getLunarPosition(lat, lon, sunset)
+  const moonAtSunset = getLunarPosition(lat, lon, sunset, elevation)
+
+  // Horizon dip from elevation: moon is visible if geometric altitude > -dip
+  const horizonDip = elevation > 0 ? 0.0293 * Math.sqrt(elevation) : 0
+  const moonAboveHorizon = moonAtSunset.altitude + horizonDip > 0
 
   // Elongation at sunset
   const elongation = AngleFromSun(Body.Moon, sunset)
@@ -149,8 +155,8 @@ function computeDaySummary(
 
   // Lag time (moonset - sunset)
   let lagTimeMinutes: number | null = null
-  if (moonAtSunset.altitude > 0) {
-    const moonset = findMoonset(lat, lon, sunset)
+  if (moonAboveHorizon) {
+    const moonset = findMoonset(lat, lon, sunset, elevation)
     if (moonset && moonset.ut > sunset.ut) {
       lagTimeMinutes = (moonset.ut - sunset.ut) * 24 * 60
     }
@@ -158,8 +164,8 @@ function computeDaySummary(
 
   // Visibility
   let visibility: VisibilityResult | null = null
-  if (moonAtSunset.altitude > 0) {
-    const params = computeCrescentParams({ lat, lon }, dateStr, conjunction)
+  if (moonAboveHorizon) {
+    const params = computeCrescentParams({ lat, lon }, dateStr, conjunction, false, elevation)
     if (params) {
       visibility = getCriterion(criterionId).evaluate(params)
     } else {
@@ -179,7 +185,7 @@ function computeDaySummary(
     dateStr,
     label,
     noSunset: false,
-    moonAge: moonAtSunset.altitude > 0 ? moonAge : null,
+    moonAge: moonAboveHorizon ? moonAge : null,
     lagTimeMinutes,
     elongation,
     moonAltSunset: moonAtSunset.altitude,
@@ -200,6 +206,7 @@ export function computeLocationReport(
   coord: GeoCoordinate,
   dateStr: string,
   criterionId: string,
+  elevation: number = 0,
 ): LocationReport | null {
   const { lat, lon } = coord
 
@@ -214,13 +221,13 @@ export function computeLocationReport(
   // 3-day summary anchored on conjunction date
   const conjDateStr = conjunction.date.toISOString().slice(0, 10)
   const daySummaries: [DaySummary, DaySummary, DaySummary] = [
-    computeDaySummary(lat, lon, conjDateStr, 'Conjunction Day', conjunction, criterionId),
-    computeDaySummary(lat, lon, addDaysToDateStr(conjDateStr, 1), 'Next Day', conjunction, criterionId),
-    computeDaySummary(lat, lon, addDaysToDateStr(conjDateStr, 2), 'Day After', conjunction, criterionId),
+    computeDaySummary(lat, lon, conjDateStr, 'Conjunction Day', conjunction, criterionId, elevation),
+    computeDaySummary(lat, lon, addDaysToDateStr(conjDateStr, 1), 'Next Day', conjunction, criterionId, elevation),
+    computeDaySummary(lat, lon, addDaysToDateStr(conjDateStr, 2), 'Day After', conjunction, criterionId, elevation),
   ]
 
   // Detailed report for the selected date
-  const detail = computeDetail(lat, lon, dateStr, conjunction, criterionId)
+  const detail = computeDetail(lat, lon, dateStr, conjunction, criterionId, elevation)
 
   return {
     lat,
@@ -241,15 +248,16 @@ function computeDetail(
   dateStr: string,
   conjunction: AstroTime,
   criterionId: string,
+  elevation: number = 0,
 ): LocationDetail | null {
-  const sunset = findSunsetForDate(lat, lon, dateStr)
+  const sunset = findSunsetForDate(lat, lon, dateStr, elevation)
   if (!sunset) return null // No sunset (polar)
 
   const sunsetUtc = astroTimeToUtcStr(sunset)
 
   // Moon and sun positions at sunset
-  const moonAtSunset = getLunarPosition(lat, lon, sunset)
-  const sunAtSunset = getSolarPosition(lat, lon, sunset)
+  const moonAtSunset = getLunarPosition(lat, lon, sunset, elevation)
+  const sunAtSunset = getSolarPosition(lat, lon, sunset, elevation)
 
   // Ecliptic coordinates for moon at sunset
   const moonEcl = EclipticGeoMoon(sunset)
@@ -299,13 +307,17 @@ function computeDetail(
   const SD = moonAtSunset.semiDiameter
   const WSunset = SD * (1 - Math.cos(elongation * (Math.PI / 180)))
 
+  // Horizon dip from elevation
+  const horizonDip = elevation > 0 ? 0.0293 * Math.sqrt(elevation) : 0
+  const moonAboveHorizon = moonAtSunset.altitude + horizonDip > 0
+
   // Moonset
   let moonsetUtc: string | null = null
   let lagTimeMinutes: number | null = null
   let bestTimeUtc: string | null = null
 
-  if (moonAtSunset.altitude > 0) {
-    const moonset = findMoonset(lat, lon, sunset)
+  if (moonAboveHorizon) {
+    const moonset = findMoonset(lat, lon, sunset, elevation)
     if (moonset && moonset.ut > sunset.ut) {
       moonsetUtc = astroTimeToUtcStr(moonset)
       const lagDays = moonset.ut - sunset.ut
@@ -323,7 +335,7 @@ function computeDetail(
   let criterionLabel = 'N/A'
   let visibility: VisibilityResult
 
-  const params = computeCrescentParams({ lat, lon }, dateStr, conjunction)
+  const params = computeCrescentParams({ lat, lon }, dateStr, conjunction, false, elevation)
   if (params) {
     bestTimeARCV = params.ARCV
     bestTimeW = params.W
@@ -338,10 +350,9 @@ function computeDetail(
     // Moon below horizon or no moonset — still show what we can
     visibility = {
       zone: ZoneCode.NOT_VISIBLE,
-      label:
-        moonAtSunset.altitude <= 0
-          ? 'Moon below horizon'
-          : ZONE_LABELS[ZoneCode.NOT_VISIBLE],
+      label: !moonAboveHorizon
+        ? 'Moon below horizon'
+        : ZONE_LABELS[ZoneCode.NOT_VISIBLE],
     }
   }
 
@@ -367,5 +378,9 @@ function computeDetail(
     criterionValue,
     criterionLabel,
     visibility,
+    ...(elevation > 0 && {
+      elevationMeters: elevation,
+      horizonDipDeg: 0.0293 * Math.sqrt(elevation),
+    }),
   }
 }

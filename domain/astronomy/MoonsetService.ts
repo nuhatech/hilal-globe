@@ -19,9 +19,10 @@ export function findMoonset(
   lat: number,
   lon: number,
   date: FlexibleDateTime,
+  elevation: number = 0,
 ): AstroTime | null {
-  const observer = new Observer(lat, lon, 0)
+  const observer = new Observer(lat, lon, elevation)
   const startTime = MakeTime(date)
   // direction = -1 means setting; search up to 1 day ahead
-  return SearchRiseSet(Body.Moon, observer, -1, startTime, 1) ?? null
+  return SearchRiseSet(Body.Moon, observer, -1, startTime, 1, elevation) ?? null
 }

@@ -1,7 +1,7 @@
 <template>
   <Transition name="panel">
     <div
-      v-if="store.isPanelOpen && store.selectedCoord"
+      v-if="store.isPanelOpen"
       class="panel-container"
     >
       <!-- Panel -->
@@ -12,26 +12,98 @@
                sm:top-0 sm:right-0 sm:bottom-0 sm:left-auto sm:max-h-none sm:w-[360px] sm:rounded-none sm:border-l sm:border-t-0"
       >
         <!-- Header -->
-        <div class="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200/40 dark:border-white/10 bg-slate-50/95 dark:bg-[#0a101f]/95 backdrop-blur-md px-4 py-3">
-          <div>
+        <div class="sticky top-0 z-10 border-b border-slate-200/40 dark:border-white/10 bg-slate-50/95 dark:bg-[#0a101f]/95 backdrop-blur-md px-4 py-3">
+          <div class="flex items-center justify-between">
             <h2 class="text-sm font-semibold text-slate-800 dark:text-white/90">Location Detail</h2>
-            <p class="mt-0.5 text-xs font-mono text-slate-500 dark:text-white/40">
+            <button
+              class="flex h-7 w-7 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200/60 dark:text-white/50 dark:hover:bg-white/10 transition-colors"
+              title="Close panel"
+              @click="store.closePanel()"
+            >
+              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Coordinate display / edit -->
+          <form
+            v-if="editingCoord || !store.selectedCoord"
+            class="mt-2 flex items-center gap-1.5"
+            @submit.prevent="submitCoord"
+          >
+            <div class="relative flex-1 min-w-0">
+              <label class="absolute -top-1.5 left-2 px-0.5 text-[9px] font-medium uppercase tracking-wider text-slate-400 dark:text-white/25 bg-slate-50 dark:bg-[#0a101f]">Lat</label>
+              <input
+                ref="latInput"
+                v-model="editLat"
+                type="text"
+                inputmode="decimal"
+                placeholder="21.42"
+                class="w-full rounded-lg border border-slate-300/60 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] px-2.5 py-1.5 text-xs font-mono text-slate-800 dark:text-white/80 outline-none focus:border-emerald-400/60 dark:focus:border-emerald-400/40 focus:ring-1 focus:ring-emerald-400/20 transition-all placeholder:text-slate-300 dark:placeholder:text-white/15"
+              />
+            </div>
+            <div class="relative flex-1 min-w-0">
+              <label class="absolute -top-1.5 left-2 px-0.5 text-[9px] font-medium uppercase tracking-wider text-slate-400 dark:text-white/25 bg-slate-50 dark:bg-[#0a101f]">Lon</label>
+              <input
+                v-model="editLon"
+                type="text"
+                inputmode="decimal"
+                placeholder="39.83"
+                class="w-full rounded-lg border border-slate-300/60 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] px-2.5 py-1.5 text-xs font-mono text-slate-800 dark:text-white/80 outline-none focus:border-emerald-400/60 dark:focus:border-emerald-400/40 focus:ring-1 focus:ring-emerald-400/20 transition-all placeholder:text-slate-300 dark:placeholder:text-white/15"
+                @keydown.enter="submitCoord"
+              />
+            </div>
+            <button
+              type="submit"
+              class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-slate-200/50 dark:border-white/12 bg-slate-100/80 dark:bg-white/[0.06] text-slate-500 dark:text-white/50 hover:bg-slate-200/60 dark:hover:bg-white/10 dark:hover:border-white/18 active:scale-95 transition-all"
+              title="Go"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+            </button>
+            <button
+              v-if="store.selectedCoord"
+              type="button"
+              class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-slate-200/40 dark:border-white/8 bg-slate-100/60 dark:bg-white/[0.03] text-slate-400 dark:text-white/30 hover:text-slate-600 dark:hover:text-white/50 hover:bg-slate-200/40 dark:hover:bg-white/[0.06] dark:hover:border-white/12 active:scale-95 transition-all"
+              title="Cancel"
+              @click="editingCoord = false"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg>
+            </button>
+          </form>
+          <button
+            v-else
+            class="mt-1 flex items-center gap-1.5 group rounded-md px-1 -mx-1 py-0.5 hover:bg-white/[0.03] transition-colors"
+            title="Click to edit coordinates"
+            @click="startEditing"
+          >
+            <svg class="h-3 w-3 shrink-0 text-emerald-500/40 dark:text-emerald-400/30" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-xs font-mono text-slate-500 dark:text-white/40 group-hover:text-slate-700 dark:group-hover:text-white/60 transition-colors">
               {{ formatCoord(store.selectedCoord.lat, 'NS') }}, {{ formatCoord(store.selectedCoord.lon, 'EW') }}
             </p>
-          </div>
-          <button
-            class="flex h-7 w-7 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200/60 dark:text-white/50 dark:hover:bg-white/10 transition-colors"
-            title="Close panel"
-            @click="store.closePanel()"
-          >
-            <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+            <svg class="h-2.5 w-2.5 text-slate-400 dark:text-white/20 opacity-0 group-hover:opacity-100 transition-opacity" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2.695 14.763l-1.262 3.154a.5.5 0 00.65.65l3.155-1.262a4 4 0 001.343-.885L17.5 5.5a2.121 2.121 0 00-3-3L3.58 13.42a4 4 0 00-.885 1.343z" />
             </svg>
           </button>
         </div>
 
+        <!-- No coordinate yet — prompt -->
+        <div v-if="!store.selectedCoord" class="flex flex-col items-center gap-3 px-6 py-10">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/40 dark:border-white/8 bg-slate-100/50 dark:bg-white/[0.03]">
+            <svg class="h-5 w-5 text-slate-300 dark:text-white/15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" /><line x1="12" y1="2" x2="12" y2="6" /><line x1="12" y1="18" x2="12" y2="22" /><line x1="2" y1="12" x2="6" y2="12" /><line x1="18" y1="12" x2="22" y2="12" />
+            </svg>
+          </div>
+          <div class="text-center">
+            <p class="text-xs font-medium text-slate-500 dark:text-white/40">No location selected</p>
+            <p class="mt-1 text-[11px] text-slate-400 dark:text-white/25 leading-relaxed">Enter coordinates above or<br/>click a point on the globe.</p>
+          </div>
+        </div>
+
         <!-- Loading state -->
-        <div v-if="store.isComputing" class="flex items-center justify-center py-12">
+        <div v-else-if="store.isComputing" class="flex items-center justify-center py-12">
           <div class="h-6 w-6 animate-spin rounded-full border-2 border-white/20 border-t-white/80" />
         </div>
 
@@ -49,6 +121,24 @@
           </div>
 
           <template v-else>
+            <!-- Elevation info banner (when active) -->
+            <div
+              v-if="store.report.detail.elevationMeters != null"
+              class="flex items-center gap-3 border-b border-slate-200/40 dark:border-white/10 px-4 py-2.5 bg-amber-50/50 dark:bg-amber-900/10"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+              </svg>
+              <div class="flex gap-4 text-xs">
+                <span class="text-slate-600 dark:text-white/60">
+                  Elevation <span class="font-mono font-medium text-slate-800 dark:text-white/80">{{ store.report.detail.elevationMeters.toLocaleString() }}m</span>
+                </span>
+                <span v-if="store.report.detail.horizonDipDeg" class="text-slate-600 dark:text-white/60">
+                  Horizon dip <span class="font-mono font-medium text-slate-800 dark:text-white/80">{{ store.report.detail.horizonDipDeg.toFixed(2) }}&deg;</span>
+                </span>
+              </div>
+            </div>
+
             <!-- Conjunction banner -->
             <div class="border-b border-slate-200/40 dark:border-white/10 px-4 py-3">
               <p class="text-xs text-slate-500 dark:text-white/40">New Moon (Conjunction)</p>
@@ -175,6 +265,39 @@ import { getCriterion } from '@domain/criteria/CriteriaRegistry'
 const store = useLocationStore()
 const visibilityStore = useVisibilityStore()
 
+// --- Coordinate editing ---
+const editingCoord = ref(false)
+const editLat = ref('')
+const editLon = ref('')
+const latInput = ref<HTMLInputElement | null>(null)
+
+function startEditing() {
+  editLat.value = store.selectedCoord?.lat.toString() ?? ''
+  editLon.value = store.selectedCoord?.lon.toString() ?? ''
+  editingCoord.value = true
+  nextTick(() => latInput.value?.select())
+}
+
+// Auto-focus input when panel opens without a coordinate
+watch(() => store.isPanelOpen, (open) => {
+  if (open && !store.selectedCoord) {
+    editLat.value = ''
+    editLon.value = ''
+    nextTick(() => latInput.value?.focus())
+  }
+})
+
+function submitCoord() {
+  const lat = parseFloat(editLat.value)
+  const lon = parseFloat(editLon.value)
+  if (isNaN(lat) || isNaN(lon)) return
+  // Clamp to valid ranges
+  const clampedLat = Math.max(-90, Math.min(90, lat))
+  const clampedLon = Math.max(-180, Math.min(180, lon))
+  editingCoord.value = false
+  store.selectLocation(clampedLat, clampedLon)
+}
+
 const criterionName = computed(() => {
   try {
     return getCriterion(visibilityStore.selectedCriterionId).name
@@ -250,7 +373,15 @@ const DataRow = defineComponent({
   },
 })
 
-// ZoneBadge: colored badge for zone
+// ZoneBadge: colored badge for zone — glass style with colored dot + tinted text
+const ZONE_BADGE_STYLES: Record<string, { dot: string; text: string; textDark: string; bg: string; bgDark: string; border: string; borderDark: string }> = {
+  [ZoneCode.A]: { dot: '#6BD86D', text: 'text-green-700', textDark: 'dark:text-green-400', bg: 'bg-green-500/10', bgDark: 'dark:bg-green-500/10', border: 'border-green-500/20', borderDark: 'dark:border-green-400/15' },
+  [ZoneCode.B]: { dot: '#65A364', text: 'text-green-800', textDark: 'dark:text-green-300', bg: 'bg-green-600/10', bgDark: 'dark:bg-green-500/8', border: 'border-green-600/20', borderDark: 'dark:border-green-400/12' },
+  [ZoneCode.C]: { dot: '#D4A24E', text: 'text-amber-700', textDark: 'dark:text-amber-400', bg: 'bg-amber-500/10', bgDark: 'dark:bg-amber-500/8', border: 'border-amber-500/20', borderDark: 'dark:border-amber-400/15' },
+  [ZoneCode.D]: { dot: '#E16665', text: 'text-red-700', textDark: 'dark:text-red-400', bg: 'bg-red-500/10', bgDark: 'dark:bg-red-500/8', border: 'border-red-500/20', borderDark: 'dark:border-red-400/15' },
+  [ZoneCode.E]: { dot: '#E8928E', text: 'text-red-600', textDark: 'dark:text-red-300', bg: 'bg-red-500/8', bgDark: 'dark:bg-red-500/5', border: 'border-red-400/15', borderDark: 'dark:border-red-400/10' },
+}
+
 const ZoneBadge = defineComponent({
   props: {
     zone: { type: String as () => ZoneCode, required: true },
@@ -258,20 +389,27 @@ const ZoneBadge = defineComponent({
   },
   setup(props) {
     return () => {
-      const color = ZONE_COLORS[props.zone] || 'transparent'
       const label = props.zone === ZoneCode.NOT_VISIBLE ? 'Not Visible' : `Zone ${props.zone}`
       const fullLabel = props.showLabel ? ZONE_LABELS[props.zone] : label
 
       if (props.zone === ZoneCode.NOT_VISIBLE) {
         return h('span', {
-          class: 'inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-medium bg-slate-200/60 dark:bg-white/10 text-slate-500 dark:text-white/40',
+          class: 'inline-flex items-center gap-1.5 rounded-md border border-slate-200/40 dark:border-white/8 bg-slate-100/60 dark:bg-white/[0.03] px-2 py-1 text-[10px] font-medium text-slate-400 dark:text-white/30',
         }, fullLabel)
       }
 
+      const s = ZONE_BADGE_STYLES[props.zone]
+      if (!s) {
+        return h('span', { class: 'text-[10px]' }, fullLabel)
+      }
+
       return h('span', {
-        class: 'inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-semibold text-white',
-        style: { backgroundColor: color },
+        class: `inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-[10px] font-semibold ${s.bg} ${s.bgDark} ${s.border} ${s.borderDark} ${s.text} ${s.textDark}`,
       }, [
+        h('span', {
+          class: 'h-1.5 w-1.5 rounded-full shrink-0',
+          style: { backgroundColor: s.dot },
+        }),
         props.showLabel ? fullLabel : label,
       ])
     }

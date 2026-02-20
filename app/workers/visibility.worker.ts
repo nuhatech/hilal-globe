@@ -1,5 +1,6 @@
 import { contours } from 'd3-contour'
 import type { Feature, FeatureCollection, MultiPolygon } from 'geojson'
+import { ElevationGrid } from '../../domain/elevation/ElevationGrid'
 import { ZoneCode } from '../../domain/models/ZoneCode'
 import { ZONE_COLORS, ZONE_LABELS } from '../../domain/models/ZoneConfig'
 import { computeVisibilityGrid, DEFAULT_RESOLUTION } from '../../domain/visibility/VisibilityGridService'
@@ -9,6 +10,7 @@ interface WorkerMessage {
   criterionId: string
   resolution?: number
   eZoneMode?: 0 | 1 | 2
+  elevationData?: ArrayBuffer | null
 }
 
 /**
@@ -179,9 +181,13 @@ function gridToGeo(
 }
 
 self.onmessage = (e: MessageEvent<WorkerMessage>) => {
-  const { dateStr, criterionId, resolution = DEFAULT_RESOLUTION, eZoneMode = 0 } = e.data
+  const { dateStr, criterionId, resolution = DEFAULT_RESOLUTION, eZoneMode = 0, elevationData } = e.data
 
-  const grid = computeVisibilityGrid(dateStr, criterionId, resolution, eZoneMode)
+  const elevationGrid = elevationData
+    ? new ElevationGrid(elevationData, resolution)
+    : null
+
+  const grid = computeVisibilityGrid(dateStr, criterionId, resolution, eZoneMode, elevationGrid)
 
   // --- Smooth pipeline: blur → upsample → contour ---
   const raw = Float64Array.from(grid.values)

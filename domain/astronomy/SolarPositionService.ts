@@ -21,8 +21,9 @@ export function getSolarPosition(
   lat: number,
   lon: number,
   date: FlexibleDateTime,
+  elevation: number = 0,
 ): SolarPosition {
-  const observer = new Observer(lat, lon, 0)
+  const observer = new Observer(lat, lon, elevation)
   const eq = Equator(Body.Sun, date, observer, true, true)
   const hor = Horizon(date, observer, eq.ra, eq.dec)
 

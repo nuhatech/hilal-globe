@@ -61,6 +61,10 @@ export interface LocationDetail {
   criterionValue: number | null
   criterionLabel: string // "q = 0.216" or "V = 8.665"
   visibility: VisibilityResult
+
+  // Elevation context (only populated when elevation mode active)
+  elevationMeters?: number
+  horizonDipDeg?: number
 }
 
 export interface LocationReport {

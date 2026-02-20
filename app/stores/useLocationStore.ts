@@ -1,5 +1,7 @@
 import type { LocationReport } from '@domain/models/LocationReport'
 import { computeLocationReport } from '@domain/astronomy/LocationReportService'
+import { ElevationGrid } from '@domain/elevation/ElevationGrid'
+import { DEFAULT_RESOLUTION } from '@domain/visibility/VisibilityGridService'
 
 export const useLocationStore = defineStore('location', () => {
   const visibilityStore = useVisibilityStore()
@@ -18,10 +20,16 @@ export const useLocationStore = defineStore('location', () => {
     // Use setTimeout(0) so the browser renders the loading state before the synchronous computation
     setTimeout(() => {
       try {
+        let elevation = 0
+        if (visibilityStore.elevationEnabled && visibilityStore.elevationData) {
+          const grid = new ElevationGrid(visibilityStore.elevationData, DEFAULT_RESOLUTION)
+          elevation = grid.lookup(selectedCoord.value!.lat, selectedCoord.value!.lon)
+        }
         const result = computeLocationReport(
           selectedCoord.value!,
           visibilityStore.selectedDate,
           visibilityStore.selectedCriterionId,
+          elevation,
         )
         report.value = result
       } catch (e) {
@@ -53,9 +61,9 @@ export const useLocationStore = defineStore('location', () => {
     isPanelOpen.value = false
   }
 
-  // Recompute when date or criterion changes while a location is selected
+  // Recompute when date, criterion, or elevation changes while a location is selected
   watch(
-    [() => visibilityStore.selectedDate, () => visibilityStore.selectedCriterionId],
+    [() => visibilityStore.selectedDate, () => visibilityStore.selectedCriterionId, () => visibilityStore.elevationEnabled],
     () => {
       if (selectedCoord.value && isPanelOpen.value) {
         compute()

@@ -30,9 +30,25 @@ export const useVisibilityStore = defineStore('visibility', () => {
   const geoJson = shallowRef<FeatureCollection | null>(null)
   const isComputing = ref(false)
 
+  // Elevation mode
+  const elevationEnabled = ref(false)
+  const elevationData = shallowRef<ArrayBuffer | null>(null)
+  const isLoadingElevation = ref(false)
+
+  async function loadElevationData() {
+    if (elevationData.value) return
+    isLoadingElevation.value = true
+    try {
+      const resp = await fetch('/data/elevation-3deg.bin')
+      elevationData.value = await resp.arrayBuffer()
+    } finally {
+      isLoadingElevation.value = false
+    }
+  }
+
   const availableCriteria = listCriteria()
 
-  // Cache: key = "date|criterionId|eZoneMode" → FeatureCollection
+  // Cache: key = "date|criterionId|eZoneMode|elevation" → FeatureCollection
   const cache = new Map<string, FeatureCollection>()
 
   let worker: Worker | null = null
@@ -50,7 +66,7 @@ export const useVisibilityStore = defineStore('visibility', () => {
   function computeGrid() {
     if (!import.meta.client) return
 
-    const key = `${selectedDate.value}|${selectedCriterionId.value}|${eZoneMode.value}`
+    const key = `${selectedDate.value}|${selectedCriterionId.value}|${eZoneMode.value}|${elevationEnabled.value}`
 
     // Check cache first
     const cached = cache.get(key)
@@ -79,11 +95,12 @@ export const useVisibilityStore = defineStore('visibility', () => {
       criterionId: selectedCriterionId.value,
       resolution: DEFAULT_RESOLUTION,
       eZoneMode: eZoneMode.value,
+      elevationData: elevationEnabled.value ? elevationData.value : null,
     })
   }
 
-  // Trigger computation when date, criterion, or e-zone mode changes
-  watch([selectedDate, selectedCriterionId, eZoneMode], () => computeGrid(), {
+  // Trigger computation when date, criterion, e-zone mode, or elevation changes
+  watch([selectedDate, selectedCriterionId, eZoneMode, elevationEnabled], () => computeGrid(), {
     immediate: true,
   })
 
@@ -95,5 +112,9 @@ export const useVisibilityStore = defineStore('visibility', () => {
     isComputing,
     availableCriteria,
     computeGrid,
+    elevationEnabled,
+    elevationData,
+    isLoadingElevation,
+    loadElevationData,
   }
 })

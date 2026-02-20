@@ -7,7 +7,7 @@
         open
           ? 'border-slate-300/70 bg-white/95 text-slate-800 shadow-lg shadow-black/8 dark:border-white/20 dark:bg-white/10 dark:text-white dark:shadow-black/20'
           : store.eZoneMode > 0
-            ? 'border-slate-200/50 bg-white/90 text-slate-700 shadow-sm shadow-black/5 hover:bg-white/95 dark:border-white/15 dark:bg-white/8 dark:text-white/80 dark:hover:bg-white/12'
+            ? 'border-slate-200/50 bg-white/90 text-slate-700 shadow-sm shadow-black/5 hover:bg-white/95 dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/14 dark:shadow-black/20'
             : 'border-slate-200/50 bg-slate-100/80 text-slate-600 hover:bg-slate-200/60 dark:border-white/10 dark:bg-white/5 dark:text-white/70 dark:hover:bg-white/10'
       "
       @click="open = !open"

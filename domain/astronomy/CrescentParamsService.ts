@@ -90,24 +90,29 @@ export function computeCrescentParams(
   dateStr: string,
   conjunction?: AstroTime | null,
   refractionReject: boolean = false,
+  elevation: number = 0,
 ): CrescentParams | null {
   // --- 1. Find sunset ---
   const tzOffsetHours = coord.lon / 15
   const noonUtc = new Date(`${dateStr}T12:00:00Z`)
   noonUtc.setTime(noonUtc.getTime() - tzOffsetHours * 3_600_000)
-  const sunset = findSunset(coord.lat, coord.lon, noonUtc)
+  const sunset = findSunset(coord.lat, coord.lon, noonUtc, elevation)
   if (!sunset) return null // No sunset (polar region)
 
   // --- 2. Moon position at sunset → fast reject ---
-  const moonAtSunset = getLunarPosition(coord.lat, coord.lon, sunset)
+  const moonAtSunset = getLunarPosition(coord.lat, coord.lon, sunset, elevation)
   const moonAltApparent = moonAtSunset.altitude + atmosphericRefraction(moonAtSunset.altitude)
   // Use apparent altitude (with refraction) when refractionReject is true,
   // otherwise use raw geometric altitude for a more conservative horizon check.
   const rejectAlt = refractionReject ? moonAltApparent : moonAtSunset.altitude
-  if (rejectAlt <= 0) return null
+  // When elevated, the visible horizon dips below the geometric horizon.
+  // The moon is visible if its geometric altitude is above -dip.
+  // Refracted dip ≈ 0.0293 × √(elevation in meters) degrees.
+  const horizonDip = elevation > 0 ? 0.0293 * Math.sqrt(elevation) : 0
+  if (rejectAlt + horizonDip <= 0) return null
 
   // --- 3. Find moonset after sunset ---
-  const moonset = findMoonset(coord.lat, coord.lon, sunset)
+  const moonset = findMoonset(coord.lat, coord.lon, sunset, elevation)
   if (!moonset) return null // Moon doesn't set (shouldn't happen normally)
 
   // Moonset must be after sunset
@@ -118,11 +123,11 @@ export function computeCrescentParams(
   const bestTime = sunset.AddDays((4 / 9) * lagDays)
 
   // --- 5. Positions at best time ---
-  const sunBest = getSolarPosition(coord.lat, coord.lon, bestTime)
-  const moonBest = getLunarPosition(coord.lat, coord.lon, bestTime)
+  const sunBest = getSolarPosition(coord.lat, coord.lon, bestTime, elevation)
+  const moonBest = getLunarPosition(coord.lat, coord.lon, bestTime, elevation)
 
   // Sun position at sunset (moon already computed in step 2)
-  const sunAtSunset = getSolarPosition(coord.lat, coord.lon, sunset)
+  const sunAtSunset = getSolarPosition(coord.lat, coord.lon, sunset, elevation)
 
   // --- 6. Derive parameters ---
 

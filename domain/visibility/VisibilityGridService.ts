@@ -2,6 +2,7 @@ import { computeCrescentParams } from '../astronomy/CrescentParamsService'
 import { findPreviousNewMoon } from '../astronomy/ConjunctionService'
 import { findSunset } from '../astronomy/SunsetService'
 import { getCriterion } from '../criteria/CriteriaRegistry'
+import type { ElevationGrid } from '../elevation/ElevationGrid'
 import type { VisibilityGrid, VisibilityGridCell } from '../models/VisibilityGrid'
 import { ZoneCode } from '../models/ZoneCode'
 import { ZONE_VALUES } from '../models/ZoneConfig'
@@ -25,11 +26,12 @@ function isConjunctionBeforeSunset(
   lon: number,
   dateStr: string,
   conjunctionUt: number,
+  elevation: number = 0,
 ): boolean {
   const tzOffsetHours = lon / 15
   const noonUtc = new Date(`${dateStr}T12:00:00Z`)
   noonUtc.setTime(noonUtc.getTime() - tzOffsetHours * 3_600_000)
-  const sunset = findSunset(lat, lon, noonUtc)
+  const sunset = findSunset(lat, lon, noonUtc, elevation)
   if (!sunset) return false // No sunset (polar)
   return conjunctionUt < sunset.ut
 }
@@ -50,6 +52,7 @@ export function computeVisibilityGrid(
   criterionId: string,
   resolution: number = DEFAULT_RESOLUTION,
   eZoneMode: EZoneMode = 0,
+  elevationGrid?: ElevationGrid | null,
 ): VisibilityGrid {
   const criterion = getCriterion(criterionId)
   const cells: VisibilityGridCell[] = []
@@ -73,7 +76,8 @@ export function computeVisibilityGrid(
     for (let col = 0; col < width; col++) {
       const lon = -180 + resolution / 2 + col * resolution
 
-      const params = computeCrescentParams({ lat, lon }, dateStr, conjunction, refractionReject)
+      const elevation = elevationGrid ? elevationGrid.lookup(lat, lon) : 0
+      const params = computeCrescentParams({ lat, lon }, dateStr, conjunction, refractionReject, elevation)
 
       let zone: ZoneCode
       if (params) {
@@ -87,7 +91,7 @@ export function computeVisibilityGrid(
         // Params null: no sunset, moon below horizon, or moonset issue.
         // In "born crescent" mode (2), check if the conjunction occurred before
         // sunset — if so, the crescent was born but the moon has set (Zone E).
-        if (eZoneMode >= 2 && conjunction && isConjunctionBeforeSunset(lat, lon, dateStr, conjUt)) {
+        if (eZoneMode >= 2 && conjunction && isConjunctionBeforeSunset(lat, lon, dateStr, conjUt, elevation)) {
           zone = ZoneCode.E
         } else {
           zone = ZoneCode.NOT_VISIBLE
