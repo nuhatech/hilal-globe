@@ -5,11 +5,11 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 useHead({
   titleTemplate: (title) => title ? `${title} — Hilal Globe` : 'Hilal Globe',
-  htmlAttrs: { lang: () => useI18n().locale.value },
+  htmlAttrs: { lang: () => locale.value },
 })
 
 useSeoMeta({
