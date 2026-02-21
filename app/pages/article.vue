@@ -47,6 +47,7 @@
 import { ArrowLeft, Sun, Moon } from 'lucide-vue-next'
 import MarkdownIt from 'markdown-it'
 import rawEn from '@content/between-the-eye-and-the-horizon-en.md?raw'
+import rawFr from '@content/between-the-eye-and-the-horizon-fr.md?raw'
 
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
@@ -108,10 +109,10 @@ function addRtlAttributes(html: string): string {
   })
 }
 
-// For now, always use English markdown (French version can be added later)
-const raw = rawEn
+const raw = computed(() => locale.value === 'fr' ? rawFr : rawEn)
 
-// Render markdown
-const baseHtml = md.render(raw)
-const renderedHtml = addRtlAttributes(baseHtml)
+const renderedHtml = computed(() => {
+  const baseHtml = md.render(raw.value)
+  return addRtlAttributes(baseHtml)
+})
 </script>
