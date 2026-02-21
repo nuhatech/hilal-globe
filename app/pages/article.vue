@@ -57,14 +57,11 @@ definePageMeta({
   layout: 'article',
 })
 
-useHead({
+useSeoMeta({
   title: () => t('article.title'),
-  meta: [
-    {
-      name: 'description',
-      content: () => t('article.description'),
-    },
-  ],
+  ogTitle: () => t('article.title'),
+  description: () => t('article.description'),
+  ogDescription: () => t('article.description'),
 })
 
 const colorMode = useColorMode()

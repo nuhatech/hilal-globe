@@ -205,6 +205,10 @@
     "title": "Between the Eye and the Horizon — Hilal Globe",
     "description": "Understanding Hilal Visibility Criteria, Testimony, and Physical Impossibility — An Islamic Perspective"
   },
+  "seo": {
+    "description": "Interactive 3D globe showing where the lunar crescent (hilal) is visible tonight. Based on scientific visibility criteria from hundreds of documented observations.",
+    "ogImageAlt": "Hilal Globe — Crescent Visibility Map"
+  },
   "coords": {
     "enterCoordinates": "Enter coordinates",
     "latLon": "Lat/Lon"

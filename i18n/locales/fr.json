@@ -205,6 +205,10 @@
     "title": "Entre l'Œil et l'Horizon — Hilal Globe",
     "description": "Comprendre les Critères de Visibilité du Hilal, le Témoignage et l'Impossibilité Physique — Une Perspective Islamique"
   },
+  "seo": {
+    "description": "Globe 3D interactif montrant où le croissant lunaire (hilal) est visible ce soir. Basé sur des critères scientifiques de visibilité construits à partir de centaines d'observations documentées.",
+    "ogImageAlt": "Hilal Globe — Carte de Visibilité du Croissant"
+  },
   "coords": {
     "enterCoordinates": "Entrer les coordonnées",
     "latLon": "Lat/Lon"
