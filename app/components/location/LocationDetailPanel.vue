@@ -14,10 +14,10 @@
         <!-- Header -->
         <div class="sticky top-0 z-10 border-b border-slate-200/40 dark:border-white/10 bg-slate-50/95 dark:bg-[#0a101f]/95 backdrop-blur-md px-4 py-3">
           <div class="flex items-center justify-between">
-            <h2 class="text-sm font-semibold text-slate-800 dark:text-white/90">Location Detail</h2>
+            <h2 class="text-sm font-semibold text-slate-800 dark:text-white/90">{{ $t('location.title') }}</h2>
             <button
               class="flex h-7 w-7 items-center justify-center rounded-full text-slate-500 hover:bg-slate-200/60 dark:text-white/50 dark:hover:bg-white/10 transition-colors"
-              title="Close panel"
+              :title="$t('location.close')"
               @click="store.closePanel()"
             >
               <X class="h-4 w-4" />
@@ -31,7 +31,7 @@
             @submit.prevent="submitCoord"
           >
             <div class="relative flex-1 min-w-0">
-              <label class="absolute -top-1.5 left-2 px-0.5 text-[9px] font-medium uppercase tracking-wider text-slate-400 dark:text-white/25 bg-slate-50 dark:bg-[#0a101f]">Lat</label>
+              <label class="absolute -top-1.5 left-2 px-0.5 text-[9px] font-medium uppercase tracking-wider text-slate-400 dark:text-white/25 bg-slate-50 dark:bg-[#0a101f]">{{ $t('location.lat') }}</label>
               <input
                 ref="latInput"
                 v-model="editLat"
@@ -42,7 +42,7 @@
               />
             </div>
             <div class="relative flex-1 min-w-0">
-              <label class="absolute -top-1.5 left-2 px-0.5 text-[9px] font-medium uppercase tracking-wider text-slate-400 dark:text-white/25 bg-slate-50 dark:bg-[#0a101f]">Lon</label>
+              <label class="absolute -top-1.5 left-2 px-0.5 text-[9px] font-medium uppercase tracking-wider text-slate-400 dark:text-white/25 bg-slate-50 dark:bg-[#0a101f]">{{ $t('location.lon') }}</label>
               <input
                 v-model="editLon"
                 type="text"
@@ -55,7 +55,7 @@
             <button
               type="submit"
               class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-slate-200/50 dark:border-white/12 bg-slate-100/80 dark:bg-white/[0.06] text-slate-500 dark:text-white/50 hover:bg-slate-200/60 dark:hover:bg-white/10 dark:hover:border-white/18 active:scale-95 transition-all"
-              title="Go"
+              :title="$t('location.go')"
             >
               <Check class="h-3.5 w-3.5" />
             </button>
@@ -63,7 +63,7 @@
               v-if="store.selectedCoord"
               type="button"
               class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-slate-200/40 dark:border-white/8 bg-slate-100/60 dark:bg-white/[0.03] text-slate-400 dark:text-white/30 hover:text-slate-600 dark:hover:text-white/50 hover:bg-slate-200/40 dark:hover:bg-white/[0.06] dark:hover:border-white/12 active:scale-95 transition-all"
-              title="Cancel"
+              :title="$t('location.cancel')"
               @click="editingCoord = false"
             >
               <X class="h-3.5 w-3.5" />
@@ -72,7 +72,7 @@
           <button
             v-else
             class="mt-1 flex items-center gap-1.5 group rounded-md px-1 -mx-1 py-0.5 hover:bg-white/[0.03] transition-colors"
-            title="Click to edit coordinates"
+            :title="$t('location.editCoords')"
             @click="startEditing"
           >
             <MapPin class="h-3 w-3 shrink-0 text-emerald-500/40 dark:text-emerald-400/30" />
@@ -89,8 +89,8 @@
             <Crosshair class="h-5 w-5 text-slate-300 dark:text-white/15" :stroke-width="1.5" />
           </div>
           <div class="text-center">
-            <p class="text-xs font-medium text-slate-500 dark:text-white/40">No location selected</p>
-            <p class="mt-1 text-[11px] text-slate-400 dark:text-white/25 leading-relaxed">Enter coordinates above or<br/>click a point on the globe.</p>
+            <p class="text-xs font-medium text-slate-500 dark:text-white/40">{{ $t('location.noLocation') }}</p>
+            <p class="mt-1 text-[11px] text-slate-400 dark:text-white/25 leading-relaxed">{{ $t('location.noLocationHint') }}</p>
           </div>
         </div>
 
@@ -101,15 +101,15 @@
 
         <!-- No report -->
         <div v-else-if="!store.report" class="px-4 py-8 text-center text-sm text-slate-500 dark:text-white/40">
-          Could not compute data for this location.
+          {{ $t('location.noData') }}
         </div>
 
         <!-- Report content -->
         <div v-else>
           <!-- No sunset (polar) -->
           <div v-if="!store.report.detail" class="px-4 py-8 text-center">
-            <p class="text-sm text-amber-500">No sunset at this location on this date.</p>
-            <p class="mt-1 text-xs text-slate-500 dark:text-white/40">Polar region — the sun does not set.</p>
+            <p class="text-sm text-amber-500">{{ $t('location.noSunset') }}</p>
+            <p class="mt-1 text-xs text-slate-500 dark:text-white/40">{{ $t('location.noSunsetHint') }}</p>
           </div>
 
           <template v-else>
@@ -121,17 +121,17 @@
               <Mountain class="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" />
               <div class="flex gap-4 text-xs">
                 <span class="text-slate-600 dark:text-white/60">
-                  Elevation <span class="font-mono font-medium text-slate-800 dark:text-white/80">{{ store.report.detail.elevationMeters.toLocaleString() }}m</span>
+                  {{ $t('elevation.label') }} <span class="font-mono font-medium text-slate-800 dark:text-white/80">{{ store.report.detail.elevationMeters.toLocaleString() }}m</span>
                 </span>
                 <span v-if="store.report.detail.horizonDipDeg" class="text-slate-600 dark:text-white/60">
-                  Horizon dip <span class="font-mono font-medium text-slate-800 dark:text-white/80">{{ store.report.detail.horizonDipDeg.toFixed(2) }}&deg;</span>
+                  {{ $t('elevation.horizonDip') }} <span class="font-mono font-medium text-slate-800 dark:text-white/80">{{ store.report.detail.horizonDipDeg.toFixed(2) }}&deg;</span>
                 </span>
               </div>
             </div>
 
             <!-- Conjunction banner -->
             <div class="border-b border-slate-200/40 dark:border-white/10 px-4 py-3">
-              <p class="text-xs text-slate-500 dark:text-white/40">New Moon (Conjunction)</p>
+              <p class="text-xs text-slate-500 dark:text-white/40">{{ $t('location.conjunction') }}</p>
               <p class="mt-0.5 text-sm font-medium text-slate-700 dark:text-white/80">
                 {{ formatLocalDateTime(store.report.conjunctionUtc) }}
                 <span class="text-[10px] font-normal text-slate-400 dark:text-white/30 ml-1">{{ offsetLabel }}</span>
@@ -142,18 +142,18 @@
             </div>
 
             <!-- 3-Day Summary Table -->
-            <PanelSection title="3-Day Summary" :default-open="true">
+            <PanelSection :title="$t('location.summary3Day')" :default-open="true">
               <div class="overflow-x-auto -mx-1">
                 <table class="w-full text-xs">
                   <thead>
                     <tr class="text-left text-slate-400 dark:text-white/30">
-                      <th class="px-1 py-1 font-medium">Day</th>
-                      <th class="px-1 py-1 font-medium">Age</th>
-                      <th class="px-1 py-1 font-medium">Lag</th>
-                      <th class="px-1 py-1 font-medium">Elong.</th>
-                      <th class="px-1 py-1 font-medium">Alt</th>
-                      <th class="px-1 py-1 font-medium">Illum.</th>
-                      <th class="px-1 py-1 font-medium">Vis.</th>
+                      <th class="px-1 py-1 font-medium">{{ $t('data.day') }}</th>
+                      <th class="px-1 py-1 font-medium">{{ $t('data.age') }}</th>
+                      <th class="px-1 py-1 font-medium">{{ $t('data.lag') }}</th>
+                      <th class="px-1 py-1 font-medium">{{ $t('data.elongation') }}</th>
+                      <th class="px-1 py-1 font-medium">{{ $t('data.altitude') }}</th>
+                      <th class="px-1 py-1 font-medium">{{ $t('data.illumination') }}</th>
+                      <th class="px-1 py-1 font-medium">{{ $t('data.visibility') }}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -193,56 +193,56 @@
             </PanelSection>
 
             <!-- Detail sections -->
-            <PanelSection title="Key Data" :default-open="true">
-              <DataRow label="Date" :value="store.report.detail.sunsetUtc.slice(0, 10)" />
-              <TimeRow label="Sunset" :utc="store.report.detail.sunsetUtc" />
-              <TimeRow label="Moonset" :utc="store.report.detail.moonsetUtc" />
-              <DataRow label="Moon Age" :value="formatAgeDetailed(store.report.detail.moonAge)" />
-              <DataRow label="Lag Time" :value="store.report.detail.lagTimeMinutes != null ? store.report.detail.lagTimeMinutes.toFixed(1) + ' min' : 'N/A'" />
-              <TimeRow v-if="store.report.detail.bestTimeUtc" label="Best Time" :utc="store.report.detail.bestTimeUtc" />
+            <PanelSection :title="$t('data.keyData')" :default-open="true">
+              <DataRow :label="$t('data.date')" :value="store.report.detail.sunsetUtc.slice(0, 10)" />
+              <TimeRow :label="$t('data.sunset')" :utc="store.report.detail.sunsetUtc" />
+              <TimeRow :label="$t('data.moonset')" :utc="store.report.detail.moonsetUtc" />
+              <DataRow :label="$t('data.moonAge')" :value="formatAgeDetailed(store.report.detail.moonAge)" />
+              <DataRow :label="$t('data.lagTime')" :value="store.report.detail.lagTimeMinutes != null ? store.report.detail.lagTimeMinutes.toFixed(1) + ' min' : $t('data.notAvailable')" />
+              <TimeRow v-if="store.report.detail.bestTimeUtc" :label="$t('data.bestTime')" :utc="store.report.detail.bestTimeUtc" />
             </PanelSection>
 
-            <PanelSection title="Moon Position (Sunset)" :default-open="false">
-              <DataRow label="Altitude" :value="formatDMS(store.report.detail.moonSunset.altitude)" />
-              <DataRow label="Azimuth" :value="formatDMS(store.report.detail.moonSunset.azimuth)" />
-              <DataRow label="RA" :value="formatRA(store.report.detail.moonSunset.ra)" />
-              <DataRow label="Declination" :value="formatDMS(store.report.detail.moonSunset.dec)" />
-              <DataRow label="Ecl. Longitude" :value="formatDMS(store.report.detail.moonSunset.eclipticLon)" />
-              <DataRow label="Ecl. Latitude" :value="formatDMS(store.report.detail.moonSunset.eclipticLat)" />
+            <PanelSection :title="$t('data.moonPosition')" :default-open="false">
+              <DataRow :label="$t('data.altitude')" :value="formatDMS(store.report.detail.moonSunset.altitude)" />
+              <DataRow :label="$t('data.azimuth')" :value="formatDMS(store.report.detail.moonSunset.azimuth)" />
+              <DataRow :label="$t('data.ra')" :value="formatRA(store.report.detail.moonSunset.ra)" />
+              <DataRow :label="$t('data.declination')" :value="formatDMS(store.report.detail.moonSunset.dec)" />
+              <DataRow :label="$t('data.eclLon')" :value="formatDMS(store.report.detail.moonSunset.eclipticLon)" />
+              <DataRow :label="$t('data.eclLat')" :value="formatDMS(store.report.detail.moonSunset.eclipticLat)" />
             </PanelSection>
 
-            <PanelSection title="Sun Position (Sunset)" :default-open="false">
-              <DataRow label="Altitude" :value="formatDMS(store.report.detail.sunSunset.altitude)" />
-              <DataRow label="Azimuth" :value="formatDMS(store.report.detail.sunSunset.azimuth)" />
-              <DataRow label="RA" :value="formatRA(store.report.detail.sunSunset.ra)" />
-              <DataRow label="Declination" :value="formatDMS(store.report.detail.sunSunset.dec)" />
-              <DataRow label="Ecl. Longitude" :value="formatDMS(store.report.detail.sunSunset.eclipticLon)" />
-              <DataRow label="Ecl. Latitude" :value="formatDMS(store.report.detail.sunSunset.eclipticLat)" />
+            <PanelSection :title="$t('data.sunPosition')" :default-open="false">
+              <DataRow :label="$t('data.altitude')" :value="formatDMS(store.report.detail.sunSunset.altitude)" />
+              <DataRow :label="$t('data.azimuth')" :value="formatDMS(store.report.detail.sunSunset.azimuth)" />
+              <DataRow :label="$t('data.ra')" :value="formatRA(store.report.detail.sunSunset.ra)" />
+              <DataRow :label="$t('data.declination')" :value="formatDMS(store.report.detail.sunSunset.dec)" />
+              <DataRow :label="$t('data.eclLon')" :value="formatDMS(store.report.detail.sunSunset.eclipticLon)" />
+              <DataRow :label="$t('data.eclLat')" :value="formatDMS(store.report.detail.sunSunset.eclipticLat)" />
             </PanelSection>
 
-            <PanelSection title="Relative Position" :default-open="false">
-              <DataRow label="ARCV" :value="formatDMS(store.report.detail.ARCV)" />
-              <DataRow label="DAZ" :value="formatDMS(store.report.detail.DAZ)" />
-              <DataRow label="Elongation" :value="formatDMS(store.report.detail.elongation)" />
-              <DataRow label="Phase Angle" :value="store.report.detail.phaseAngle.toFixed(2) + '\u00B0'" />
+            <PanelSection :title="$t('data.relativePosition')" :default-open="false">
+              <DataRow :label="$t('data.ARCV')" :value="formatDMS(store.report.detail.ARCV)" />
+              <DataRow :label="$t('data.DAZ')" :value="formatDMS(store.report.detail.DAZ)" />
+              <DataRow :label="$t('data.elongation')" :value="formatDMS(store.report.detail.elongation)" />
+              <DataRow :label="$t('data.phaseAngle')" :value="store.report.detail.phaseAngle.toFixed(2) + '\u00B0'" />
             </PanelSection>
 
-            <PanelSection title="Moon Characteristics" :default-open="false">
-              <DataRow label="Illumination" :value="store.report.detail.illuminationPct.toFixed(2) + '%'" />
-              <DataRow label="Crescent Width" :value="store.report.detail.crescentWidth.toFixed(2) + '\u2032'" />
-              <DataRow label="Distance" :value="Math.round(store.report.detail.distanceKm).toLocaleString() + ' km'" />
-              <DataRow label="Magnitude" :value="store.report.detail.magnitude.toFixed(2)" />
-              <DataRow label="Semi-Diameter" :value="store.report.detail.semiDiameter.toFixed(2) + '\u2032'" />
+            <PanelSection :title="$t('data.moonCharacteristics')" :default-open="false">
+              <DataRow :label="$t('data.illumination')" :value="store.report.detail.illuminationPct.toFixed(2) + '%'" />
+              <DataRow :label="$t('data.crescentWidth')" :value="store.report.detail.crescentWidth.toFixed(2) + '\u2032'" />
+              <DataRow :label="$t('data.distance')" :value="Math.round(store.report.detail.distanceKm).toLocaleString() + ' km'" />
+              <DataRow :label="$t('data.magnitude')" :value="store.report.detail.magnitude.toFixed(2)" />
+              <DataRow :label="$t('data.semiDiameter')" :value="store.report.detail.semiDiameter.toFixed(2) + '\u2032'" />
             </PanelSection>
 
-            <PanelSection title="Visibility Prediction" :default-open="true">
+            <PanelSection :title="$t('data.visibilityPrediction')" :default-open="true">
               <div class="mb-2 flex items-center gap-2">
                 <ZoneBadge :zone="store.report.detail.visibility.zone" :show-label="true" />
               </div>
-              <DataRow label="Criterion" :value="criterionName" />
-              <DataRow label="Score" :value="store.report.detail.criterionLabel" />
-              <DataRow v-if="store.report.detail.bestTimeARCV != null" label="ARCV (best time)" :value="store.report.detail.bestTimeARCV.toFixed(3) + '\u00B0'" />
-              <DataRow v-if="store.report.detail.bestTimeW != null" label="W (best time)" :value="store.report.detail.bestTimeW.toFixed(3) + '\u2032'" />
+              <DataRow :label="$t('data.criterion')" :value="criterionName" />
+              <DataRow :label="$t('data.score')" :value="store.report.detail.criterionLabel" />
+              <DataRow v-if="store.report.detail.bestTimeARCV != null" :label="$t('data.arcvBestTime')" :value="store.report.detail.bestTimeARCV.toFixed(3) + '\u00B0'" />
+              <DataRow v-if="store.report.detail.bestTimeW != null" :label="$t('data.wBestTime')" :value="store.report.detail.bestTimeW.toFixed(3) + '\u2032'" />
             </PanelSection>
           </template>
         </div>
@@ -257,6 +257,8 @@ import { ZoneCode } from '@domain/models/ZoneCode'
 import { ZONE_COLORS, ZONE_LABELS } from '@domain/models/ZoneConfig'
 import { getCriterion } from '@domain/criteria/CriteriaRegistry'
 import { applyUtcOffset, formatUtcOffsetLabel } from '@domain/time/LocalTimeService'
+
+const { t } = useI18n()
 
 const store = useLocationStore()
 const visibilityStore = useVisibilityStore()
@@ -295,11 +297,7 @@ function submitCoord() {
 }
 
 const criterionName = computed(() => {
-  try {
-    return getCriterion(visibilityStore.selectedCriterionId).name
-  } catch {
-    return visibilityStore.selectedCriterionId
-  }
+  return t('criteria.' + visibilityStore.selectedCriterionId + '.name')
 })
 
 // --- Formatting helpers ---
@@ -392,7 +390,7 @@ const TimeRow = defineComponent({
       if (!props.utc) {
         return h('div', { class: 'flex items-baseline justify-between py-0.5' }, [
           h('span', { class: 'text-xs text-slate-500 dark:text-white/40' }, props.label),
-          h('span', { class: 'text-xs font-mono text-slate-700 dark:text-white/70' }, 'N/A'),
+          h('span', { class: 'text-xs font-mono text-slate-700 dark:text-white/70' }, t('data.notAvailable')),
         ])
       }
       return h('div', { class: 'flex items-baseline justify-between py-0.5' }, [
@@ -422,8 +420,11 @@ const ZoneBadge = defineComponent({
   },
   setup(props) {
     return () => {
-      const label = props.zone === ZoneCode.NOT_VISIBLE ? 'Not Visible' : `Zone ${props.zone}`
-      const fullLabel = props.showLabel ? ZONE_LABELS[props.zone] : label
+      const zoneKey = props.zone === ZoneCode.NOT_VISIBLE ? 'notVisible' : props.zone
+      const label = props.zone === ZoneCode.NOT_VISIBLE
+        ? t('zoneBadge.notVisible')
+        : t('zoneBadge.zone', { code: props.zone })
+      const fullLabel = props.showLabel ? t('zoneBadge.' + zoneKey) : label
 
       if (props.zone === ZoneCode.NOT_VISIBLE) {
         return h('span', {

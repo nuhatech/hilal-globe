@@ -21,7 +21,7 @@
       class="h-3 w-3 animate-spin rounded-full border border-white/20 border-t-white/80"
     />
     <template v-else>
-      <span class="font-medium">{{ store.elevationEnabled ? 'Elevation' : 'Sea Level' }}</span>
+      <span class="font-medium">{{ store.elevationEnabled ? $t('elevation.enabled') : $t('elevation.disabled') }}</span>
       <div
         v-if="store.elevationEnabled"
         class="h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"

@@ -4,21 +4,31 @@
     <header class="sticky top-0 z-10 border-b border-slate-200/50 bg-ocean-light/80 backdrop-blur-sm dark:border-white/10 dark:bg-ocean/80">
       <div class="mx-auto flex max-w-3xl items-center px-4 py-3 sm:px-6">
         <NuxtLink
-          to="/"
+          :to="localePath('/')"
           class="flex items-center gap-1.5 text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
         >
           <ArrowLeft class="h-4 w-4" />
-          Back to Globe
+          {{ $t('nav.backToGlobe') }}
         </NuxtLink>
 
-        <button
-          class="ml-auto flex h-8 w-8 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-200/60 dark:text-white/70 dark:hover:bg-white/10"
-          :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-          @click="toggleTheme"
-        >
-          <Sun v-if="isDark" class="h-4 w-4" />
-          <Moon v-else class="h-4 w-4" />
-        </button>
+        <div class="ml-auto flex items-center gap-1">
+          <!-- Language switcher -->
+          <NuxtLink
+            :to="switchLocalePath(locale === 'en' ? 'fr' : 'en')"
+            class="flex h-8 items-center justify-center rounded-full px-2 text-[11px] font-semibold text-slate-600 transition-colors hover:bg-slate-200/60 dark:text-white/70 dark:hover:bg-white/10"
+          >
+            {{ $t('language.switchTo') }}
+          </NuxtLink>
+
+          <button
+            class="flex h-8 w-8 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-200/60 dark:text-white/70 dark:hover:bg-white/10"
+            :title="isDark ? $t('theme.light') : $t('theme.dark')"
+            @click="toggleTheme"
+          >
+            <Sun v-if="isDark" class="h-4 w-4" />
+            <Moon v-else class="h-4 w-4" />
+          </button>
+        </div>
       </div>
     </header>
 
@@ -36,18 +46,22 @@
 <script setup lang="ts">
 import { ArrowLeft, Sun, Moon } from 'lucide-vue-next'
 import MarkdownIt from 'markdown-it'
-import raw from '@content/between-the-eye-and-the-horizon-en.md?raw'
+import rawEn from '@content/between-the-eye-and-the-horizon-en.md?raw'
+
+const { locale, t } = useI18n()
+const localePath = useLocalePath()
+const switchLocalePath = useSwitchLocalePath()
 
 definePageMeta({
   layout: 'article',
 })
 
 useHead({
-  title: 'Between the Eye and the Horizon — Hilal Globe',
+  title: () => t('article.title'),
   meta: [
     {
       name: 'description',
-      content: 'Understanding Hilal Visibility Criteria, Testimony, and Physical Impossibility — An Islamic Perspective',
+      content: () => t('article.description'),
     },
   ],
 })
@@ -79,9 +93,6 @@ md.renderer.rules.link_open = (tokens: any[], idx: number, options: any, env: an
   return defaultLinkRender(tokens, idx, options, env, self)
 }
 
-// Render markdown
-const baseHtml = md.render(raw)
-
 // Post-process: add RTL attributes to paragraphs with Arabic text
 const ARABIC_RE = /[\u0600-\u06FF]/g
 
@@ -97,5 +108,10 @@ function addRtlAttributes(html: string): string {
   })
 }
 
+// For now, always use English markdown (French version can be added later)
+const raw = rawEn
+
+// Render markdown
+const baseHtml = md.render(raw)
 const renderedHtml = addRtlAttributes(baseHtml)
 </script>

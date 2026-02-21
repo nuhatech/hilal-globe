@@ -1,0 +1,215 @@
+{
+  "app": {
+    "title": "Hilal Globe",
+    "subtitle": "Crescent Visibility Map"
+  },
+  "nav": {
+    "backToGlobe": "Back to Globe",
+    "article": "Between the Eye and the Horizon",
+    "records": "World sighting records",
+    "copyLink": "Copy shareable link",
+    "copied": "Copied!",
+    "settings": "Globe settings"
+  },
+  "theme": {
+    "light": "Switch to light mode",
+    "dark": "Switch to dark mode"
+  },
+  "date": {
+    "today": "Today",
+    "prevMonth": "Previous lunar month",
+    "nextMonth": "Next lunar month"
+  },
+  "criterion": {
+    "label": "Method",
+    "sectionTitle": "Visibility Criterion"
+  },
+  "criteria": {
+    "odeh": {
+      "name": "Odeh (2006)",
+      "summary": "ICOP 2006 — V-value with 737 observations"
+    },
+    "shaukat": {
+      "name": "Khalid Shaukat",
+      "summary": "Used by moonsighting.com — altitude + width at sunset"
+    },
+    "yallop": {
+      "name": "Yallop (1997)",
+      "summary": "Royal Greenwich Observatory 1997 — q-value at best time"
+    },
+    "saao": {
+      "name": "SAAO (South Africa)",
+      "summary": "South African Observatory — ARCV vs DAZ curve"
+    },
+    "istanbul78": {
+      "name": "Istanbul 1978",
+      "summary": "Istanbul 1978 — elongation > 8° and altitude > 5°"
+    }
+  },
+  "zones": {
+    "A": { "label": "Easily visible" },
+    "B": { "label": "Perfect conditions" },
+    "C": { "label": "Optical aid to find" },
+    "D": { "label": "Optical aid only" },
+    "E": { "label": "Not visible" },
+    "notVisible": { "label": "Not visible" }
+  },
+  "zoneBadge": {
+    "A": "Easily visible to naked eye",
+    "B": "Visible under perfect conditions",
+    "C": "May need optical aid to find",
+    "D": "Visible only with optical aid",
+    "E": "Crescent exists but not visible",
+    "notVisible": "Not Visible",
+    "zone": "Zone {code}"
+  },
+  "eZone": {
+    "sectionTitle": "Zone E Extent",
+    "0": {
+      "short": "Zone E",
+      "label": "Moon above horizon",
+      "description": "Crescent not visible where moon is geometrically above the horizon at sunset"
+    },
+    "1": {
+      "short": "Zone E + Refraction",
+      "label": "Include refraction",
+      "description": "Atmosphere bends light ~0.57° at horizon, lifting the moon slightly above"
+    },
+    "2": {
+      "short": "Born Crescent",
+      "label": "Born crescent (Umm al-Qura)",
+      "description": "Conjunction occurred before sunset — crescent is born even if moon has set"
+    }
+  },
+  "elevation": {
+    "enabled": "Elevation",
+    "disabled": "Sea Level",
+    "label": "Elevation",
+    "horizonDip": "Horizon dip"
+  },
+  "overlays": {
+    "title": "Overlays",
+    "terminator": "Terminator",
+    "elevation": "Elevation"
+  },
+  "legend": {
+    "title": "Visibility"
+  },
+  "loading": {
+    "computing": "Computing visibility..."
+  },
+  "location": {
+    "title": "Location Detail",
+    "close": "Close panel",
+    "lat": "Lat",
+    "lon": "Lon",
+    "go": "Go",
+    "cancel": "Cancel",
+    "editCoords": "Click to edit coordinates",
+    "noLocation": "No location selected",
+    "noLocationHint": "Enter coordinates above or click a point on the globe.",
+    "noData": "Could not compute data for this location.",
+    "noSunset": "No sunset at this location on this date.",
+    "noSunsetHint": "Polar region — the sun does not set.",
+    "conjunction": "New Moon (Conjunction)",
+    "summary3Day": "3-Day Summary"
+  },
+  "data": {
+    "date": "Date",
+    "sunset": "Sunset",
+    "moonset": "Moonset",
+    "moonAge": "Moon Age",
+    "lagTime": "Lag Time",
+    "bestTime": "Best Time",
+    "keyData": "Key Data",
+    "day": "Day",
+    "age": "Age",
+    "lag": "Lag",
+    "elongation": "Elong.",
+    "altitude": "Altitude",
+    "azimuth": "Azimuth",
+    "ra": "RA",
+    "declination": "Declination",
+    "eclLon": "Ecl. Longitude",
+    "eclLat": "Ecl. Latitude",
+    "illumination": "Illumination",
+    "visibility": "Vis.",
+    "moonPosition": "Moon Position (Sunset)",
+    "sunPosition": "Sun Position (Sunset)",
+    "relativePosition": "Relative Position",
+    "ARCV": "ARCV",
+    "DAZ": "DAZ",
+    "phaseAngle": "Phase Angle",
+    "crescentWidth": "Crescent Width",
+    "distance": "Distance",
+    "magnitude": "Magnitude",
+    "semiDiameter": "Semi-Diameter",
+    "moonCharacteristics": "Moon Characteristics",
+    "visibilityPrediction": "Visibility Prediction",
+    "criterion": "Criterion",
+    "score": "Score",
+    "arcvBestTime": "ARCV (best time)",
+    "wBestTime": "W (best time)",
+    "notAvailable": "N/A"
+  },
+  "records": {
+    "title": "World Sighting Records",
+    "subtitle": "Extreme limits of crescent detection",
+    "recordHolders": "Record Holders",
+    "notable": "Notable Observations",
+    "method": "Method",
+    "observer": "Observer",
+    "age": "Age",
+    "elongation": "Elong.",
+    "year": "Year",
+    "nakedEye": "Naked Eye",
+    "binoculars": "Binoculars",
+    "telescope": "Telescope",
+    "ccd": "CCD",
+    "oldMoon": "Old Moon",
+    "danjonLimit": "The Danjon Limit",
+    "danjonDescription": "The minimum Sun-Moon elongation at which a crescent can physically exist. Below this limit, no part of the illuminated crescent is bright enough to detect.",
+    "danjonNakedEye": "Naked eye",
+    "danjonOptical": "Optical aid (telescope)",
+    "danjonCCD": "CCD / infrared imaging",
+    "danjonLimitLabel": "Limit",
+    "danjonNakedEyeLimit": "~7.5°–8°",
+    "danjonOpticalLimit": "~6°–6.5°",
+    "danjonCCDLimit": "~4°",
+    "whyAgeMisleading": "Why Moon Age Alone Is Misleading",
+    "whyAgeMisleadingText": "A 20-hour-old moon at apogee with poor ecliptic angle can be harder to see than a 16-hour-old moon at perigee with steep ecliptic. The critical parameters are {elongation}, {arcv} (arc of vision), {crescentWidth}, and atmospheric conditions — not age.",
+    "omeara": {
+      "name": "Stephen James O'Meara",
+      "location": "25 Feb 1990 · Tennessee, USA",
+      "age": "15h 33m",
+      "elongation": "7.7°",
+      "description": "Unbroken for 35+ years. O'Meara was the first to spot Halley's Comet on its 1985 return. The 7.7° elongation sits at the Danjon limit — the theoretical maximum for naked-eye visibility."
+    },
+    "legault": {
+      "name": "Thierry Legault",
+      "location": "8 Jul 2013 · Élancourt, France",
+      "age": "0h 0m",
+      "elongation": "4.4°",
+      "description": "Captured at the precise instant of conjunction. This record can only be duplicated, never surpassed — you cannot photograph the Moon younger than age zero. Used near-infrared imaging with the Sun only 4.4° away."
+    },
+    "stamm": {
+      "name": "Jim Stamm",
+      "location": "22 Mar 2012 · Tucson, Arizona, USA",
+      "age": "11h 17m",
+      "elongation": "6.0°",
+      "description": "ICOP record for youngest geocentric age through a telescope. The 6.0° elongation is below Odeh's empirical Danjon limit of 6.4° for optical aid."
+    },
+    "sources": "Sources: ICOP (astronomycenter.net), Sky & Telescope, Odeh (2006), Schaefer (1996), Legault, Bosscha Observatory."
+  },
+  "article": {
+    "title": "Between the Eye and the Horizon — Hilal Globe",
+    "description": "Understanding Hilal Visibility Criteria, Testimony, and Physical Impossibility — An Islamic Perspective"
+  },
+  "coords": {
+    "enterCoordinates": "Enter coordinates",
+    "latLon": "Lat/Lon"
+  },
+  "language": {
+    "switchTo": "FR"
+  }
+}

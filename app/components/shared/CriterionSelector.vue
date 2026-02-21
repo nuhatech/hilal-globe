@@ -11,7 +11,7 @@
       @click="open = !open"
     >
       <SlidersHorizontal class="h-3.5 w-3.5 shrink-0 opacity-50" />
-      <span class="font-medium">{{ activeCriterion?.name ?? 'Method' }}</span>
+      <span class="font-medium">{{ activeCriterion ? $t('criteria.' + activeCriterion.id + '.name') : $t('criterion.label') }}</span>
       <ChevronDown
         class="h-3 w-3 opacity-40 transition-transform"
         :class="open ? 'rotate-180' : ''"
@@ -29,10 +29,10 @@
     >
       <div
         v-if="open"
-        class="absolute bottom-full left-0 mb-2 w-64 overflow-hidden rounded-xl border border-slate-200/60 bg-white/90 shadow-xl shadow-black/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 dark:shadow-black/40"
+        class="absolute bottom-full left-0 z-50 mb-2 w-64 overflow-hidden rounded-xl border border-slate-200/60 bg-white/90 shadow-xl shadow-black/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 dark:shadow-black/40"
       >
         <div class="px-3 pb-1.5 pt-2.5 text-[10px] font-semibold uppercase tracking-widest text-slate-400 dark:text-white/30">
-          Visibility Criterion
+          {{ $t('criterion.sectionTitle') }}
         </div>
 
         <div class="px-1.5 pb-1.5">
@@ -71,10 +71,10 @@
                     : 'text-slate-700 dark:text-white/70'
                 "
               >
-                {{ criterion.name }}
+                {{ $t('criteria.' + criterion.id + '.name') }}
               </div>
               <div class="mt-0.5 text-[10px] leading-tight text-slate-400 dark:text-white/30">
-                {{ criterion.summary }}
+                {{ $t('criteria.' + criterion.id + '.summary') }}
               </div>
             </div>
           </button>

@@ -7,7 +7,7 @@
       class="rounded-full px-2.5 py-1 text-xs font-medium text-slate-600 transition-colors hover:bg-slate-200/60 dark:text-white/70 dark:hover:bg-white/10"
       @click="setToday"
     >
-      Today
+      {{ $t('date.today') }}
     </button>
 
     <!-- Separator -->
@@ -16,7 +16,7 @@
     <!-- Prev month arrow -->
     <button
       class="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200/60 dark:text-white/50 dark:hover:bg-white/10"
-      title="Previous lunar month"
+      :title="$t('date.prevMonth')"
       @click="prevMonth"
     >
       <ChevronLeft class="h-3 w-3" />
@@ -40,7 +40,7 @@
     <!-- Next month arrow -->
     <button
       class="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200/60 dark:text-white/50 dark:hover:bg-white/10"
-      title="Next lunar month"
+      :title="$t('date.nextMonth')"
       @click="nextMonth"
     >
       <ChevronRight class="h-3 w-3" />

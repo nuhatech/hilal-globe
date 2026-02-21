@@ -8,7 +8,7 @@
           ? 'border-slate-300/70 bg-white/95 text-slate-800 shadow-lg shadow-black/8 dark:border-white/20 dark:bg-white/10 dark:text-white dark:shadow-black/20'
           : 'border-slate-200/50 bg-slate-100/80 text-slate-600 hover:bg-slate-200/60 dark:border-white/10 dark:bg-white/5 dark:text-white/70 dark:hover:bg-white/10'
       "
-      title="Globe settings"
+      :title="$t('nav.settings')"
       @click="open = !open"
     >
       <Settings
@@ -31,7 +31,7 @@
         class="absolute right-0 top-full mt-2 w-52 overflow-hidden rounded-xl border border-slate-200/60 bg-white/90 shadow-xl shadow-black/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 dark:shadow-black/40"
       >
         <div class="px-3 pb-1 pt-2.5 text-[10px] font-semibold uppercase tracking-widest text-slate-400 dark:text-white/30">
-          Overlays
+          {{ $t('overlays.title') }}
         </div>
 
         <div class="px-1.5 pb-1.5">
@@ -60,7 +60,7 @@
               class="flex-1 text-xs font-medium"
               :class="store.showTerminator ? 'text-slate-800 dark:text-white' : 'text-slate-500 dark:text-white/40'"
             >
-              Terminator
+              {{ $t('overlays.terminator') }}
             </span>
 
             <!-- Toggle pill -->
@@ -91,7 +91,7 @@
               class="flex-1 text-xs font-medium"
               :class="visibilityStore.elevationEnabled ? 'text-slate-800 dark:text-white' : 'text-slate-500 dark:text-white/40'"
             >
-              Elevation
+              {{ $t('overlays.elevation') }}
             </span>
 
             <!-- Loading spinner -->

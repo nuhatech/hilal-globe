@@ -1,18 +1,18 @@
 <template>
   <header class="absolute top-0 left-0 right-0 z-20 flex items-center px-3 py-3 sm:px-5">
     <h1 class="shrink-0 text-lg font-semibold tracking-wide text-slate-800/90 dark:text-white/90">
-      Hilal Globe
+      {{ $t('app.title') }}
     </h1>
-    <span class="ml-3 hidden text-xs text-slate-500/60 dark:text-white/40 sm:inline">Crescent Visibility Map</span>
+    <span class="ml-3 hidden text-xs text-slate-500/60 dark:text-white/40 sm:inline">{{ $t('app.subtitle') }}</span>
 
     <div class="ml-auto flex items-center gap-1">
       <GlobeSettings />
 
       <!-- Article link -->
       <NuxtLink
-        to="/article"
+        :to="localePath('/article')"
         class="flex h-8 w-8 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-200/60 dark:text-white/70 dark:hover:bg-white/10"
-        title="Between the Eye and the Horizon"
+        :title="$t('nav.article')"
       >
         <FileText class="h-4 w-4" />
       </NuxtLink>
@@ -20,7 +20,7 @@
       <!-- Sighting records -->
       <button
         class="flex h-8 w-8 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-200/60 dark:text-white/70 dark:hover:bg-white/10"
-        title="World sighting records"
+        :title="$t('nav.records')"
         @click="showRecords = true"
       >
         <BookOpen class="h-4 w-4" />
@@ -28,7 +28,7 @@
 
       <button
         class="relative flex h-8 w-8 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-200/60 dark:text-white/70 dark:hover:bg-white/10"
-        title="Copy shareable link"
+        :title="$t('nav.copyLink')"
         @click="copyLink"
       >
         <Link class="h-4 w-4" />
@@ -44,14 +44,22 @@
             v-if="showCopied"
             class="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-slate-800 px-2 py-0.5 text-[10px] text-white dark:bg-white dark:text-slate-900"
           >
-            Copied!
+            {{ $t('nav.copied') }}
           </span>
         </Transition>
       </button>
 
+      <!-- Language switcher -->
+      <NuxtLink
+        :to="switchLocalePath(locale === 'en' ? 'fr' : 'en')"
+        class="flex h-8 items-center justify-center rounded-full px-2 text-[11px] font-semibold text-slate-600 transition-colors hover:bg-slate-200/60 dark:text-white/70 dark:hover:bg-white/10"
+      >
+        {{ $t('language.switchTo') }}
+      </NuxtLink>
+
       <button
         class="flex h-8 w-8 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-200/60 dark:text-white/70 dark:hover:bg-white/10"
-        :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+        :title="isDark ? $t('theme.light') : $t('theme.dark')"
         @click="toggleTheme"
       >
         <Sun v-if="isDark" class="h-4 w-4" />
@@ -65,6 +73,10 @@
 
 <script setup lang="ts">
 import { FileText, BookOpen, Link, Sun, Moon } from 'lucide-vue-next'
+
+const { locale } = useI18n()
+const localePath = useLocalePath()
+const switchLocalePath = useSwitchLocalePath()
 
 const colorMode = useColorMode()
 

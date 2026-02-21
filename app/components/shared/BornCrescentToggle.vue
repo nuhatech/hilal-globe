@@ -17,7 +17,7 @@
         class="h-3.5 w-3.5 shrink-0 transition-opacity"
         :class="store.eZoneMode > 0 ? 'opacity-80' : 'opacity-40'"
       />
-      <span class="font-medium">{{ getEZoneModeShortLabel(store.eZoneMode) }}</span>
+      <span class="font-medium">{{ $t('eZone.' + store.eZoneMode + '.short') }}</span>
       <!-- Active dot -->
       <div
         v-if="store.eZoneMode > 0"
@@ -40,16 +40,16 @@
     >
       <div
         v-if="open"
-        class="absolute bottom-full left-0 mb-2 w-72 overflow-hidden rounded-xl border border-slate-200/60 bg-white/90 shadow-xl shadow-black/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 dark:shadow-black/40"
+        class="absolute bottom-full left-0 z-50 mb-2 w-72 overflow-hidden rounded-xl border border-slate-200/60 bg-white/90 shadow-xl shadow-black/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 dark:shadow-black/40"
       >
         <div class="px-3 pb-1 pt-2.5 text-[10px] font-semibold uppercase tracking-widest text-slate-400 dark:text-white/30">
           <span class="inline-block h-2 w-2 translate-y-px rounded-sm mr-1" style="background: #E8928E" />
-          Zone E Extent
+          {{ $t('eZone.sectionTitle') }}
         </div>
 
         <div class="px-1.5 pb-1.5">
           <button
-            v-for="option in E_ZONE_MODE_OPTIONS"
+            v-for="option in eZoneModes"
             :key="option.mode"
             class="flex w-full items-start gap-2.5 rounded-lg px-2.5 py-2 text-left transition-colors"
             :class="
@@ -83,10 +83,10 @@
                     : 'text-slate-700 dark:text-white/70'
                 "
               >
-                {{ option.label }}
+                {{ $t('eZone.' + option.mode + '.label') }}
               </div>
               <div class="mt-0.5 text-[10px] leading-tight text-slate-400 dark:text-white/30">
-                {{ option.description }}
+                {{ $t('eZone.' + option.mode + '.description') }}
               </div>
             </div>
           </button>
@@ -99,11 +99,13 @@
 <script setup lang="ts">
 import { Moon, ChevronDown } from 'lucide-vue-next'
 import type { EZoneMode } from '@domain/visibility/VisibilityGridService'
-import { E_ZONE_MODE_OPTIONS, getEZoneModeShortLabel } from '@domain/visibility/EZoneModeConfig'
+import { E_ZONE_MODE_OPTIONS } from '@domain/visibility/EZoneModeConfig'
 
 const store = useVisibilityStore()
 const open = ref(false)
 const wrapper = ref<HTMLElement | null>(null)
+
+const eZoneModes = E_ZONE_MODE_OPTIONS
 
 function selectMode(mode: EZoneMode) {
   store.eZoneMode = mode

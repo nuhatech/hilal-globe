@@ -13,7 +13,17 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/color-mode'],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/color-mode', '@nuxtjs/i18n'],
+
+  i18n: {
+    defaultLocale: 'en',
+    langDir: 'locales',
+    strategy: 'prefix_except_default',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'fr', name: 'Français', file: 'fr.json' },
+    ],
+  },
 
   colorMode: {
     classSuffix: '',

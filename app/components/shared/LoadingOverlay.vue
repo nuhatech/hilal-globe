@@ -6,7 +6,7 @@
     >
       <div class="flex flex-col items-center gap-3">
         <div class="h-8 w-8 animate-spin rounded-full border-2 border-slate-400/20 border-t-slate-600/80 dark:border-white/20 dark:border-t-white/80" />
-        <span class="text-sm text-slate-600/70 dark:text-white/70">Computing visibility...</span>
+        <span class="text-sm text-slate-600/70 dark:text-white/70">{{ $t('loading.computing') }}</span>
       </div>
     </div>
   </Transition>

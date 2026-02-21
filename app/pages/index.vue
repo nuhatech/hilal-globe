@@ -11,11 +11,11 @@
         <BornCrescentToggle />
         <button
           class="flex items-center gap-2 rounded-xl border border-slate-200/50 bg-slate-100/80 px-3 py-2 text-xs backdrop-blur-md transition-all hover:bg-slate-200/60 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 text-slate-600 dark:text-white/70"
-          title="Enter coordinates"
+          :title="$t('coords.enterCoordinates')"
           @click="openCoordInput"
         >
           <Crosshair class="h-3.5 w-3.5 opacity-40" />
-          <span class="font-medium">Lat/Lon</span>
+          <span class="font-medium">{{ $t('coords.latLon') }}</span>
         </button>
       </div>
 

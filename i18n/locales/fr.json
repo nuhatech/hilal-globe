@@ -1,0 +1,215 @@
+{
+  "app": {
+    "title": "Hilal Globe",
+    "subtitle": "Carte de Visibilité du Croissant"
+  },
+  "nav": {
+    "backToGlobe": "Retour au Globe",
+    "article": "Entre l'Œil et l'Horizon",
+    "records": "Records mondiaux d'observation",
+    "copyLink": "Copier le lien partageable",
+    "copied": "Copié !",
+    "settings": "Paramètres du globe"
+  },
+  "theme": {
+    "light": "Passer en mode clair",
+    "dark": "Passer en mode sombre"
+  },
+  "date": {
+    "today": "Aujourd'hui",
+    "prevMonth": "Mois lunaire précédent",
+    "nextMonth": "Mois lunaire suivant"
+  },
+  "criterion": {
+    "label": "Méthode",
+    "sectionTitle": "Critère de Visibilité"
+  },
+  "criteria": {
+    "odeh": {
+      "name": "Odeh (2006)",
+      "summary": "ICOP 2006 — Valeur V avec 737 observations"
+    },
+    "shaukat": {
+      "name": "Khalid Shaukat",
+      "summary": "Utilisé par moonsighting.com — altitude + largeur au coucher du soleil"
+    },
+    "yallop": {
+      "name": "Yallop (1997)",
+      "summary": "Observatoire Royal de Greenwich 1997 — valeur q au meilleur moment"
+    },
+    "saao": {
+      "name": "SAAO (Afrique du Sud)",
+      "summary": "Observatoire Sud-Africain — courbe ARCV vs DAZ"
+    },
+    "istanbul78": {
+      "name": "Istanbul 1978",
+      "summary": "Istanbul 1978 — élongation > 8° et altitude > 5°"
+    }
+  },
+  "zones": {
+    "A": { "label": "Facilement visible" },
+    "B": { "label": "Conditions parfaites" },
+    "C": { "label": "Aide optique pour trouver" },
+    "D": { "label": "Aide optique uniquement" },
+    "E": { "label": "Non visible" },
+    "notVisible": { "label": "Non visible" }
+  },
+  "zoneBadge": {
+    "A": "Facilement visible à l'œil nu",
+    "B": "Visible dans des conditions parfaites",
+    "C": "Peut nécessiter une aide optique",
+    "D": "Visible uniquement avec aide optique",
+    "E": "Le croissant existe mais n'est pas visible",
+    "notVisible": "Non Visible",
+    "zone": "Zone {code}"
+  },
+  "eZone": {
+    "sectionTitle": "Étendue de la Zone E",
+    "0": {
+      "short": "Zone E",
+      "label": "Lune au-dessus de l'horizon",
+      "description": "Croissant non visible là où la lune est géométriquement au-dessus de l'horizon au coucher du soleil"
+    },
+    "1": {
+      "short": "Zone E + Réfraction",
+      "label": "Inclure la réfraction",
+      "description": "L'atmosphère dévie la lumière de ~0.57° à l'horizon, soulevant légèrement la lune"
+    },
+    "2": {
+      "short": "Croissant Né",
+      "label": "Croissant né (Umm al-Qura)",
+      "description": "La conjonction a eu lieu avant le coucher du soleil — le croissant est né même si la lune s'est couchée"
+    }
+  },
+  "elevation": {
+    "enabled": "Élévation",
+    "disabled": "Niveau de la Mer",
+    "label": "Élévation",
+    "horizonDip": "Dépression de l'horizon"
+  },
+  "overlays": {
+    "title": "Superpositions",
+    "terminator": "Terminateur",
+    "elevation": "Élévation"
+  },
+  "legend": {
+    "title": "Visibilité"
+  },
+  "loading": {
+    "computing": "Calcul de la visibilité..."
+  },
+  "location": {
+    "title": "Détail du Lieu",
+    "close": "Fermer le panneau",
+    "lat": "Lat",
+    "lon": "Lon",
+    "go": "Aller",
+    "cancel": "Annuler",
+    "editCoords": "Cliquer pour modifier les coordonnées",
+    "noLocation": "Aucun lieu sélectionné",
+    "noLocationHint": "Entrez les coordonnées ci-dessus ou cliquez sur un point du globe.",
+    "noData": "Impossible de calculer les données pour ce lieu.",
+    "noSunset": "Pas de coucher de soleil à cet endroit à cette date.",
+    "noSunsetHint": "Région polaire — le soleil ne se couche pas.",
+    "conjunction": "Nouvelle Lune (Conjonction)",
+    "summary3Day": "Résumé sur 3 Jours"
+  },
+  "data": {
+    "date": "Date",
+    "sunset": "Coucher du soleil",
+    "moonset": "Coucher de la lune",
+    "moonAge": "Âge de la Lune",
+    "lagTime": "Délai",
+    "bestTime": "Meilleur Moment",
+    "keyData": "Données Clés",
+    "day": "Jour",
+    "age": "Âge",
+    "lag": "Délai",
+    "elongation": "Élong.",
+    "altitude": "Altitude",
+    "azimuth": "Azimut",
+    "ra": "AD",
+    "declination": "Déclinaison",
+    "eclLon": "Long. Écliptique",
+    "eclLat": "Lat. Écliptique",
+    "illumination": "Illumination",
+    "visibility": "Vis.",
+    "moonPosition": "Position de la Lune (Coucher)",
+    "sunPosition": "Position du Soleil (Coucher)",
+    "relativePosition": "Position Relative",
+    "ARCV": "ARCV",
+    "DAZ": "DAZ",
+    "phaseAngle": "Angle de Phase",
+    "crescentWidth": "Largeur du Croissant",
+    "distance": "Distance",
+    "magnitude": "Magnitude",
+    "semiDiameter": "Semi-Diamètre",
+    "moonCharacteristics": "Caractéristiques Lunaires",
+    "visibilityPrediction": "Prédiction de Visibilité",
+    "criterion": "Critère",
+    "score": "Score",
+    "arcvBestTime": "ARCV (meilleur moment)",
+    "wBestTime": "W (meilleur moment)",
+    "notAvailable": "N/D"
+  },
+  "records": {
+    "title": "Records Mondiaux d'Observation",
+    "subtitle": "Limites extrêmes de détection du croissant",
+    "recordHolders": "Détenteurs de Records",
+    "notable": "Observations Remarquables",
+    "method": "Méthode",
+    "observer": "Observateur",
+    "age": "Âge",
+    "elongation": "Élong.",
+    "year": "Année",
+    "nakedEye": "Œil Nu",
+    "binoculars": "Jumelles",
+    "telescope": "Télescope",
+    "ccd": "CCD",
+    "oldMoon": "Vieille Lune",
+    "danjonLimit": "La Limite de Danjon",
+    "danjonDescription": "L'élongation minimale Soleil-Lune à laquelle un croissant peut physiquement exister. En dessous de cette limite, aucune partie du croissant illuminé n'est assez brillante pour être détectée.",
+    "danjonNakedEye": "Œil nu",
+    "danjonOptical": "Aide optique (télescope)",
+    "danjonCCD": "CCD / imagerie infrarouge",
+    "danjonLimitLabel": "Limite",
+    "danjonNakedEyeLimit": "~7,5°–8°",
+    "danjonOpticalLimit": "~6°–6,5°",
+    "danjonCCDLimit": "~4°",
+    "whyAgeMisleading": "Pourquoi l'Âge Lunaire Seul Est Trompeur",
+    "whyAgeMisleadingText": "Une lune de 20 heures à l'apogée avec un mauvais angle écliptique peut être plus difficile à voir qu'une lune de 16 heures au périgée avec un écliptique prononcé. Les paramètres critiques sont {elongation}, {arcv} (arc de vision), {crescentWidth}, et les conditions atmosphériques — pas l'âge.",
+    "omeara": {
+      "name": "Stephen James O'Meara",
+      "location": "25 fév. 1990 · Tennessee, USA",
+      "age": "15h 33m",
+      "elongation": "7,7°",
+      "description": "Inégalé depuis plus de 35 ans. O'Meara fut le premier à repérer la comète de Halley lors de son retour en 1985. L'élongation de 7,7° se situe à la limite de Danjon — le maximum théorique pour la visibilité à l'œil nu."
+    },
+    "legault": {
+      "name": "Thierry Legault",
+      "location": "8 juil. 2013 · Élancourt, France",
+      "age": "0h 0m",
+      "elongation": "4,4°",
+      "description": "Capturé à l'instant précis de la conjonction. Ce record ne peut être qu'égalé, jamais dépassé — on ne peut pas photographier la Lune plus jeune que l'âge zéro. Imagerie proche infrarouge avec le Soleil à seulement 4,4°."
+    },
+    "stamm": {
+      "name": "Jim Stamm",
+      "location": "22 mars 2012 · Tucson, Arizona, USA",
+      "age": "11h 17m",
+      "elongation": "6,0°",
+      "description": "Record ICOP du plus jeune âge géocentrique au télescope. L'élongation de 6,0° est inférieure à la limite empirique de Danjon d'Odeh de 6,4° pour l'aide optique."
+    },
+    "sources": "Sources : ICOP (astronomycenter.net), Sky & Telescope, Odeh (2006), Schaefer (1996), Legault, Observatoire de Bosscha."
+  },
+  "article": {
+    "title": "Entre l'Œil et l'Horizon — Hilal Globe",
+    "description": "Comprendre les Critères de Visibilité du Hilal, le Témoignage et l'Impossibilité Physique — Une Perspective Islamique"
+  },
+  "coords": {
+    "enterCoordinates": "Entrer les coordonnées",
+    "latLon": "Lat/Lon"
+  },
+  "language": {
+    "switchTo": "EN"
+  }
+}

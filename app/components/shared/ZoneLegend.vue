@@ -3,7 +3,7 @@
     class="rounded-xl border border-slate-200/50 bg-white/80 px-3 py-2.5 backdrop-blur-md dark:border-white/10 dark:bg-white/5"
   >
     <div class="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-slate-400 dark:text-white/30">
-      Visibility
+      {{ $t('legend.title') }}
     </div>
 
     <div class="flex flex-col gap-1">
@@ -17,7 +17,7 @@
           :style="{ background: zone.color + alpha }"
         />
         <span class="text-[10px] leading-none text-slate-600 dark:text-white/60">
-          {{ zone.label }}
+          {{ $t('zones.' + zone.code + '.label') }}
         </span>
       </div>
     </div>
@@ -35,10 +35,10 @@ const isDark = computed(() => colorMode.value === 'dark')
 const alpha = computed(() => isDark.value ? 'B3' : '70')
 
 const zones = [
-  { code: 'A', color: ZONE_COLORS[ZoneCode.A], label: 'Easily visible' },
-  { code: 'B', color: ZONE_COLORS[ZoneCode.B], label: 'Perfect conditions' },
-  { code: 'C', color: ZONE_COLORS[ZoneCode.C], label: 'Optical aid to find' },
-  { code: 'D', color: ZONE_COLORS[ZoneCode.D], label: 'Optical aid only' },
-  { code: 'E', color: ZONE_COLORS[ZoneCode.E], label: 'Not visible' },
+  { code: 'A', color: ZONE_COLORS[ZoneCode.A] },
+  { code: 'B', color: ZONE_COLORS[ZoneCode.B] },
+  { code: 'C', color: ZONE_COLORS[ZoneCode.C] },
+  { code: 'D', color: ZONE_COLORS[ZoneCode.D] },
+  { code: 'E', color: ZONE_COLORS[ZoneCode.E] },
 ]
 </script>
