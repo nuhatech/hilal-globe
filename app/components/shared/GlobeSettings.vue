@@ -112,6 +112,10 @@
             </div>
           </button>
         </div>
+
+        <div class="border-t border-slate-200/40 dark:border-white/5 px-3 py-2 text-center text-[9px] text-slate-400/60 dark:text-white/20">
+          Built by NuhaTech
+        </div>
       </div>
     </Transition>
   </div>
