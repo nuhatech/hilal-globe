@@ -15,13 +15,11 @@
 
     <!-- Prev month arrow -->
     <button
-      class="flex h-6 w-6 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200/60 dark:text-white/50 dark:hover:bg-white/10"
+      class="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200/60 dark:text-white/50 dark:hover:bg-white/10"
       title="Previous lunar month"
       @click="prevMonth"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-      </svg>
+      <ChevronLeft class="h-3 w-3" />
     </button>
 
     <!-- 3 day tabs -->
@@ -41,18 +39,17 @@
 
     <!-- Next month arrow -->
     <button
-      class="flex h-6 w-6 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200/60 dark:text-white/50 dark:hover:bg-white/10"
+      class="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200/60 dark:text-white/50 dark:hover:bg-white/10"
       title="Next lunar month"
       @click="nextMonth"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-      </svg>
+      <ChevronRight class="h-3 w-3" />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import {
   getLunarTriplet,
   getPreviousLunarMonth,

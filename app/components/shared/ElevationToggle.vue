@@ -10,19 +10,10 @@
     @click="toggle"
   >
     <!-- Mountain icon -->
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
+    <Mountain
       class="h-3.5 w-3.5 shrink-0 transition-opacity"
       :class="store.elevationEnabled ? 'opacity-80' : 'opacity-40'"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
+    />
 
     <!-- Loading spinner -->
     <div
@@ -40,6 +31,8 @@
 </template>
 
 <script setup lang="ts">
+import { Mountain } from 'lucide-vue-next'
+
 const store = useVisibilityStore()
 
 async function toggle() {

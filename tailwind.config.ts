@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
 
 export default {
   content: [
@@ -22,6 +23,30 @@ export default {
           D: '#E16665',
         },
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+          },
+        },
+        invert: {
+          css: {
+            '--tw-prose-links': '#6ee7b7',
+            '--tw-prose-headings': '#f1f5f9',
+            '--tw-prose-body': '#cbd5e1',
+            '--tw-prose-bold': '#f1f5f9',
+            '--tw-prose-quotes': '#94a3b8',
+            '--tw-prose-quote-borders': '#059669',
+            '--tw-prose-counters': '#94a3b8',
+            '--tw-prose-bullets': '#64748b',
+            '--tw-prose-hr': '#1e293b',
+            '--tw-prose-th-borders': '#334155',
+            '--tw-prose-td-borders': '#1e293b',
+            '--tw-prose-code': '#e2e8f0',
+          },
+        },
+      },
     },
   },
+  plugins: [typography],
 } satisfies Config

@@ -10,19 +10,12 @@
       "
       @click="open = !open"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 opacity-50" viewBox="0 0 20 20" fill="currentColor">
-        <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
-      </svg>
+      <SlidersHorizontal class="h-3.5 w-3.5 shrink-0 opacity-50" />
       <span class="font-medium">{{ activeCriterion?.name ?? 'Method' }}</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
+      <ChevronDown
         class="h-3 w-3 opacity-40 transition-transform"
         :class="open ? 'rotate-180' : ''"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-      </svg>
+      />
     </button>
 
     <!-- Dropdown -->
@@ -92,6 +85,8 @@
 </template>
 
 <script setup lang="ts">
+import { SlidersHorizontal, ChevronDown } from 'lucide-vue-next'
+
 const store = useVisibilityStore()
 const open = ref(false)
 const wrapper = ref<HTMLElement | null>(null)

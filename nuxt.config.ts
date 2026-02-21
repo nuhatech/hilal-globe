@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 const domainPath = new URL('./domain', import.meta.url).pathname
+const contentPath = new URL('./content', import.meta.url).pathname
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -26,6 +27,7 @@ export default defineNuxtConfig({
 
   alias: {
     '@domain': domainPath,
+    '@content': contentPath,
   },
 
   future: {

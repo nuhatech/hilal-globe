@@ -13,30 +13,20 @@
       @click="open = !open"
     >
       <!-- Crescent moon icon -->
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
+      <Moon
         class="h-3.5 w-3.5 shrink-0 transition-opacity"
         :class="store.eZoneMode > 0 ? 'opacity-80' : 'opacity-40'"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-      </svg>
+      />
       <span class="font-medium">{{ getEZoneModeShortLabel(store.eZoneMode) }}</span>
       <!-- Active dot -->
       <div
         v-if="store.eZoneMode > 0"
         class="h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"
       />
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
+      <ChevronDown
         class="h-3 w-3 opacity-40 transition-transform"
         :class="open ? 'rotate-180' : ''"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-      </svg>
+      />
     </button>
 
     <!-- Dropdown panel -->
@@ -107,6 +97,7 @@
 </template>
 
 <script setup lang="ts">
+import { Moon, ChevronDown } from 'lucide-vue-next'
 import type { EZoneMode } from '@domain/visibility/VisibilityGridService'
 import { E_ZONE_MODE_OPTIONS, getEZoneModeShortLabel } from '@domain/visibility/EZoneModeConfig'
 

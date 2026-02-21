@@ -20,9 +20,7 @@
               title="Close panel"
               @click="store.closePanel()"
             >
-              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-              </svg>
+              <X class="h-4 w-4" />
             </button>
           </div>
 
@@ -59,7 +57,7 @@
               class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-slate-200/50 dark:border-white/12 bg-slate-100/80 dark:bg-white/[0.06] text-slate-500 dark:text-white/50 hover:bg-slate-200/60 dark:hover:bg-white/10 dark:hover:border-white/18 active:scale-95 transition-all"
               title="Go"
             >
-              <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+              <Check class="h-3.5 w-3.5" />
             </button>
             <button
               v-if="store.selectedCoord"
@@ -68,7 +66,7 @@
               title="Cancel"
               @click="editingCoord = false"
             >
-              <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg>
+              <X class="h-3.5 w-3.5" />
             </button>
           </form>
           <button
@@ -77,24 +75,18 @@
             title="Click to edit coordinates"
             @click="startEditing"
           >
-            <svg class="h-3 w-3 shrink-0 text-emerald-500/40 dark:text-emerald-400/30" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-            </svg>
+            <MapPin class="h-3 w-3 shrink-0 text-emerald-500/40 dark:text-emerald-400/30" />
             <p class="text-xs font-mono text-slate-500 dark:text-white/40 group-hover:text-slate-700 dark:group-hover:text-white/60 transition-colors">
               {{ formatCoord(store.selectedCoord.lat, 'NS') }}, {{ formatCoord(store.selectedCoord.lon, 'EW') }}
             </p>
-            <svg class="h-2.5 w-2.5 text-slate-400 dark:text-white/20 opacity-0 group-hover:opacity-100 transition-opacity" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M2.695 14.763l-1.262 3.154a.5.5 0 00.65.65l3.155-1.262a4 4 0 001.343-.885L17.5 5.5a2.121 2.121 0 00-3-3L3.58 13.42a4 4 0 00-.885 1.343z" />
-            </svg>
+            <Pencil class="h-2.5 w-2.5 text-slate-400 dark:text-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>
         </div>
 
         <!-- No coordinate yet — prompt -->
         <div v-if="!store.selectedCoord" class="flex flex-col items-center gap-3 px-6 py-10">
           <div class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/40 dark:border-white/8 bg-slate-100/50 dark:bg-white/[0.03]">
-            <svg class="h-5 w-5 text-slate-300 dark:text-white/15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" /><line x1="12" y1="2" x2="12" y2="6" /><line x1="12" y1="18" x2="12" y2="22" /><line x1="2" y1="12" x2="6" y2="12" /><line x1="18" y1="12" x2="22" y2="12" />
-            </svg>
+            <Crosshair class="h-5 w-5 text-slate-300 dark:text-white/15" :stroke-width="1.5" />
           </div>
           <div class="text-center">
             <p class="text-xs font-medium text-slate-500 dark:text-white/40">No location selected</p>
@@ -126,9 +118,7 @@
               v-if="store.report.detail.elevationMeters != null"
               class="flex items-center gap-3 border-b border-slate-200/40 dark:border-white/10 px-4 py-2.5 bg-amber-50/50 dark:bg-amber-900/10"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-              </svg>
+              <Mountain class="h-3.5 w-3.5 shrink-0 text-amber-600 dark:text-amber-400" />
               <div class="flex gap-4 text-xs">
                 <span class="text-slate-600 dark:text-white/60">
                   Elevation <span class="font-mono font-medium text-slate-800 dark:text-white/80">{{ store.report.detail.elevationMeters.toLocaleString() }}m</span>
@@ -262,6 +252,7 @@
 </template>
 
 <script setup lang="ts">
+import { X, Check, MapPin, Pencil, Crosshair, Mountain } from 'lucide-vue-next'
 import { ZoneCode } from '@domain/models/ZoneCode'
 import { ZONE_COLORS, ZONE_LABELS } from '@domain/models/ZoneConfig'
 import { getCriterion } from '@domain/criteria/CriteriaRegistry'
