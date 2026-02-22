@@ -165,7 +165,7 @@
                     >
                       <td class="px-1 py-1.5">
                         <div class="font-medium text-slate-700 dark:text-white/70">{{ day.dateStr.slice(5) }}</div>
-                        <div class="text-[10px] text-slate-400 dark:text-white/30">{{ day.label }}</div>
+                        <div class="text-[10px] text-slate-400 dark:text-white/30">{{ $t('date.' + day.labelKey) }}</div>
                       </td>
                       <td class="px-1 py-1.5 font-mono text-slate-600 dark:text-white/60">
                         {{ day.noSunset ? '-' : day.moonAge != null ? formatAge(day.moonAge) : '-' }}

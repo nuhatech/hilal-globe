@@ -115,7 +115,7 @@ function computeDaySummary(
   lat: number,
   lon: number,
   dateStr: string,
-  label: string,
+  labelKey: string,
   conjunction: AstroTime,
   criterionId: string,
   elevation: number = 0,
@@ -125,7 +125,7 @@ function computeDaySummary(
   if (!sunset) {
     return {
       dateStr,
-      label,
+      labelKey,
       noSunset: true,
       moonAge: null,
       lagTimeMinutes: null,
@@ -183,7 +183,7 @@ function computeDaySummary(
 
   return {
     dateStr,
-    label,
+    labelKey,
     noSunset: false,
     moonAge,
     lagTimeMinutes,
@@ -221,9 +221,9 @@ export function computeLocationReport(
   // 3-day summary anchored on conjunction date
   const conjDateStr = conjunction.date.toISOString().slice(0, 10)
   const daySummaries: [DaySummary, DaySummary, DaySummary] = [
-    computeDaySummary(lat, lon, conjDateStr, 'Conjunction Day', conjunction, criterionId, elevation),
-    computeDaySummary(lat, lon, addDaysToDateStr(conjDateStr, 1), 'Next Day', conjunction, criterionId, elevation),
-    computeDaySummary(lat, lon, addDaysToDateStr(conjDateStr, 2), 'Day After', conjunction, criterionId, elevation),
+    computeDaySummary(lat, lon, conjDateStr, 'conjunction', conjunction, criterionId, elevation),
+    computeDaySummary(lat, lon, addDaysToDateStr(conjDateStr, 1), 'nextDay', conjunction, criterionId, elevation),
+    computeDaySummary(lat, lon, addDaysToDateStr(conjDateStr, 2), 'dayAfter', conjunction, criterionId, elevation),
   ]
 
   // Detailed report for the selected date

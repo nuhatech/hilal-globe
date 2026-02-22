@@ -37,7 +37,6 @@ import { Crosshair } from 'lucide-vue-next'
 const { t } = useI18n()
 
 useSeoMeta({
-  title: () => t('app.title'),
   ogTitle: () => `${t('app.title')} — ${t('app.subtitle')}`,
 })
 

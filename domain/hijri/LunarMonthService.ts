@@ -3,8 +3,8 @@ import { findNextNewMoon, findPreviousNewMoon } from '../astronomy/ConjunctionSe
 export interface LunarDay {
   /** ISO date string YYYY-MM-DD */
   dateStr: string
-  /** "Conjunction" | "Next Day" | "Day After" */
-  label: string
+  /** Label key: "conjunction" | "nextDay" | "dayAfter" */
+  labelKey: string
 }
 
 /**
@@ -23,9 +23,9 @@ export function getLunarTriplet(dateStr: string): [LunarDay, LunarDay, LunarDay]
   const d2 = addDaysToDateStr(d0, 2)
 
   return [
-    { dateStr: d0, label: 'Conjunction' },
-    { dateStr: d1, label: 'Next Day' },
-    { dateStr: d2, label: 'Day After' },
+    { dateStr: d0, labelKey: 'conjunction' },
+    { dateStr: d1, labelKey: 'nextDay' },
+    { dateStr: d2, labelKey: 'dayAfter' },
   ]
 }
 

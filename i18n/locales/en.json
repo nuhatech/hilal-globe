@@ -18,7 +18,10 @@
   "date": {
     "today": "Today",
     "prevMonth": "Previous lunar month",
-    "nextMonth": "Next lunar month"
+    "nextMonth": "Next lunar month",
+    "conjunction": "Conjunction",
+    "nextDay": "Next Day",
+    "dayAfter": "Day After"
   },
   "criterion": {
     "label": "Method",

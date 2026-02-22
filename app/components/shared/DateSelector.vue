@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute top-12 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-slate-200/50 bg-slate-100/80 px-2 py-1 backdrop-blur-md dark:border-white/10 dark:bg-white/5"
+    class="absolute safe-top-12 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-slate-200/50 bg-slate-100/80 px-2 py-1 backdrop-blur-md dark:border-white/10 dark:bg-white/5"
   >
     <!-- Today button -->
     <button
@@ -58,11 +58,12 @@ import {
 } from '@domain/hijri/LunarMonthService'
 
 const store = useVisibilityStore()
+const { t, locale } = useI18n()
 
-// Format "YYYY-MM-DD" → "18 Feb"
+// Format "YYYY-MM-DD" → "18 Feb" / "18 fév."
 function formatShort(dateStr: string): string {
   const d = new Date(dateStr + 'T12:00:00Z')
-  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' })
+  return d.toLocaleDateString(locale.value, { day: 'numeric', month: 'short', timeZone: 'UTC' })
 }
 
 // 3-day triplet from domain, with display formatting added
@@ -72,7 +73,7 @@ const days = computed(() => {
   return triplet.map(day => ({
     date: day.dateStr,
     shortDate: formatShort(day.dateStr),
-    label: day.label,
+    label: t('date.' + day.labelKey),
   }))
 })
 

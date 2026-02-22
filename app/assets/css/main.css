@@ -16,6 +16,18 @@ body {
   bottom: calc(1rem + env(safe-area-inset-bottom));
 }
 
+/* Safe area: add padding-top for standalone PWA status bar */
+.pt-safe {
+  padding-top: constant(safe-area-inset-top); /* iOS < 11.2 */
+  padding-top: env(safe-area-inset-top);
+}
+
+/* Safe area: push element below header + status bar in standalone mode */
+.safe-top-12 {
+  top: calc(3rem + constant(safe-area-inset-top)); /* iOS < 11.2 */
+  top: calc(3rem + env(safe-area-inset-top));
+}
+
 /* Safe area: add padding-bottom for scrollable containers */
 .pb-safe {
   padding-bottom: constant(safe-area-inset-bottom); /* iOS < 11.2 */

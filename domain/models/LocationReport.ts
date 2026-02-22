@@ -18,7 +18,7 @@ export interface CelestialPosition {
 /** Summary row for the 3-day table. Always anchored on conjunction date. */
 export interface DaySummary {
   dateStr: string
-  label: string // "Conjunction Day" | "Next Day" | "Day After"
+  labelKey: string // "conjunction" | "nextDay" | "dayAfter"
   noSunset: boolean
   moonAge: number | null // hours since conjunction at sunset
   lagTimeMinutes: number | null

@@ -18,7 +18,10 @@
   "date": {
     "today": "Aujourd'hui",
     "prevMonth": "Mois lunaire précédent",
-    "nextMonth": "Mois lunaire suivant"
+    "nextMonth": "Mois lunaire suivant",
+    "conjunction": "Conjonction",
+    "nextDay": "Lendemain",
+    "dayAfter": "Surlendemain"
   },
   "criterion": {
     "label": "Méthode",
