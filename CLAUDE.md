@@ -86,11 +86,12 @@ The `domain/` folder must have **zero imports** from Vue, Nuxt, Pinia, d3, or an
 |------|-------|---------|
 | A | `#9AF99B` light green | Easily visible naked eye |
 | B | `#65A364` dark green | Visible if perfect conditions |
-| C | `#EAC078` orange | Optical aid needed to find |
+| C | `#EAC078` orange | Optical aid needed to find, then naked eye |
 | D | `#E16665` red | Optical aid only |
-| — | dark/black | Not visible |
+| E | `#E8928E` light red | Crescent exists (conjunction before sunset) but not visible |
+| NOT_VISIBLE | transparent | Crescent does not exist (conjunction after sunset or no sunset) |
 
-Render order: worst zone first (D), best zone last (A) so better zones paint on top.
+Render order: worst zone first (E), best zone last (A) so better zones paint on top.
 
 ### Grid Computation
 

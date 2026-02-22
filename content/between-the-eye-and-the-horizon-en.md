@@ -44,7 +44,7 @@ Scholarly support for giving calculation a role in crescent matters actually com
 
 **First**, a number of classical scholars held the **broader position** that astronomical calculation may serve as a *positive* basis for determining the month — a stronger claim than what this article argues. These include **Ibn Surayj** (d. 306/918), **Taqī al-Dīn al-Subkī** (d. 756/1355), **al-Qarāfī** (d. 684/1285), **al-Zarkashī** (d. 794/1392), and **Muḥammad al-Ramlī** (d. 1004/1596). What this article argues is actually *weaker* than what these scholars held. If they accepted calculation as strong enough to *begin* the month, they would certainly accept it as strong enough to say "that sighting was impossible." Their broader position logically includes the narrower one.
 
-**Second**, other scholars addressed **our exact question** more directly — using calculation not to start the month, but to reject testimony that contradicts physical reality. As we will see in detail below, Ibn Taymiyyah himself acknowledged that calculation may serve as a "private basis for accepting or rejecting testimony". Among those who stated this principle explicitly:
+**Second**, other scholars addressed **our exact question** more directly — using calculation not to start the month, but to reject testimony that contradicts physical reality. As we will see in detail below, Ibn Taïmiya himself acknowledged that calculation may serve as a "private basis for accepting or rejecting testimony". Among those who stated this principle explicitly:
 
 - **Al-Qalyūbī** (Shihāb al-Dīn Aḥmad ibn Aḥmad, d. 1069/1659), the Shāfiʿī commentator. In his *Ḥāshiyat al-Qalyūbī ʿalā Sharḥ al-Maḥallī ʿalā Minhāj al-Ṭālibīn*, he stated: *"All sighting-claims must be rejected if calculations show that a sighting was impossible. This is manifestly obvious. In such a case, a person may not fast. Opposing this is obstinacy and stubbornness."* (Also cited in al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah, vol. 22, pp. 36-38.)
 
@@ -83,13 +83,13 @@ Scenario B involves *physical impossibility*. No crescent exists. This is not ab
 
 ---
 
-## What Ibn Taymiyyah Actually Said
+## What Ibn Taïmiya Actually Said
 
-No scholar is more frequently cited in this debate than Shaykh al-Islām Ibn Taymiyyah (d. 728/1328). His words from Majmūʿ al-Fatāwā (volume 25) are quoted by those who reject any role for astronomical knowledge in hilal matters. Let us read what he actually wrote — carefully and completely.
+No scholar is more frequently cited in this debate than Shaykh al-Islām Ibn Taïmiya (d. 728/1328). His words from Majmūʿ al-Fatāwā (volume 25) are quoted by those who reject any role for astronomical knowledge in hilal matters. Let us read what he actually wrote — carefully and completely.
 
 ### The Famous Passage
 
-On page 132 of volume 25, Ibn Taymiyyah writes:
+On page 132 of volume 25, Ibn Taïmiya writes:
 
 	
 > فَإِنَّا نَعْلَمُ بِالِاضْطِرَارِ مِنْ دِينِ الْإِسْلَامِ أَنَّ الْعَمَلَ فِي رُؤْيَةِ هِلَالِ الصَّوْمِ أَوْ الْحَجِّ أَوْ الْعِدَّةِ أَوْ الْإِيلَاءِ أَوْ غَيْرِ ذَلِكَ مِنْ الْأَحْكَامِ الْمُعَلَّقَةِ بِالْهِلَالِ بِخَبَرِ الْحَاسِبِ أَنَّهُ يُرَى أَوْ لَا يُرَى لَا يَجُوزُ. وَالنُّصُوصُ الْمُسْتَفِيضَةُ عَنْ النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ بِذَلِكَ كَثِيرَةٌ. وَقَدّ أَجْمَعَ الْمُسْلِمُونَ عَلَيْهِ. وَلَا يُعْرَفُ فِيهِ خِلَافٌ قَدِيمٌ أَصْلًا وَلَا خِلَافٌ حَدِيثٌ؛ إلَّا أَنَّ بَعْضَ الْمُتَأَخِّرِينَ مِنْ الْمُتَفَقِّهَةِ الحادثين بَعْدَ الْمِائَةِ الثَّالِثَةِ زَعَمَ أَنَّهُ إذَا غُمَّ الْهِلَالُ جَازَ لِلْحَاسِبِ أَنْ يَعْمَلَ فِي حَقِّ نَفْسِهِ بِالْحِسَابِ ... وَهَذَا الْقَوْلُ وَإِنْ كَانَ مُقَيَّدًا بِالْإِغْمَامِ وَمُخْتَصًّا بِالْحَاسِبِ فَهُوَ شَاذٌّ مَسْبُوقٌ بِالْإِجْمَاعِ عَلَى خِلَافِهِ.
@@ -100,15 +100,15 @@ On page 132 of volume 25, Ibn Taymiyyah writes:
 
 And earlier, he describes judges who rejected the testimony of upright witnesses because of what a calculator told them, calling such a calculator **الْحَاسِبِ الْجَاهِلِ الْكَاذِبِ** — "the ignorant, lying calculator."
 
-This is clear. **Calculation cannot replace ruʾyah as the legal cause (*sabab*) for beginning the month.** Ibn Taymiyyah considered this ijmāʿ — and even when he acknowledged the minority who permitted it under restricted conditions, he dismissed it as isolated. As noted earlier, we mention that minority (Ibn Surayj, al-Subkī, and others) for intellectual honesty. But even by their standard, what this article argues is far less controversial: we are not asking to *start* the month by calculation, only to *verify* that a claimed sighting was physically possible.
+This is clear. **Calculation cannot replace ruʾyah as the legal cause (*sabab*) for beginning the month.** Ibn Taïmiya considered this ijmāʿ — and even when he acknowledged the minority who permitted it under restricted conditions, he dismissed it as isolated. As noted earlier, we mention that minority (Ibn Surayj, al-Subkī, and others) for intellectual honesty. But even by their standard, what this article argues is far less controversial: we are not asking to *start* the month by calculation, only to *verify* that a claimed sighting was physically possible.
 
 ### What Is Often Left Out
 
-But Ibn Taymiyyah says much more in this same discussion — and what he says next is essential.
+But Ibn Taïmiya says much more in this same discussion — and what he says next is essential.
 
 #### He Uses Astronomical Reasoning Himself
 
-On page 104 of the same volume, Ibn Taymiyyah explains the fiqh of matāliʿ (horizons) using explicitly astronomical logic:
+On page 104 of the same volume, Ibn Taïmiya explains the fiqh of matāliʿ (horizons) using explicitly astronomical logic:
 
 > فَإِنَّهُ مَتَى رُئِيَ فِي الْمَشْرِقِ وَجَبَ أَنْ يُرَى فِي الْمَغْرِبِ وَلَا يَنْعَكِسُ؛ لِأَنَّهُ يَتَأَخَّرُ غُرُوبُ الشَّمْسِ بِالْمَغْرِبِ عَنْ وَقْتِ غُرُوبِهَا بِالْمَشْرِقِ فَإِذَا كَانَ قَدْ رُئِيَ ازْدَادَ بِالْمَغْرِبِ نُورًا وَبُعْدًا عَنْ الشَّمْسِ وَشُعَاعِهَا
 >
@@ -122,11 +122,11 @@ He then describes this as:
 >
 > — [Majmūʿ al-Fatāwā, 25/104](https://kutub.io/en/book/7289/12552)
 
-Look at what Ibn Taymiyyah is doing here. He is using astronomical facts — angular separation, increase in illumination over time, relative timing of sunset — to reason about crescent visibility. He calls this **amr maḥsūs**: an empirically observable reality, not speculative calculation.
+Look at what Ibn Taïmiya is doing here. He is using astronomical facts — angular separation, increase in illumination over time, relative timing of sunset — to reason about crescent visibility. He calls this **amr maḥsūs**: an empirically observable reality, not speculative calculation.
 
 #### He Distinguishes Between True and False Astronomical Claims
 
-On page 132, immediately before the famous passage about the lying calculator, Ibn Taymiyyah makes a remarkable distinction:
+On page 132, immediately before the famous passage about the lying calculator, Ibn Taïmiya makes a remarkable distinction:
 
 > ثُمَّ هَؤُلَاءِ الَّذِينَ يُخْبِرُونَ مِنْ الْحِسَابِ وَصُورَةِ الْأَفْلَاكِ وَحَرَكَاتِهَا أَمْرًا صَحِيحًا: قَدْ يُعَارِضُهُمْ بَعْضُ الْجُهَّالِ مِنْ الْأُمِّيِّينَ
 >
@@ -140,13 +140,13 @@ He then says these ignorant opponents:
 >
 > — [Majmūʿ al-Fatāwā, 25/132](https://kutub.io/en/book/7289/12580)
 
-**Ibn Taymiyyah is criticizing people on both sides.** He criticizes the judge who rejects valid testimony because of a speculative calculator. And he equally criticizes the ignorant person who rejects all astronomical knowledge simply because some of it was misused.
+**Ibn Taïmiya is criticizing people on both sides.** He criticizes the judge who rejects valid testimony because of a speculative calculator. And he equally criticizes the ignorant person who rejects all astronomical knowledge simply because some of it was misused.
 
 He explicitly says that some astronomical facts are **amr ṣaḥīḥ** (correct matters), affirmed by both reason and revelation.
 
 ### His Epistemology: Knowledge Comes from the Senses
 
-In his work *Al-Radd ʿalā al-Manṭiqiyyīn*, Ibn Taymiyyah lays out his theory of knowledge, and it is deeply relevant here.
+In his work *Al-Radd ʿalā al-Manṭiqiyyīn*, Ibn Taïmiya lays out his theory of knowledge, and it is deeply relevant here.
 
 He writes:
 
@@ -172,18 +172,18 @@ And — remarkably — he uses the Moon itself as his example of this process:
 >
 > — [Al-Radd ʿalā al-Manṭiqiyyīn, p. 387](https://kutub.io/en/book/7626/388)
 
-This is extraordinary. **Ibn Taymiyyah himself derives an astronomical conclusion — that the Moon's light comes from the Sun — through repeated empirical observation.** And he considers this a valid, universal form of knowledge.
+This is extraordinary. **Ibn Taïmiya himself derives an astronomical conclusion — that the Moon's light comes from the Sun — through repeated empirical observation.** And he considers this a valid, universal form of knowledge.
 
 ### Putting It All Together
 
-Ibn Taymiyyah's actual position, when read in full, is this:
+Ibn Taïmiya's actual position, when read in full, is this:
 
 1. **Calculation cannot replace ruʾyah** as the legal basis for beginning or ending the month. As we saw above, he declared this ijmāʿ and dismissed the minority view as isolated.
 2. **The speculative predictions of calculators** cannot override the testimony of upright witnesses.
 3. **But empirical astronomical truths** — things known through repeated, sensory observation — are valid knowledge (amr maḥsūs, amr ṣaḥīḥ).
 4. **Rejecting all astronomical knowledge** because some of it was misused is the error of the ignorant.
 
-And there is a fifth point, often overlooked, that is perhaps the most directly relevant to our question. On page 133 of the same volume, Ibn Taymiyyah writes:
+And there is a fifth point, often overlooked, that is perhaps the most directly relevant to our question. On page 133 of the same volume, Ibn Taïmiya writes:
 
 > وَلَا رَيْبَ أَنَّ أَحَدًا لَا يُمْكِنُهُ مَعَ ظُهُورِ دِينِ الْإِسْلَامِ أَنْ يُظْهِرَ الِاسْتِنَادَ إلَى ذَلِكَ. إلَّا أَنَّهُ قَدْ يَكُونُ لَهُ عُمْدَةٌ فِي الْبَاطِنِ فِي قَبُولِ الشَّهَادَةِ وَرَدِّهَا
 >
@@ -191,12 +191,12 @@ And there is a fifth point, often overlooked, that is perhaps the most directly 
 >
 > — [Majmūʿ al-Fatāwā, 25/133](https://kutub.io/en/book/7289/12581)
 
-Read this carefully. Ibn Taymiyyah is making a distinction between two uses of calculation:
+Read this carefully. Ibn Taïmiya is making a distinction between two uses of calculation:
 
 - **Public legal reliance** on calculation to start or end the month — this is what he categorically forbids.
 - **Private use** of astronomical knowledge to evaluate whether a testimony should be accepted or rejected — this he acknowledges as something that occurs, and he does not condemn it with the same force. He uses the word **ʿumdah** (basis, support) — not a word of condemnation but of acknowledgment.
 
-This is precisely the distinction that this entire article rests upon. The question was never whether calculation can *replace* sighting. The question is whether established astronomical knowledge can help a judge, a committee, or a community determine whether a claimed sighting is credible — and Ibn Taymiyyah himself recognized this as a distinct category.
+This is precisely the distinction that this entire article rests upon. The question was never whether calculation can *replace* sighting. The question is whether established astronomical knowledge can help a judge, a committee, or a community determine whether a claimed sighting is credible — and Ibn Taïmiya himself recognized this as a distinct category.
 
 
 ---
@@ -278,7 +278,7 @@ To put this in perspective: the **world record** for the youngest crescent ever 
 
 **No human being in recorded history has ever seen a crescent below 7° elongation with the naked eye.** Not once, in thousands of documented observations over many centuries.
 
-This is exactly the kind of knowledge Ibn Taymiyyah described: repeated empirical observation leading to a universal judgment. It is **amr maḥsūs** — an observable reality.
+This is exactly the kind of knowledge Ibn Taïmiya described: repeated empirical observation leading to a universal judgment. It is **amr maḥsūs** — an observable reality.
 
 ### The Visibility Criteria: Yallop, Odeh, and the Zones
 
@@ -296,9 +296,7 @@ From these 737 real-world observations, Odeh derived a mathematical function (th
 
 Below Zone C, Odeh's criterion returns **"Not Visible"** — meaning that out of 737 documented observation attempts, no one successfully saw the crescent under comparable conditions.
 
-The app adds one additional distinction: when the criterion returns "Not Visible" but the Moon is above the horizon after sunset (meaning the conjunction has occurred and the crescent is geometrically "born"), the app marks this as **Zone E** — the crescent exists in principle, but no criterion predicts it can be seen by any means. When the conjunction has not yet occurred, or the Moon has already set, the area remains unmarked — there is simply no crescent at all.
-
-Other criteria available in the app — Yallop (1997), Shaukat, SAAO, and Istanbul 1978 — include an additional **Zone D** (visible only with optical aid), because those models define finer gradations in the marginal territory. Some of these criteria also explicitly check the **Danjon limit** (approximately 7° elongation), below which no crescent light reaches the observer regardless of equipment.
+Other criteria — Yallop (1997), Shaukat, SAAO, and Istanbul 1978 — define finer gradations in the marginal territory, including a **Zone D** (visible only with optical aid). Some also explicitly check the **Danjon limit** (approximately 7° elongation), below which no crescent light reaches the observer regardless of equipment.
 
 The key insight is this: **all of these criteria are built from empirical observation, not theoretical speculation.** They represent what thousands of real observers — Muslim and non-Muslim, amateur and professional — have actually seen and failed to see over decades of documented attempts.
 
@@ -342,7 +340,7 @@ We **are** saying that this is not "preferring calculation over sighting." It is
 
 We **are** saying that this falls under the established Islamic principle of evaluating testimony against known impossibility — the same principle that Ibn al-Jawzī articulated when he said that the trustworthiness of witnesses is of no use when they report something impossible.
 
-We **are** saying that Ibn Taymiyyah himself — the scholar most frequently cited against this position — actually affirmed empirical astronomical knowledge as valid, used astronomical reasoning in his own legal analysis, and criticized those who rejected *all* astronomical knowledge out of ignorance.
+We **are** saying that Ibn Taïmiya himself — the scholar most frequently cited against this position — actually affirmed empirical astronomical knowledge as valid, used astronomical reasoning in his own legal analysis, and criticized those who rejected *all* astronomical knowledge out of ignorance.
 
 ### The Two Questions Are Different
 
@@ -374,7 +372,7 @@ The Prophet ﷺ said:
 
 The imam — here meaning the leader, the authority — bears the responsibility (*ḍāmin*). He is the guarantor. If he makes the right call, the community benefits. If he errs, the burden is his.
 
-Ibn Taymiyyah addresses this exact scenario directly. Someone poses the objection: what if the imam who is entrusted with confirming the crescent sighting is negligent — perhaps by rejecting the testimony of upright witnesses, or by relying on an astrologer's claim that the crescent could not be seen? Ibn Taymiyyah answers:
+Ibn Taïmiya addresses this exact scenario directly. Someone poses the objection: what if the imam who is entrusted with confirming the crescent sighting is negligent — perhaps by rejecting the testimony of upright witnesses, or by relying on an astrologer's claim that the crescent could not be seen? Ibn Taïmiya answers:
 
 > مَا يَثْبُتُ مِنْ الْحُكْمِ لَا يَخْتَلِفُ الْحَالُ فِيهِ بَيْنَ الَّذِي يُؤْتَمُّ بِهِ فِي رُؤْيَةِ الْهِلَالِ مُجْتَهِدًا مُصِيبًا كَانَ أَوْ مُخْطِئًا أَوْ مُفَرِّطًا
 >
@@ -415,7 +413,7 @@ The key insight is that this question — *who is my authority?* — is **prior*
 
 ### What This Means for the App
 
-The Hilal Visibility Globe does not tell you when to fast or when to celebrate Eid. That is the role of your authority. What the app does is give you — and your authority — the **information** needed to evaluate sighting claims. If your authority declares a sighting, you follow it. But if you are part of a sighting committee, an Islamic council, or any body responsible for making that decision, the app gives you the tools to make that decision responsibly, in accordance with both the Sunnah and the physical reality that Allah has placed in His creation.
+The Hilal Globe does not tell you when to fast or when to celebrate Eid. That is the role of your authority. What the app does is give you — and your authority — the **information** needed to evaluate sighting claims. If your authority declares a sighting, you follow it. But if you are part of a sighting committee, an Islamic council, or any body responsible for making that decision, the app gives you the tools to make that decision responsibly, in accordance with both the Sunnah and the physical reality that Allah has placed in His creation.
 
 ---
 
@@ -423,7 +421,7 @@ The Hilal Visibility Globe does not tell you when to fast or when to celebrate E
 
 Your concern is valid. The Sunnah must be preserved. The simplicity of ruʾyah — going out, looking with your eyes, seeing the crescent — is a beautiful act of worship that connects every generation of Muslims back to the time of the Prophet ﷺ. No one should take this away.
 
-But consider: when Ibn Taymiyyah himself looked at the western horizon and reasoned that if the crescent is seen in the East, it must be visible in the West because "it increases in brightness and distance from the Sun" — he was using the same astronomical principles that these criteria are built upon. He called this *amr maḥsūs* — observable reality.
+But consider: when Ibn Taïmiya himself looked at the western horizon and reasoned that if the crescent is seen in the East, it must be visible in the West because "it increases in brightness and distance from the Sun" — he was using the same astronomical principles that these criteria are built upon. He called this *amr maḥsūs* — observable reality.
 
 The criteria are not replacing your eyes. They are telling you what your eyes cannot see: whether a crescent exists to be looked for in the first place.
 
@@ -433,7 +431,7 @@ And consider the harm of the opposite: if we accept every claimed sighting witho
 
 Your commitment to accuracy is important. But remember that these criteria are empirical models, not divine revelation. They are built from human observations and have margins of uncertainty. In the marginal zones (B, C, D), sightings that seem unlikely can and do occur. Be careful not to reject valid testimony simply because it seems improbable. Improbable and impossible are not the same thing.
 
-Use the criteria where they are certain — in Zone F, where impossibility is established. Be humble where they are uncertain — in the marginal zones where human experience and atmospheric conditions vary.
+Use the criteria where they are certain — in the unmarked region where no crescent exists, and in Zone E where no observation has ever succeeded. Be humble where they are uncertain — in the marginal zones where human experience and atmospheric conditions vary.
 
 And always maintain respect for those who disagree. This is a matter of ijtihad among sincere scholars, not a matter of faith versus disbelief.
 
@@ -445,9 +443,9 @@ The hilal visibility question is not a battle between faith and science. It is a
 
 The Prophet ﷺ told us to fast upon sighting the crescent. He did not tell us to fast upon someone claiming to have sighted the crescent when the crescent cannot exist. The command presupposes that what is sighted is real.
 
-Ibn Taymiyyah condemned the speculative calculator who overrides valid testimony. He did not argue that we must accept claims of seeing what is physically absent.
+Ibn Taïmiya condemned the speculative calculator who overrides valid testimony. He did not argue that we must accept claims of seeing what is physically absent.
 
-The tools we have today — including visibility criteria and apps that show you exactly where and when sighting is possible — are not replacements for ruʾyah. They are aids that help us understand what we are looking at, verify what we are told, and worship Allah with greater accuracy and confidence.
+The tools we have today — including visibility criteria and apps that show you exactly where and when sighting is possible — are not replacements for ruʾyah. They are aids that help us understand what we are looking at, verify what we are told, and ensure we begin our months on the correct day.
 
 When you open the app and see the zones spread across the globe, you are looking at the accumulated knowledge of centuries of Muslim and non-Muslim observers, formalized into a framework that protects the integrity of the lunar calendar.
 
@@ -458,13 +456,13 @@ When you open the app and see the zones spread across the globe, you are looking
 ## References
 
 ### Primary Islamic Sources
-- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/104 — [kutub.io/en/book/7289/12552](https://kutub.io/en/book/7289/12552)
-- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/132 — [kutub.io/en/book/7289/12580](https://kutub.io/en/book/7289/12580)
-- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/133 — [kutub.io/en/book/7289/12581](https://kutub.io/en/book/7289/12581)
-- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/206 — [kutub.io/en/book/7289/12654](https://kutub.io/en/book/7289/12654)
-- Ibn Taymiyyah, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 363 — [kutub.io/en/book/7626/364](https://kutub.io/en/book/7626/364)
-- Ibn Taymiyyah, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 386 — [kutub.io/en/book/7626/387](https://kutub.io/en/book/7626/387)
-- Ibn Taymiyyah, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 387 — [kutub.io/en/book/7626/388](https://kutub.io/en/book/7626/388)
+- Ibn Taïmiya, *Majmūʿ al-Fatāwā*, 25/104 — [kutub.io/en/book/7289/12552](https://kutub.io/en/book/7289/12552)
+- Ibn Taïmiya, *Majmūʿ al-Fatāwā*, 25/132 — [kutub.io/en/book/7289/12580](https://kutub.io/en/book/7289/12580)
+- Ibn Taïmiya, *Majmūʿ al-Fatāwā*, 25/133 — [kutub.io/en/book/7289/12581](https://kutub.io/en/book/7289/12581)
+- Ibn Taïmiya, *Majmūʿ al-Fatāwā*, 25/206 — [kutub.io/en/book/7289/12654](https://kutub.io/en/book/7289/12654)
+- Ibn Taïmiya, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 363 — [kutub.io/en/book/7626/364](https://kutub.io/en/book/7626/364)
+- Ibn Taïmiya, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 386 — [kutub.io/en/book/7626/387](https://kutub.io/en/book/7626/387)
+- Ibn Taïmiya, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 387 — [kutub.io/en/book/7626/388](https://kutub.io/en/book/7626/388)
 - Ibn al-Jawzī, *al-Mawḍūʿāt*, 1/106
 - Sahih al-Bukhari, hadith no. 1909
 - Sahih Muslim, hadith no. 1081

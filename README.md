@@ -25,9 +25,10 @@ Compare multiple astronomical criteria (Odeh, Yallop, Shaukat), visualize global
 |------|----------|
 | **A** | Easily visible to the naked eye |
 | **B** | Visible under perfect conditions |
-| **C** | May require optical aid to locate |
+| **C** | May require optical aid to locate, then naked eye |
 | **D** | Optical aid only |
-| **—** | Not visible |
+| **E** | Crescent exists but not visible |
+| **—** | Crescent does not exist (conjunction after sunset or no sunset) |
 
 Zone interpretation depends on the selected astronomical criterion.
 
