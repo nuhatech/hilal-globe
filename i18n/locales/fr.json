@@ -74,12 +74,12 @@
       "description": "Croissant non visible là où la lune est géométriquement au-dessus de l'horizon au coucher du soleil"
     },
     "1": {
-      "short": "Zone E + Réfraction",
+      "short": "E + Réfr.",
       "label": "Inclure la réfraction",
       "description": "L'atmosphère dévie la lumière de ~0.57° à l'horizon, soulevant légèrement la lune"
     },
     "2": {
-      "short": "Croissant Né",
+      "short": "Cres. Né",
       "label": "Croissant né (Umm al-Qura)",
       "description": "La conjonction a eu lieu avant le coucher du soleil — le croissant est né même si la lune s'est couchée"
     }

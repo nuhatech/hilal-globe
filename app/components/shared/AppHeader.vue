@@ -62,7 +62,8 @@
         :title="isDark ? $t('theme.light') : $t('theme.dark')"
         @click="toggleTheme"
       >
-        <component :is="isDark ? Sun : Moon" :key="isDark ? 'sun' : 'moon'" class="h-4 w-4" />
+        <Sun v-if="isDark" class="h-4 w-4" />
+        <Moon v-else class="h-4 w-4" />
       </button>
     </div>
 
@@ -79,10 +80,16 @@ const switchLocalePath = useSwitchLocalePath()
 
 const colorMode = useColorMode()
 
-const isDark = computed(() => colorMode.value === 'dark')
+const isDark = ref(colorMode.value === 'dark')
+
+// Keep in sync when colorMode resolves (e.g. on initial load, system changes)
+watch(() => colorMode.value, (val) => {
+  isDark.value = val === 'dark'
+})
 
 function toggleTheme() {
-  colorMode.preference = isDark.value ? 'light' : 'dark'
+  isDark.value = !isDark.value
+  colorMode.preference = isDark.value ? 'dark' : 'light'
 }
 
 const showRecords = ref(false)

@@ -74,12 +74,12 @@
       "description": "Crescent not visible where moon is geometrically above the horizon at sunset"
     },
     "1": {
-      "short": "Zone E + Refraction",
+      "short": "E + Refr.",
       "label": "Include refraction",
       "description": "Atmosphere bends light ~0.57° at horizon, lifting the moon slightly above"
     },
     "2": {
-      "short": "Born Crescent",
+      "short": "Born Cres.",
       "label": "Born crescent (Umm al-Qura)",
       "description": "Conjunction occurred before sunset — crescent is born even if moon has set"
     }

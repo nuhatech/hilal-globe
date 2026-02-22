@@ -17,7 +17,7 @@
         class="h-3.5 w-3.5 shrink-0 transition-opacity"
         :class="store.eZoneMode > 0 ? 'opacity-80' : 'opacity-40'"
       />
-      <span class="font-medium">{{ $t('eZone.' + store.eZoneMode + '.short') }}</span>
+      <span class="whitespace-nowrap font-medium">{{ $t('eZone.' + store.eZoneMode + '.short') }}</span>
       <!-- Active dot -->
       <div
         v-if="store.eZoneMode > 0"
