@@ -106,9 +106,9 @@ npm run generate
 ⸻
 
 ➕ Adding a New Visibility Criterion
-	1.	Create a new file in domain/criteria/
-	2.	Implement the shared criterion interface
-	3.	Register it in CriteriaRegistry
+1. Create a new file in domain/criteria/
+2. Implement the shared criterion interface
+3. Register it in CriteriaRegistry
 
 No UI changes should be required if the registry pattern is respected.
 
