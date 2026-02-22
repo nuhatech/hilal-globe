@@ -12,8 +12,8 @@ body {
 
 /* Safe area: push absolutely-positioned element up from bottom */
 .safe-bottom {
-  bottom: calc(1rem + constant(safe-area-inset-bottom)); /* iOS < 11.2 */
-  bottom: calc(1rem + env(safe-area-inset-bottom));
+  bottom: calc(0.5rem + constant(safe-area-inset-bottom)); /* iOS < 11.2 */
+  bottom: calc(0.5rem + env(safe-area-inset-bottom));
 }
 
 /* Safe area: add padding-top for standalone PWA status bar */

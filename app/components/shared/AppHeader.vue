@@ -62,8 +62,7 @@
         :title="isDark ? $t('theme.light') : $t('theme.dark')"
         @click="toggleTheme"
       >
-        <Sun v-if="isDark" class="h-4 w-4" />
-        <Moon v-else class="h-4 w-4" />
+        <component :is="isDark ? Sun : Moon" :key="isDark ? 'sun' : 'moon'" class="h-4 w-4" />
       </button>
     </div>
 
