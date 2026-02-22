@@ -1,5 +1,5 @@
 # Hilal Globe 🌙🌍
-Interactive 3D globe for lunar crescent (hilal) visibility prediction — compare multiple astronomical criteria (Odeh, Yallop, Shaukat), view the day/night terminator, and plan moon sighting for any date.  [oai_citation:1‡GitHub](https://github.com/nuhatech/hilal-globe)
+Interactive 3D globe for lunar crescent (hilal) visibility prediction — compare multiple astronomical criteria (Odeh, Yallop, Shaukat), view the day/night terminator, and plan moon sighting for any date.  [Hilal Globe](https://github.com/nuhatech/hilal-globe)
 
 > **Purpose:** Help communities estimate when/where the new crescent moon *should* be visible for the start of Islamic months (e.g., Ramadan, Shawwal).
 
