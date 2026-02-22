@@ -1,5 +1,5 @@
 <template>
-  <header class="absolute top-0 left-0 right-0 z-20 flex items-center px-3 py-3 pt-safe sm:px-5">
+  <header class="absolute top-0 left-0 right-0 z-20 flex items-center px-3 py-4 pt-safe sm:px-5">
     <h1 class="shrink-0 text-lg font-semibold tracking-wide text-slate-800/90 dark:text-white/90">
       {{ $t('app.title') }}
     </h1>

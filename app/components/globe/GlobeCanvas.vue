@@ -122,23 +122,40 @@ function createProjectionAndPath(width: number, height: number) {
 function drawVisibilityZones(
   ctx: CanvasRenderingContext2D,
   path: GeoPath,
+  projection: GeoProjection,
 ) {
   const geoJson = visibilityStore.geoJson
   if (!geoJson || !overlayStore.showVisibility) return
 
-  // Higher opacity in dark mode so colors stay vivid on dark background
-  const alpha = isDark.value ? 'B3' : '70'
+  const canvas = canvasRef.value!
+  // Offscreen canvas at same backing-store size (already DPR-scaled)
+  const offscreen = new OffscreenCanvas(canvas.width, canvas.height)
+  const offCtx = offscreen.getContext('2d')!
 
-  // Each feature is a contour MultiPolygon for one zone level.
-  // Rendered outermost (D) first, innermost (A) last — better zones paint on top.
+  // Match the DPR transform of the main canvas
+  const dpr = window.devicePixelRatio || 1
+  offCtx.setTransform(dpr, 0, 0, dpr, 0, 0)
+
+  // Build a path generator bound to the offscreen context
+  const offPath = geoPath(projection, offCtx)
+
+  // Draw zones with OPAQUE fills — best zone paints on top, no blending between zones.
+  // Rendered outermost (D) first, innermost (A) last.
   for (const feat of geoJson.features) {
     const color = (feat.properties as Record<string, string>)?.color
     if (!color) continue
-    ctx.beginPath()
-    path(feat.geometry)
-    ctx.fillStyle = color + alpha
-    ctx.fill()
+    offCtx.beginPath()
+    offPath(feat.geometry)
+    offCtx.fillStyle = color // opaque, no alpha suffix
+    offCtx.fill()
   }
+
+  // Composite onto main canvas with uniform transparency
+  ctx.save()
+  ctx.globalAlpha = isDark.value ? 0.85 : 0.7
+  ctx.setTransform(1, 0, 0, 1, 0, 0) // identity, since offscreen is already DPR-scaled
+  ctx.drawImage(offscreen, 0, 0)
+  ctx.restore()
 }
 
 function drawLocationMarker(
@@ -242,8 +259,8 @@ function draw() {
     ctx.stroke()
   }
 
-  // 4. Visibility zones (semi-transparent fills, on top of land + ocean)
-  drawVisibilityZones(ctx, path)
+  // 4. Visibility zones (opaque on offscreen canvas, composited with uniform alpha)
+  drawVisibilityZones(ctx, path, projection)
 
   // 5. Land borders (on top of zones for clarity)
   ctx.beginPath()
