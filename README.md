@@ -80,9 +80,11 @@ The `domain/` folder is framework-agnostic and contains no Vue/Nuxt imports.
 
 ```bash
 npm install
+```
 
 Run locally
 
+```bash
 npm run dev
 ```
 
