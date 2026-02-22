@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-full w-full">
+  <div class="relative h-full w-full no-callout">
     <AppHeader />
     <DateSelector />
 

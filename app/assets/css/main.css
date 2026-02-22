@@ -56,6 +56,13 @@ body {
   text-align: right;
 }
 
+/* Prevent iOS long-press menu and text selection on app shell */
+.no-callout {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 /* Article table overflow on mobile */
 .prose table {
   display: block;
