@@ -96,7 +96,7 @@ Aucun savant n'est plus fréquemment cité dans ce débat que Shaykh al-Islām I
 >
 > *« Nous savons avec une certitude absolue, comme faisant partie de la religion de l'Islam, que dans les affaires dépendant du croissant — telles que le début du jeûne, le moment du Ḥajj, les périodes d'attente, les serments d'abstention et autres — il est impermissible d'agir sur la déclaration d'un calculateur qui prétend que la lune sera, ou ne sera pas, vue. Les textes largement transmis du Prophète ﷺ à ce sujet sont abondants. **Les musulmans en ont fait le consensus (ajmaʿa).** Aucun désaccord ancien n'est connu à ce sujet, ni aucun désaccord ultérieur — sauf que certains juristes tardifs apparus après le troisième siècle ont prétendu que lorsque le ciel est couvert, le calculateur peut agir selon son propre calcul... Cet avis, bien qu'il soit restreint aux conditions de ciel couvert et spécifique au calculateur, est **isolé et précédé par un consensus contraire** (shādh masbūq bi'l-ijmāʿ ʿalā khilāfih). »*
 >
-> — [Majmūʿ al-Fatāwā, 25/132-133](https://kutub.io/en/book/7289/12580)
+> — [Majmūʿ al-Fatāwā, 25/132-133](https://kutub.io/fr/book/7289/12580)
 
 Et plus tôt, il décrit les juges qui ont rejeté le témoignage de témoins intègres à cause de ce qu'un calculateur leur avait dit, qualifiant un tel calculateur de **الْحَاسِبِ الْجَاهِلِ الْكَاذِبِ** — « le calculateur ignorant et menteur ».
 
@@ -120,7 +120,7 @@ Il décrit ensuite cela comme :
 >
 > *« Ceci est un fait observable (amr maḥsūs) concernant le coucher du Soleil, du croissant et de tous les autres corps célestes. »*
 >
-> — [Majmūʿ al-Fatāwā, 25/104](https://kutub.io/en/book/7289/12552)
+> — [Majmūʿ al-Fatāwā, 25/104](https://kutub.io/fr/book/7289/12552)
 
 Observons ce que fait Ibn Taymiyyah ici. Il utilise des faits astronomiques — séparation angulaire, augmentation de l'illumination dans le temps, moment relatif du coucher du soleil — pour raisonner sur la visibilité du croissant. Il appelle cela **amr maḥsūs** : une réalité empiriquement observable, et non un calcul spéculatif.
 
@@ -138,7 +138,7 @@ Il dit ensuite que ces opposants ignorants :
 >
 > *« ...rejettent tout ce que les astronomes disent dans ce domaine, sans distinguer entre les vérités confirmées par la révélation et la raison, et les faussetés qui contredisent les deux. »*
 >
-> — [Majmūʿ al-Fatāwā, 25/132](https://kutub.io/en/book/7289/12580)
+> — [Majmūʿ al-Fatāwā, 25/132](https://kutub.io/fr/book/7289/12580)
 
 **Ibn Taymiyyah critique les gens des deux côtés.** Il critique le juge qui rejette un témoignage valide à cause d'un calculateur spéculatif. Et il critique tout autant la personne ignorante qui rejette tout savoir astronomique simplement parce qu'une partie en a été mal utilisée.
 
@@ -154,7 +154,7 @@ Il écrit :
 >
 > *« Il ne fait aucun doute que les sens perçoivent d'abord les choses particulières, puis on passe de celles-ci aux propositions universelles. »*
 >
-> — [Al-Radd ʿalā al-Manṭiqiyyīn, p. 363](https://kutub.io/en/book/7626/364)
+> — [Al-Radd ʿalā al-Manṭiqiyyīn, p. 363](https://kutub.io/fr/book/7626/364)
 
 Il explique ensuite comment l'observation empirique répétée mène à une connaissance universelle :
 
@@ -162,7 +162,7 @@ Il explique ensuite comment l'observation empirique répétée mène à une conn
 >
 > *« Par les sens, on connaît les choses particulières ; puis, lorsque cela se répète encore et encore, l'intellect saisit le facteur universel commun et porte un jugement universel. »*
 >
-> — [Al-Radd ʿalā al-Manṭiqiyyīn, p. 386](https://kutub.io/en/book/7626/387)
+> — [Al-Radd ʿalā al-Manṭiqiyyīn, p. 386](https://kutub.io/fr/book/7626/387)
 
 Et — de manière remarquable — il utilise la Lune elle-même comme exemple de ce processus :
 
@@ -170,7 +170,7 @@ Et — de manière remarquable — il utilise la Lune elle-même comme exemple d
 >
 > *« On observe la variation de la lumière de la lune en fonction de sa position par rapport au soleil, et on en déduit que sa lumière en est dérivée. »*
 >
-> — [Al-Radd ʿalā al-Manṭiqiyyīn, p. 387](https://kutub.io/en/book/7626/388)
+> — [Al-Radd ʿalā al-Manṭiqiyyīn, p. 387](https://kutub.io/fr/book/7626/388)
 
 C'est extraordinaire. **Ibn Taymiyyah lui-même tire une conclusion astronomique — que la lumière de la Lune provient du Soleil — à travers l'observation empirique répétée.** Et il considère cela comme une forme de connaissance universelle valide.
 
@@ -189,7 +189,7 @@ Et il y a un cinquième point, souvent négligé, qui est peut-être le plus dir
 >
 > *« Il ne fait aucun doute que personne, tant que l'Islam est manifeste, ne peut publiquement fonder sa position sur cela [c'est-à-dire le calcul]. Cependant, cela peut servir de base privée (ʿumdah fī al-bāṭin) pour accepter ou rejeter un témoignage. »*
 >
-> — [Majmūʿ al-Fatāwā, 25/133](https://kutub.io/en/book/7289/12581)
+> — [Majmūʿ al-Fatāwā, 25/133](https://kutub.io/fr/book/7289/12581)
 
 Lisez cela attentivement. Ibn Taymiyyah fait une distinction entre deux usages du calcul :
 
@@ -392,7 +392,7 @@ Et il conclut :
 >
 > *« Son erreur et sa négligence retombent sur lui, non sur les musulmans qui n'ont eux-mêmes été ni négligents ni dans l'erreur. »*
 >
-> — [Majmūʿ al-Fatāwā, 25/206](https://kutub.io/en/book/7289/12654)
+> — [Majmūʿ al-Fatāwā, 25/206](https://kutub.io/fr/book/7289/12654)
 
 C'est un principe d'une immense importance pratique. Dans un pays musulman avec une autorité établie responsable de la détermination du hilal — qu'il s'agisse d'un ministère gouvernemental, d'une cour royale ou d'un comité officiel d'observation — le musulman individuel suit leur déclaration. Si cette autorité accepte une observation qui était astronomiquement impossible, le musulman individuel qui a suivi la déclaration de bonne foi ne porte aucun péché. La responsabilité incombe à l'autorité qui a pris la décision erronée.
 
@@ -458,18 +458,18 @@ Lorsque vous ouvrez l'application et voyez les zones s'étendre sur le globe, vo
 ## Références
 
 ### Sources islamiques primaires
-- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/104 — [kutub.io/en/book/7289/12552](https://kutub.io/en/book/7289/12552)
-- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/132 — [kutub.io/en/book/7289/12580](https://kutub.io/en/book/7289/12580)
-- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/133 — [kutub.io/en/book/7289/12581](https://kutub.io/en/book/7289/12581)
-- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/206 — [kutub.io/en/book/7289/12654](https://kutub.io/en/book/7289/12654)
-- Ibn Taymiyyah, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 363 — [kutub.io/en/book/7626/364](https://kutub.io/en/book/7626/364)
-- Ibn Taymiyyah, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 386 — [kutub.io/en/book/7626/387](https://kutub.io/en/book/7626/387)
-- Ibn Taymiyyah, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 387 — [kutub.io/en/book/7626/388](https://kutub.io/en/book/7626/388)
+- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/104 — [kutub.io/fr/book/7289/12552](https://kutub.io/fr/book/7289/12552)
+- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/132 — [kutub.io/fr/book/7289/12580](https://kutub.io/fr/book/7289/12580)
+- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/133 — [kutub.io/fr/book/7289/12581](https://kutub.io/fr/book/7289/12581)
+- Ibn Taymiyyah, *Majmūʿ al-Fatāwā*, 25/206 — [kutub.io/fr/book/7289/12654](https://kutub.io/fr/book/7289/12654)
+- Ibn Taymiyyah, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 363 — [kutub.io/fr/book/7626/364](https://kutub.io/fr/book/7626/364)
+- Ibn Taymiyyah, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 386 — [kutub.io/fr/book/7626/387](https://kutub.io/fr/book/7626/387)
+- Ibn Taymiyyah, *Al-Radd ʿalā al-Manṭiqiyyīn*, p. 387 — [kutub.io/fr/book/7626/388](https://kutub.io/fr/book/7626/388)
 - Ibn al-Jawzī, *al-Mawḍūʿāt*, 1/106
 - Sahih al-Bukhari, hadith n° 1909
 - Sahih Muslim, hadith n° 1081
 - Ṣaḥīḥ Abū Dāwūd, hadith n° 517 (authentifié par al-Albānī)
-- *Al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, « Ruʾyat al-Hilāl », vol. 22 - [kutub.io/en/book/11430/13156](https://kutub.io/en/book/11430/13156)
+- *Al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, « Ruʾyat al-Hilāl », vol. 22 - [kutub.io/fr/book/11430/13156](https://kutub.io/fr/book/11430/13156)
 
 ### Savants sur le calcul et la détermination du croissant
 - Ibn Surayj (m. 306/918) : rapporté dans al-Nawawī, *al-Majmūʿ* 6/235 ; Ibn Ḥajar, *Fatḥ al-Bārī* 4/123 ; al-ʿIrāqī, *Ṭarḥ al-Tathrīb* 4/112-113
@@ -480,8 +480,8 @@ Lorsque vous ouvrez l'application et voyez les zones s'étendre sur le globe, vo
 - Muḥammad al-Ramlī (m. 1004/1596), *Nihāyat al-Muḥtāj ilā Sharḥ al-Minhāj* ; discuté dans ʿUmar ibn al-Ḥabīb al-Ḥusaynī, *Fatḥ al-ʿAlī fī Jamʿ al-Khilāf bayna Ibn Ḥajar wa-Ibn al-Ramlī* (Jeddah : Dār al-Minhāj, 2010), pp. 819-822
 
 ### Fiqh des matāliʿ
-- Ibn ʿĀbidīn, *Radd al-Muḥtār* - [kutub.io/en/book/21613/1049](https://kutub.io/en/book/21613/1049)
-- Imam al-Nawawī, *al-Majmūʿ* - [kutub.io/en/book/2186/3179](https://kutub.io/en/book/2186/3179)
+- Ibn ʿĀbidīn, *Radd al-Muḥtār* - [kutub.io/fr/book/21613/1049](https://kutub.io/fr/book/21613/1049)
+- Imam al-Nawawī, *al-Majmūʿ* - [kutub.io/fr/book/2186/3179](https://kutub.io/fr/book/2186/3179)
 
 ### Sources astronomiques
 - Odeh, M. Sh. (2006), « New Criterion for Lunar Crescent Visibility » — astronomycenter.net

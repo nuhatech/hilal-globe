@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  overflow: hidden;
-}
-
 html,
 body {
   @apply bg-ocean-light text-slate-900 dark:bg-ocean dark:text-white antialiased;

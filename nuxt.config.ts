@@ -21,6 +21,11 @@ export default defineNuxtConfig({
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'apple-mobile-web-app-title', content: 'Hilal Globe' },
       ],
+      style: [
+        {
+          children: 'html,body{background:#e8ecf2}html.dark,html.dark body{background:#060a14}',
+        },
+      ],
     },
   },
 
