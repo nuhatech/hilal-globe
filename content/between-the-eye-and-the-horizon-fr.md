@@ -46,7 +46,7 @@ Le soutien savant en faveur d'un rôle du calcul dans les questions liées au cr
 
 **Deuxièmement**, d'autres savants ont abordé **notre question exacte** plus directement — utilisant le calcul non pas pour commencer le mois, mais pour rejeter un témoignage qui contredit la réalité physique. Comme nous le verrons en détail ci-dessous, Ibn Taïmiya lui-même a reconnu que le calcul peut servir de « base privée pour accepter ou rejeter un témoignage ». Parmi ceux qui ont énoncé ce principe explicitement :
 
-- **Al-Qalyūbī** (Shihāb al-Dīn Aḥmad ibn Aḥmad, m. 1069/1659), le commentateur shāfiʿite. Dans sa *Ḥāshiyat al-Qalyūbī ʿalā Sharḥ al-Maḥallī ʿalā Minhāj al-Ṭālibīn*, il a déclaré : *« Toutes les déclarations d'observation doivent être rejetées si les calculs montrent qu'une observation était impossible. Cela est manifestement évident. Dans un tel cas, une personne ne peut pas jeûner. S'y opposer relève de l'obstination et de l'entêtement. »* (Également cité dans al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah, vol. 22, pp. 36-38.)
+- **Al-Qalyūbī** (Shihāb al-Dīn Aḥmad ibn Aḥmad, m. 1069/1659), le commentateur shāfiʿite. Dans sa *Ḥāshiyat al-Qalyūbī ʿalā Sharḥ al-Maḥallī ʿalā Minhāj al-Ṭālibīn*, il a transmis d'**al-ʿAbbādī** : *« Si le calcul définitif montre que le croissant ne peut pas être vu, le témoignage de témoins intègres prétendant l'avoir vu n'est pas accepté, et leur témoignage est rejeté. »* Al-Qalyūbī a ensuite ajouté : *« Cela est manifestement évident. Le jeûne n'est pas permis dans ce cas, et s'y opposer relève de l'obstination et de l'entêtement. »* (Également cité dans [al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah, vol. 22, pp. 33-34](https://kutub.io/fr/book/11430/13213).)
 
 La déclaration d'al-Qalyūbī est précisément le principe qui sous-tend les critères de visibilité du hilal : non pas remplacer la ruʾyah, mais vérifier que ce qui est prétendu avoir été vu aurait pu exister en premier lieu.
 
@@ -474,7 +474,7 @@ Lorsque vous ouvrez l'application et voyez les zones s'étendre sur le globe, vo
 - Taqī al-Dīn al-Subkī (m. 756/1355), *Al-ʿIlm al-Manshūr fī Ithbāt al-Shuhūr*, pp. 20-22 ; *Fatāwā al-Subkī* 1/209-210
 - Al-Qarāfī (m. 684/1285) : rapporté dans *al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, vol. 22, pp. 31-34
 - Al-Zarkashī (m. 794/1392) : rapporté dans *al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, vol. 22, pp. 31-34
-- Al-Qalyūbī (m. 1069/1659), *Ḥāshiyat al-Qalyūbī ʿalā Sharḥ al-Maḥallī* ; également dans *al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, vol. 22, pp. 36-38
+- Al-Qalyūbī (m. 1069/1659), *Ḥāshiyat al-Qalyūbī ʿalā Sharḥ al-Maḥallī*, transmettant d'al-ʿAbbādī ; également dans *al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, vol. 22, pp. 33-34 — [kutub.io/fr/book/11430/13213](https://kutub.io/fr/book/11430/13213)
 - Muḥammad al-Ramlī (m. 1004/1596), *Nihāyat al-Muḥtāj ilā Sharḥ al-Minhāj* ; discuté dans ʿUmar ibn al-Ḥabīb al-Ḥusaynī, *Fatḥ al-ʿAlī fī Jamʿ al-Khilāf bayna Ibn Ḥajar wa-Ibn al-Ramlī* (Jeddah : Dār al-Minhāj, 2010), pp. 819-822
 
 ### Fiqh des matāliʿ

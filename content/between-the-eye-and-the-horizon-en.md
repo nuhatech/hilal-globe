@@ -46,7 +46,7 @@ Scholarly support for giving calculation a role in crescent matters actually com
 
 **Second**, other scholars addressed **our exact question** more directly — using calculation not to start the month, but to reject testimony that contradicts physical reality. As we will see in detail below, Ibn Taïmiya himself acknowledged that calculation may serve as a "private basis for accepting or rejecting testimony". Among those who stated this principle explicitly:
 
-- **Al-Qalyūbī** (Shihāb al-Dīn Aḥmad ibn Aḥmad, d. 1069/1659), the Shāfiʿī commentator. In his *Ḥāshiyat al-Qalyūbī ʿalā Sharḥ al-Maḥallī ʿalā Minhāj al-Ṭālibīn*, he stated: *"All sighting-claims must be rejected if calculations show that a sighting was impossible. This is manifestly obvious. In such a case, a person may not fast. Opposing this is obstinacy and stubbornness."* (Also cited in al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah, vol. 22, pp. 36-38.)
+- **Al-Qalyūbī** (Shihāb al-Dīn Aḥmad ibn Aḥmad, d. 1069/1659), the Shāfiʿī commentator. In his *Ḥāshiyat al-Qalyūbī ʿalā Sharḥ al-Maḥallī ʿalā Minhāj al-Ṭālibīn*, he transmitted from **al-ʿAbbādī**: *"If definitive calculation shows that the crescent cannot be seen, the testimony of upright witnesses claiming to have seen it is not accepted, and their testimony is rejected."* Al-Qalyūbī then added: *"This is manifestly obvious. Fasting is not permissible in that case, and opposing this is obstinacy and stubbornness."* (Also cited in [al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah, vol. 22, pp. 33-34](https://kutub.io/en/book/11430/13213).)
 
 Al-Qalyūbī's statement is precisely the principle behind hilal visibility criteria: not replacing ruʾyah, but verifying that what was claimed to be seen could have existed in the first place.
 
@@ -474,7 +474,7 @@ When you open the app and see the zones spread across the globe, you are looking
 - Taqī al-Dīn al-Subkī (d. 756/1355), *Al-ʿIlm al-Manshūr fī Ithbāt al-Shuhūr*, pp. 20-22; *Fatāwā al-Subkī* 1/209-210
 - Al-Qarāfī (d. 684/1285): recorded in *al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, vol. 22, pp. 31-34
 - Al-Zarkashī (d. 794/1392): recorded in *al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, vol. 22, pp. 31-34
-- Al-Qalyūbī (d. 1069/1659), *Ḥāshiyat al-Qalyūbī ʿalā Sharḥ al-Maḥallī*; also in *al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, vol. 22, pp. 36-38
+- Al-Qalyūbī (d. 1069/1659), *Ḥāshiyat al-Qalyūbī ʿalā Sharḥ al-Maḥallī*, transmitting from al-ʿAbbādī; also in *al-Mawsūʿah al-Fiqhiyyah al-Kuwaytiyyah*, vol. 22, pp. 33-34 — [kutub.io/en/book/11430/13213](https://kutub.io/en/book/11430/13213)
 - Muḥammad al-Ramlī (d. 1004/1596), *Nihāyat al-Muḥtāj ilā Sharḥ al-Minhāj*; discussed in ʿUmar ibn al-Ḥabīb al-Ḥusaynī, *Fatḥ al-ʿAlī fī Jamʿ al-Khilāf bayna Ibn Ḥajar wa-Ibn al-Ramlī* (Jeddah: Dār al-Minhāj, 2010), pp. 819-822
 
 ### Fiqh of Matāliʿ
