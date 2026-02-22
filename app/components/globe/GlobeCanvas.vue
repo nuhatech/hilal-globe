@@ -5,6 +5,7 @@
     @pointerdown="onPointerDown"
     @pointermove="onPointerMove"
     @pointerup="onPointerUp"
+    @pointercancel="onPointerUp"
     @pointerleave="onPointerUp"
     @wheel.prevent="onWheel"
   />
@@ -278,6 +279,13 @@ function getPinchDist(): number {
 function onPointerDown(e: PointerEvent) {
   activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
   ;(e.target as HTMLElement).setPointerCapture(e.pointerId)
+
+  // Safety: if stale pointers accumulated (missed cancel/up), reset
+  if (activePointers.size > 2) {
+    const current = activePointers.get(e.pointerId)!
+    activePointers.clear()
+    activePointers.set(e.pointerId, current)
+  }
 
   if (activePointers.size === 2) {
     // Second finger down — switch to pinch mode, cancel any drag
