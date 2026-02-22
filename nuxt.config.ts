@@ -13,6 +13,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', href: '/logo.png' },
+        { rel: 'manifest', href: '/manifest.json' },
       ],
       meta: [
         { name: 'theme-color', content: '#060a14' },

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Sticky header -->
-    <header class="sticky top-0 z-10 border-b border-slate-200/50 bg-ocean-light/80 backdrop-blur-sm dark:border-white/10 dark:bg-ocean/80">
+    <header class="sticky top-0 z-10 border-b border-slate-200/50 bg-ocean-light/80 backdrop-blur-sm dark:border-white/10 dark:bg-ocean/80 pt-safe">
       <div class="mx-auto flex max-w-3xl items-center px-4 py-3 sm:px-6">
         <NuxtLink
           :to="localePath('/')"
