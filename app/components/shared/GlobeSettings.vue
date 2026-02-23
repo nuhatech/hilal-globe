@@ -28,7 +28,7 @@
     >
       <div
         v-if="open"
-        class="absolute right-0 top-full mt-2 w-52 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-xl border border-slate-200/60 bg-white/90 shadow-xl shadow-black/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 dark:shadow-black/40"
+        class="absolute right-0 top-full mt-2 w-44 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-xl border border-slate-200/60 bg-white/90 shadow-xl shadow-black/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/90 dark:shadow-black/40"
       >
         <div class="px-3 pb-1 pt-2.5 text-[10px] font-semibold uppercase tracking-widest text-slate-400 dark:text-white/30">
           {{ $t('overlays.title') }}
@@ -37,7 +37,7 @@
         <div class="px-1.5 pb-1.5">
           <!-- Terminator toggle -->
           <button
-            class="flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left transition-colors hover:bg-slate-100/80 dark:hover:bg-white/5"
+            class="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left transition-colors hover:bg-slate-100/80 dark:hover:bg-white/5"
             @click="store.showTerminator = !store.showTerminator"
           >
             <!-- Day/night icon -->
@@ -77,7 +77,7 @@
 
           <!-- Elevation toggle -->
           <button
-            class="flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left transition-colors hover:bg-slate-100/80 dark:hover:bg-white/5"
+            class="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left transition-colors hover:bg-slate-100/80 dark:hover:bg-white/5"
             :disabled="visibilityStore.isLoadingElevation"
             @click="toggleElevation"
           >
