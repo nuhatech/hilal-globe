@@ -217,8 +217,8 @@
     "latLon": "Lat/Lon"
   },
   "crescent": {
-    "notVisible": "No crescent visible on this date",
-    "nextObservation": "Next observation: {date}"
+    "notVisible": "No crescent visible",
+    "nextObservation": "Next: {date}"
   },
   "language": {
     "switchTo": "FR"

@@ -217,8 +217,8 @@
     "latLon": "Lat/Lon"
   },
   "crescent": {
-    "notVisible": "Aucun croissant visible à cette date",
-    "nextObservation": "Prochaine observation : {date}"
+    "notVisible": "Aucun croissant visible",
+    "nextObservation": "Suivant : {date}"
   },
   "language": {
     "switchTo": "EN"
