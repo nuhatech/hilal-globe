@@ -38,3 +38,18 @@ export function findNextNewMoon(date: FlexibleDateTime): AstroTime | null {
   const time = MakeTime(date)
   return SearchMoonPhase(0, time, 35) ?? null
 }
+
+/**
+ * Find whichever conjunction (previous or next) is closer to the given date.
+ *
+ * @param date Reference date
+ * @returns The AstroTime of the nearest new moon, or null if neither found
+ */
+export function findNearestNewMoon(date: FlexibleDateTime): AstroTime | null {
+  const prev = findPreviousNewMoon(date)
+  const next = findNextNewMoon(date)
+  if (!prev) return next
+  if (!next) return prev
+  const time = MakeTime(date)
+  return (time.ut - prev.ut) <= (next.ut - time.ut) ? prev : next
+}

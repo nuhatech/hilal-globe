@@ -21,38 +21,46 @@ export function useUrlState() {
     t: 0,
   } as const
 
+  // ── Guard: prevent read→write→read loops ──
+  let isReadingHash = false
+
   // ── READ: parse hash → apply to stores ──
   function readHash() {
     const hash = window.location.hash.slice(1)
     if (!hash) return
 
-    const params = new URLSearchParams(hash)
+    isReadingHash = true
+    try {
+      const params = new URLSearchParams(hash)
 
-    const d = params.get('d')
-    if (d) visibilityStore.selectedDate = d
+      const d = params.get('d')
+      if (d) visibilityStore.selectedDate = d
 
-    const c = params.get('c')
-    if (c) visibilityStore.selectedCriterionId = c
+      const c = params.get('c')
+      if (c) visibilityStore.selectedCriterionId = c
 
-    const ez = params.get('ez')
-    if (ez != null) visibilityStore.eZoneMode = Number(ez) as 0 | 1
+      const ez = params.get('ez')
+      if (ez != null) visibilityStore.eZoneMode = Number(ez) as 0 | 1
 
-    const t = params.get('t')
-    if (t === '1') overlayStore.showTerminator = true
+      const t = params.get('t')
+      if (t === '1') overlayStore.showTerminator = true
 
-    // Elevation: load data first, then enable
-    const el = params.get('el')
-    if (el === '1') {
-      visibilityStore.loadElevationData().then(() => {
-        visibilityStore.elevationEnabled = true
-      })
-    }
+      // Elevation: load data first, then enable
+      const el = params.get('el')
+      if (el === '1') {
+        visibilityStore.loadElevationData().then(() => {
+          visibilityStore.elevationEnabled = true
+        })
+      }
 
-    // Location: both lat and lon must be present
-    const lat = params.get('lat')
-    const lon = params.get('lon')
-    if (lat != null && lon != null) {
-      locationStore.selectLocation(Number(lat), Number(lon))
+      // Location: both lat and lon must be present
+      const lat = params.get('lat')
+      const lon = params.get('lon')
+      if (lat != null && lon != null) {
+        locationStore.selectLocation(Number(lat), Number(lon))
+      }
+    } finally {
+      nextTick(() => { isReadingHash = false })
     }
   }
 
@@ -87,6 +95,7 @@ export function useUrlState() {
   }
 
   function debouncedWrite() {
+    if (isReadingHash) return
     if (writeTimer) clearTimeout(writeTimer)
     writeTimer = setTimeout(writeHash, 300)
   }
@@ -110,6 +119,13 @@ export function useUrlState() {
         ],
         debouncedWrite,
       )
+
+      // React to external hash changes (e.g. user editing URL bar)
+      window.addEventListener('hashchange', readHash)
     })
+  })
+
+  onUnmounted(() => {
+    window.removeEventListener('hashchange', readHash)
   })
 }

@@ -216,6 +216,10 @@
     "enterCoordinates": "Entrer les coordonnées",
     "latLon": "Lat/Lon"
   },
+  "crescent": {
+    "notVisible": "Aucun croissant visible à cette date",
+    "nextObservation": "Prochaine observation : {date}"
+  },
   "language": {
     "switchTo": "EN"
   }

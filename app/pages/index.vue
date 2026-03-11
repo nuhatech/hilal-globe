@@ -2,6 +2,7 @@
   <div class="relative h-full w-full no-callout">
     <AppHeader />
     <DateSelector />
+    <NoCrescentBanner />
 
     <!-- Bottom controls bar -->
     <div class="absolute safe-bottom left-4 right-4 z-10 flex items-end justify-between pointer-events-none">

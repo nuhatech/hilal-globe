@@ -1,6 +1,6 @@
 import type { FeatureCollection } from 'geojson'
-import { findPreviousNewMoon, findNextNewMoon } from '@domain/astronomy/ConjunctionService'
 import { listCriteria } from '@domain/criteria/CriteriaRegistry'
+import { findRelevantObservationDate } from '@domain/hijri/LunarMonthService'
 import { DEFAULT_RESOLUTION } from '@domain/visibility/VisibilityGridService'
 import type { EZoneMode } from '@domain/visibility/VisibilityGridService'
 
@@ -11,20 +11,8 @@ export interface VisibilityStoreState {
   isComputing: boolean
 }
 
-function defaultDate(): string {
-  const today = new Date()
-  const conj = findPreviousNewMoon(today) ?? findNextNewMoon(today)
-  if (conj) {
-    // Default to conj + 1 day (most interesting evening)
-    const d = new Date(conj.date)
-    d.setUTCDate(d.getUTCDate() + 1)
-    return d.toISOString().slice(0, 10)
-  }
-  return today.toISOString().slice(0, 10)
-}
-
 export const useVisibilityStore = defineStore('visibility', () => {
-  const selectedDate = ref(defaultDate())
+  const selectedDate = ref(findRelevantObservationDate())
   const selectedCriterionId = ref('odeh')
   const eZoneMode = ref<EZoneMode>(0)
   const geoJson = shallowRef<FeatureCollection | null>(null)

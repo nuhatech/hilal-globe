@@ -24,7 +24,7 @@ import { ZONE_LABELS } from '../models/ZoneConfig'
 import { getCriterion } from '../criteria/CriteriaRegistry'
 import { computeYallopQBase } from '../criteria/yallopBase'
 
-import { findPreviousNewMoon } from './ConjunctionService'
+import { findNearestNewMoon } from './ConjunctionService'
 import { computeCrescentParams } from './CrescentParamsService'
 import { getLunarPosition } from './LunarPositionService'
 import { findMoonset } from './MoonsetService'
@@ -213,7 +213,7 @@ export function computeLocationReport(
   // Find conjunction (new moon) before the selected date.
   // Use end-of-day to catch conjunctions occurring any time during the selected date.
   const endOfDay = new Date(`${dateStr}T23:59:59Z`)
-  const conjunction = findPreviousNewMoon(endOfDay)
+  const conjunction = findNearestNewMoon(endOfDay)
   if (!conjunction) return null
 
   const conjunctionUtc = astroTimeToUtcStr(conjunction)

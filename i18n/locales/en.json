@@ -216,6 +216,10 @@
     "enterCoordinates": "Enter coordinates",
     "latLon": "Lat/Lon"
   },
+  "crescent": {
+    "notVisible": "No crescent visible on this date",
+    "nextObservation": "Next observation: {date}"
+  },
   "language": {
     "switchTo": "FR"
   }

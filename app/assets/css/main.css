@@ -28,6 +28,12 @@ body {
   top: calc(3.25rem + env(safe-area-inset-top));
 }
 
+/* Safe area: push element below header + date selector */
+.safe-top-24 {
+  top: calc(6.25rem + constant(safe-area-inset-top)); /* iOS < 11.2 */
+  top: calc(6.25rem + env(safe-area-inset-top));
+}
+
 /* Safe area: add padding-bottom for scrollable containers */
 .pb-safe {
   padding-bottom: constant(safe-area-inset-bottom); /* iOS < 11.2 */

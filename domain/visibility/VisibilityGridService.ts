@@ -1,5 +1,5 @@
 import { computeCrescentParams } from '../astronomy/CrescentParamsService'
-import { findPreviousNewMoon } from '../astronomy/ConjunctionService'
+import { findNearestNewMoon } from '../astronomy/ConjunctionService'
 import { findSunset } from '../astronomy/SunsetService'
 import { getCriterion } from '../criteria/CriteriaRegistry'
 import type { ElevationGrid } from '../elevation/ElevationGrid'
@@ -59,7 +59,7 @@ export function computeVisibilityGrid(
 
   // Compute the conjunction ONCE — it's a global event, same for all grid points.
   // Use end-of-day to catch conjunctions occurring any time during the selected date.
-  const conjunction = findPreviousNewMoon(new Date(`${dateStr}T23:59:59Z`))
+  const conjunction = findNearestNewMoon(new Date(`${dateStr}T23:59:59Z`))
   const conjUt = conjunction?.ut ?? -Infinity
 
   // Mode 1+ uses refraction for the horizon reject in computeCrescentParams
